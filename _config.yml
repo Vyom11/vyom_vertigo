@@ -1,0 +1,22 @@
+title: Vyom Vertigo
+tagline: A celebration of movies and stories
+description: A minimalist, cinematic space dedicated to the art of film, screenwriting, and cinematic storytelling.
+url: ""
+author: Vyom Pandya
+
+# Social Links & Contact
+instagram_url: "https://www.instagram.com/vyom_vertigo?igsh=aHBlZGl4ZjQzeXF6&utm_source=qr"
+letterboxd_url: "https://boxd.it/3LL6R"
+email: "vyomvertigo@gmail.com"
+
+# Build Settings
+permalink: /posts/:title/
+markdown: kramdown
+highlighter: rouge
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .github
+  - README.md
