@@ -4,6 +4,7 @@ title: "Introducing Vyom Vertigo"
 subtitle: "A celebration of movies and stories."
 date: 2026-06-19 20:00:00 +0530
 category: Cinema
+pinned: true
 ---
 
 My name is Vyom. And I really like movies.

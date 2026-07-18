@@ -182,10 +182,9 @@
     </a>
     
     <nav class="flex items-center gap-6 font-mono text-xs tracking-widest uppercase">
-      <a href="{{ '/' | relative_url }}" class="text-brandWhite hover:text-brandMuted transition-colors duration-300">Journal</a>
-      <a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer" class="text-brandMuted hover:text-brandWhite transition-colors duration-300">Instagram</a>
-      <a href="{{ site.letterboxd_url }}" target="_blank" rel="noopener noreferrer" class="text-brandMuted hover:text-brandWhite transition-colors duration-300">Letterboxd</a>
-      <a href="https://www.youtube.com/@VyomVertigo" target="_blank" rel="noopener noreferrer" class="text-brandMuted hover:text-brandWhite transition-colors duration-300">YouTube</a>
+      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' or page.url == '/index.html' %}text-brandWhite{% else %}text-brandMuted{% endif %} hover:text-brandWhite transition-colors duration-300">Journal</a>
+      <a href="{{ '/portfolio/' | relative_url }}" class="{% if page.url == '/portfolio/' %}text-brandWhite{% else %}text-brandMuted{% endif %} hover:text-brandWhite transition-colors duration-300">Portfolio</a>
+      <a href="{{ '/about/' | relative_url }}" class="{% if page.url == '/about/' %}text-brandWhite{% else %}text-brandMuted{% endif %} hover:text-brandWhite transition-colors duration-300">About & Contact</a>
     </nav>
   </header>
 
