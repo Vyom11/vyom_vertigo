@@ -72,7 +72,7 @@ description: "Professional bio, writing services, and contact information for Vy
           Work With Me
         </h2>
         <p class="font-sans text-sm text-brandMuted max-w-md font-light leading-relaxed mb-4">
-          Looking for an analytical writer who can bridge tech infrastructure and narrative design? Let's connect.
+          Looking for a charming writer who can bridge tech and cultural design? Let's connect.
         </p>
         
         <!-- Social/Contact Links -->
