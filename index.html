@@ -3,7 +3,7 @@ layout: default
 ---
 
 <!-- Homepage Stark Header -->
-<header class="py-12 md:py-20 border-b border-brandBorder">
+<header class="py-8 md:py-12 border-b border-brandBorder">
   <h1 class="font-serif text-6xl md:text-8xl text-brandWhite font-normal tracking-tighter leading-none mb-6">
     {{ site.title }}
   </h1>
@@ -19,7 +19,7 @@ layout: default
     {% for post in site.posts %}
       {% if post.pinned == true %}
         <article class="group">
-          <a href="{{ post.url | relative_url }}" class="block py-10 md:py-14 transition-all duration-300 hover:pl-2">
+          <a href="{{ post.url | relative_url }}" class="block py-8 md:py-10 transition-all duration-300 hover:pl-2">
             
             <!-- Post Meta Details -->
             <div class="flex items-center gap-4 font-mono text-[10px] md:text-xs tracking-widest text-brandMuted uppercase mb-3">
@@ -65,7 +65,7 @@ layout: default
     {% for post in site.posts %}
       {% if post.pinned != true %}
         <article class="group">
-          <a href="{{ post.url | relative_url }}" class="block py-10 md:py-14 transition-all duration-300 hover:pl-2">
+          <a href="{{ post.url | relative_url }}" class="block py-8 md:py-10 transition-all duration-300 hover:pl-2">
             
             <!-- Post Meta Details -->
             <div class="flex items-center gap-4 font-mono text-[10px] md:text-xs tracking-widest text-brandMuted uppercase mb-3">

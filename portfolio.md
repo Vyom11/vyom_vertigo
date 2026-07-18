@@ -6,7 +6,7 @@ description: "A curated collection of writing clips at the intersection of engin
 ---
 
 <!-- Portfolio Header -->
-<header class="py-12 border-b border-brandBorder mb-12">
+<header class="py-8 border-b border-brandBorder mb-8">
   <h1 class="font-serif text-5xl md:text-7xl text-brandWhite font-normal tracking-tight leading-none mb-4">
     Portfolio
   </h1>

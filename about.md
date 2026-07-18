@@ -6,7 +6,7 @@ description: "Professional bio, writing services, and contact information for Vy
 ---
 
 <!-- About Header -->
-<header class="py-12 border-b border-brandBorder mb-12">
+<header class="py-8 border-b border-brandBorder mb-8">
   <h1 class="font-serif text-5xl md:text-7xl text-brandWhite font-normal tracking-tight leading-none mb-4">
     About & Contact
   </h1>
