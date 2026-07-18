@@ -5,8 +5,11 @@ layout: default
 <article class="w-full max-w-3xl mx-auto">
   <!-- Back to index -->
   <div class="mb-12">
-    <a href="{{ '/' | relative_url }}" class="inline-flex items-center gap-2 group text-brandMuted hover:text-brandWhite transition-colors duration-300 font-mono text-xs tracking-widest uppercase">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <a href="{{ '/' | relative_url }}"
+      class="inline-flex items-center gap-2 group text-brandMuted hover:text-brandWhite transition-colors duration-300 font-mono text-xs tracking-widest uppercase">
+      <svg xmlns="http://www.w3.org/2000/svg"
+        class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none"
+        viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
       </svg>
       Back to Journal
@@ -15,31 +18,28 @@ layout: default
 
   <!-- Post Header -->
   <header class="mb-12 md:mb-16">
-    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs tracking-widest text-brandMuted uppercase">
+    <div
+      class="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs tracking-widest text-brandMuted uppercase">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
       <span class="w-1.5 h-1.5 bg-brandBorder rounded-full"></span>
       <span>
         {% assign words = content | number_of_words %}
-        {% if words < 360 %}
-          1 min read
-        {% else %}
-          {{ words | divided_by: 180 | plus: 1 }} min read
-        {% endif %}
-      </span>
-      {% if page.category %}
-        <span class="w-1.5 h-1.5 bg-brandBorder rounded-full"></span>
-        <span class="text-brandWhite">{{ page.category }}</span>
-      {% endif %}
+        {% if words < 360 %} 1 min read {% else %} {{ words | divided_by: 180 | plus: 1 }} min read {% endif %} </span>
+          {% if page.category %}
+          <span class="w-1.5 h-1.5 bg-brandBorder rounded-full"></span>
+          <span class="text-brandWhite">{{ page.category }}</span>
+          {% endif %}
     </div>
-    
-    <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl text-brandWhite font-normal leading-tight md:leading-none mt-4 tracking-tight">
+
+    <h1
+      class="font-serif text-4xl md:text-6xl lg:text-7xl text-brandWhite font-normal leading-tight md:leading-none mt-4 tracking-tight">
       {{ page.title }}
     </h1>
-    
+
     {% if page.subtitle %}
-      <p class="font-serif italic text-xl md:text-2xl text-brandMuted mt-4 leading-relaxed font-light">
-        {{ page.subtitle }}
-      </p>
+    <p class="font-serif italic text-xl md:text-2xl text-brandMuted mt-4 leading-relaxed font-light">
+      {{ page.subtitle }}
+    </p>
     {% endif %}
   </header>
 
@@ -49,8 +49,10 @@ layout: default
   </div>
 
   <!-- Post Footer Navigation -->
-  <footer class="mt-20 pt-8 border-t border-brandBorder flex justify-between items-center text-xs font-mono uppercase tracking-wider text-brandMuted">
-    <a href="{{ '/' | relative_url }}" class="hover:text-brandWhite transition-colors duration-300 inline-flex items-center gap-2">
+  <footer
+    class="mt-20 pt-8 border-t border-brandBorder flex justify-between items-center text-xs font-mono uppercase tracking-wider text-brandMuted">
+    <a href="{{ '/' | relative_url }}"
+      class="hover:text-brandWhite transition-colors duration-300 inline-flex items-center gap-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
       </svg>
