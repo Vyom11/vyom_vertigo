@@ -7,7 +7,7 @@ description: "A curated collection of writing clips at the intersection of engin
 
 <!-- Portfolio Header -->
 <header class="py-8 border-b border-brandBorder mb-8">
-  <h1 class="font-serif text-5xl md:text-7xl text-brandWhite font-normal tracking-tight leading-none mb-4">
+  <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl text-brandWhite font-normal tracking-tight leading-none mb-4">
     Portfolio
   </h1>
   <p class="font-sans text-sm md:text-base text-brandMuted font-light max-w-xl leading-relaxed">

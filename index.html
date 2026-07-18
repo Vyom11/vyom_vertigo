@@ -4,7 +4,7 @@ layout: default
 
 <!-- Homepage Stark Header -->
 <header class="py-8 md:py-12 border-b border-brandBorder">
-  <h1 class="font-serif text-6xl md:text-8xl text-brandWhite font-normal tracking-tighter leading-none mb-6">
+  <h1 class="font-serif text-5xl sm:text-6xl md:text-8xl text-brandWhite font-normal tracking-tighter leading-none mb-6">
     {{ site.title }}
   </h1>
   <p class="font-serif italic text-xl md:text-3xl text-brandMuted font-light max-w-xl leading-relaxed">
@@ -22,7 +22,7 @@ layout: default
           <a href="{{ post.url | relative_url }}" class="block py-8 md:py-10 transition-all duration-300 hover:pl-2">
             
             <!-- Post Meta Details -->
-            <div class="flex items-center gap-4 font-mono text-[10px] md:text-xs tracking-widest text-brandMuted uppercase mb-3">
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 font-mono text-[10px] md:text-xs tracking-widest text-brandMuted uppercase mb-3">
               <span class="flex items-center gap-1.5 text-brandWhite bg-brandBorder px-2.5 py-1 rounded-full text-[9px] font-semibold tracking-widest border border-white/10 uppercase">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-2.5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6l1.8 1.8 1.8-1.8v-6H18v-2l-2-2z"/>
@@ -68,7 +68,7 @@ layout: default
           <a href="{{ post.url | relative_url }}" class="block py-8 md:py-10 transition-all duration-300 hover:pl-2">
             
             <!-- Post Meta Details -->
-            <div class="flex items-center gap-4 font-mono text-[10px] md:text-xs tracking-widest text-brandMuted uppercase mb-3">
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 font-mono text-[10px] md:text-xs tracking-widest text-brandMuted uppercase mb-3">
               <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
               {% if post.category %}
                 <span class="w-1 h-1 bg-brandBorder rounded-full"></span>

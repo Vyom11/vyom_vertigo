@@ -7,7 +7,7 @@ description: "Professional bio, writing services, and contact information for Vy
 
 <!-- About Header -->
 <header class="py-8 border-b border-brandBorder mb-8">
-  <h1 class="font-serif text-5xl md:text-7xl text-brandWhite font-normal tracking-tight leading-none mb-4">
+  <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl text-brandWhite font-normal tracking-tight leading-none mb-4">
     About & Contact
   </h1>
   <p class="font-sans text-sm md:text-base text-brandMuted font-light max-w-xl leading-relaxed">
@@ -66,7 +66,7 @@ description: "Professional bio, writing services, and contact information for Vy
 
   <!-- Contact/Work with me Section -->
   <section class="pt-8 border-t border-brandBorder">
-    <div class="bg-brandPureDark border border-brandBorder rounded-lg p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+    <div class="bg-brandPureDark border border-brandBorder rounded-lg p-6 sm:p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
       <div>
         <h2 class="font-serif text-2xl md:text-3xl text-brandWhite mb-3 font-normal">
           Work With Me

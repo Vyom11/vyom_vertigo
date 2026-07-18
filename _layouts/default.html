@@ -208,22 +208,16 @@
   class="bg-brandDark text-brandAccent antialiased selection:bg-brandWhite selection:text-brandDark flex flex-col min-h-screen">
 
   <!-- Header -->
-  <header class="w-full max-w-5xl mx-auto px-6 pt-10 md:pt-16 pb-6 flex justify-between items-center z-10">
+  <header class="w-full max-w-5xl mx-auto px-6 pt-8 md:pt-16 pb-6 flex flex-col sm:flex-row justify-between items-center gap-4 z-10">
     <a href="{{ '/' | relative_url }}" class="group flex items-center gap-3">
-      <img src="{{ '/assets/83592848.jpeg' | relative_url }}" alt="Vertigo Logo"
-        class="w-8 h-8 rounded-full object-cover transition-transform duration-300 group-hover:scale-110">
-      <span
-        class="font-mono text-sm tracking-widest text-brandWhite uppercase group-hover:text-brandMuted transition-colors duration-300">Vertigo</span>
+      <img src="{{ '/assets/83592848.jpeg' | relative_url }}" alt="Vertigo Logo" class="w-8 h-8 rounded-full object-cover transition-transform duration-300 group-hover:scale-110">
+      <span class="font-mono text-sm tracking-widest text-brandWhite uppercase group-hover:text-brandMuted transition-colors duration-300">Vertigo</span>
     </a>
-
-    <nav class="flex items-center gap-6 font-mono text-xs tracking-widest uppercase">
-      <a href="{{ '/' | relative_url }}"
-        class="{% if page.url == '/' or page.url == '/index.html' %}text-brandWhite{% else %}text-brandMuted{% endif %} hover:text-brandWhite transition-colors duration-300">Journal</a>
-      <a href="{{ '/portfolio/' | relative_url }}"
-        class="{% if page.url == '/portfolio/' %}text-brandWhite{% else %}text-brandMuted{% endif %} hover:text-brandWhite transition-colors duration-300">Portfolio</a>
-      <a href="{{ '/about/' | relative_url }}"
-        class="{% if page.url == '/about/' %}text-brandWhite{% else %}text-brandMuted{% endif %} hover:text-brandWhite transition-colors duration-300">About
-        & Contact</a>
+    
+    <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-xs tracking-widest uppercase">
+      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' or page.url == '/index.html' %}text-brandWhite{% else %}text-brandMuted{% endif %} hover:text-brandWhite transition-colors duration-300">Journal</a>
+      <a href="{{ '/portfolio/' | relative_url }}" class="{% if page.url == '/portfolio/' %}text-brandWhite{% else %}text-brandMuted{% endif %} hover:text-brandWhite transition-colors duration-300">Portfolio</a>
+      <a href="{{ '/about/' | relative_url }}" class="{% if page.url == '/about/' %}text-brandWhite{% else %}text-brandMuted{% endif %} hover:text-brandWhite transition-colors duration-300">About & Contact</a>
     </nav>
   </header>
 
@@ -233,18 +227,14 @@
   </main>
 
   <!-- Footer -->
-  <footer
-    class="w-full max-w-5xl mx-auto px-6 py-10 md:py-16 border-t border-brandBorder flex flex-col md:flex-row md:justify-between items-start md:items-center gap-6 text-brandMuted font-mono text-xs">
+  <footer class="w-full max-w-5xl mx-auto px-6 py-10 md:py-16 border-t border-brandBorder flex flex-col md:flex-row md:justify-between items-start md:items-center gap-6 text-brandMuted font-mono text-xs">
     <div>
       <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All stories captured.</p>
     </div>
-    <div class="flex gap-6">
-      <a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer"
-        class="hover:text-brandWhite transition-colors duration-300">Instagram</a>
-      <a href="{{ site.letterboxd_url }}" target="_blank" rel="noopener noreferrer"
-        class="hover:text-brandWhite transition-colors duration-300">Letterboxd</a>
-      <a href="https://www.youtube.com/@VyomVertigo" target="_blank" rel="noopener noreferrer"
-        class="hover:text-brandWhite transition-colors duration-300">YouTube</a>
+    <div class="flex flex-wrap gap-x-6 gap-y-2">
+      <a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-brandWhite transition-colors duration-300">Instagram</a>
+      <a href="{{ site.letterboxd_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-brandWhite transition-colors duration-300">Letterboxd</a>
+      <a href="https://www.youtube.com/@VyomVertigo" target="_blank" rel="noopener noreferrer" class="hover:text-brandWhite transition-colors duration-300">YouTube</a>
       <a href="mailto:{{ site.email }}" class="hover:text-brandWhite transition-colors duration-300">Contact</a>
     </div>
   </footer>
