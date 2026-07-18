@@ -19,13 +19,13 @@ description: "Professional bio, writing services, and contact information for Vy
   <!-- Bio Section -->
   <section class="prose-cinematic text-brandAccent">
     <p class="text-lg leading-relaxed text-brandWhite font-light">
-      Hi, I'm <strong>Vyom Pandya</strong>. I am a writer, software engineer, and media critic who works at the intersection of technical logic and narrative storytelling.
+      Hi, I'm <strong>Vyom Pandya</strong>. I am a writer, media critic, sleight-of-hand magician, and a proud jack of all trades. I don't write code—six months into an AI/ML internship, I decided it was best to let artificial intelligence take over natural stupidity when it comes to programming, freeing me up to do what I actually do best: pretend to know about everything.
     </p>
     <p class="font-light">
-      With an engineering background and a deep passion for writing, I bring a unique perspective to my essays. I understand how complex technologies (like Machine Learning models and systems architecture) are constructed, but I also understand the architectural mechanics of a story—whether it's in a screenplay, a cultural essay, or a technical breakdown.
+      And honestly? I can reasonably pull it off. I am the kind of writer who can talk about absolutely anything under the sun—and well beyond it, if NASA ever calls me up for some chaotic, Interstellar-style hail mary mission. My brain is a loud, highly opinionated archives room containing everything from the physics of nuclear energy to the inner workings of LLMs, all fighting for space with my artistic takes.
     </p>
     <p class="font-light">
-      Through my platform <em>Vyom Vertigo</em>, I dissect cinematic construction, tech culture, and digital landscapes. My goal is to write analytical, engaging pieces that bridge these domains, helping audiences appreciate the software behind our screens and the stories behind our culture.
+      Through my platform <em>Vyom Vertigo</em>, I dissect culture and cinema with high sass and zero filter. I hold the architectural masterpiece of <em>The Godfather</em> in the exact same regard as the cinematic masterclass of high-camp that is <em>Main Tera Hero</em>. I've tried writing my own screenplays and novels—failing spectacularly at both—but it turns out that analyzing the world's stories (and mocking its self-help books) is where I actually master the trade.
     </p>
   </section>
 
