@@ -14,3 +14,12 @@ vendor/cache/
 .DS_Store?
 ehthumbs.db
 Thumbs.db
+
+# Secrets & Environment variables
+.env
+.env*.local
+*.pem
+*.key
+*.token
+credentials.json
+
