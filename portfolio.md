@@ -6,120 +6,156 @@ description: "A curated collection of writing clips at the intersection of engin
 ---
 
 <!-- Portfolio Header -->
-<header class="py-8 border-b border-brandBorder mb-8">
-  <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl text-brandWhite font-normal tracking-tight leading-none mb-4">
-    Portfolio
+<header class="py-10 border-b border-brandBorder mb-10 text-center flex flex-col items-center">
+  <span class="font-retroSans text-[10px] tracking-[0.25em] text-brandRed uppercase mb-3">CURATED PORTFOLIO</span>
+  <h1 class="font-display text-4xl sm:text-5xl md:text-7xl text-brandWhite font-normal tracking-tight leading-none mb-4">
+    Selected Works
   </h1>
-  <p class="font-sans text-sm md:text-base text-brandMuted font-light max-w-xl leading-relaxed">
+  <p class="font-serif italic text-lg sm:text-xl text-brandMuted max-w-xl leading-relaxed">
     A curated collection of essays, cultural critiques, and analytical articles exploring the patterns in stories and systems.
   </p>
+  <div class="text-brandYellow text-xs select-none mt-2">✦</div>
 </header>
 
 <div class="space-y-16">
   <!-- Category 1: Arts, Cinema & Cultural Critique -->
   <section>
-    <h2 class="font-mono text-xs tracking-widest text-brandMuted uppercase mb-8 flex items-center gap-3">
-      <span class="w-1.5 h-1.5 bg-brandWhite rounded-full"></span>
-      Arts, Cinema & Cultural Critique
-    </h2>
     
-    <div class="grid md:grid-cols-2 gap-6">
-      <!-- Clip 1: The Art of Cinematic Silence -->
+    <!-- Category Header Border -->
+    <div class="w-full border-t border-b border-brandBorder/60 py-2.5 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase">
+      <span>Section 01</span>
+      <span>Arts, Cinema & Cultural Critique</span>
+      <span class="text-brandRed">❦</span>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Clip 1: The Art of Cinematic Silence (QUIET STYLE) -->
       {% assign silence_post = site.posts | where: "title", "The Art of Cinematic Silence" | first %}
-      <div class="group border border-brandBorder bg-brandPureDark hover:border-brandWhite/20 transition-all duration-300 p-6 md:p-8 rounded-lg flex flex-col justify-between h-full">
+      <div class="bg-transparent border border-brandBorder/50 hover:border-brandMuted p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative">
         <div>
-          <div class="font-mono text-[10px] tracking-widest text-brandMuted uppercase mb-4">
-            Source: Vyom Vertigo
+          <!-- Header Details -->
+          <div class="flex items-center gap-2 font-mono text-[9px] tracking-widest text-brandMuted uppercase mb-3 border-b border-brandBorder/20 pb-2">
+            <span>SOURCE: VYOM VERTIGO</span>
+            <span>•</span>
+            <span>{{ silence_post.date | date: "%B %d, %Y" }}</span>
           </div>
-          <h3 class="font-serif text-xl md:text-2xl text-brandWhite group-hover:text-brandMuted transition-colors duration-300 mb-3 leading-snug">
-            The Art of Cinematic Silence
+          
+          <h3 class="font-serif text-2xl font-light text-brandWhite group-hover:text-brandMuted transition-colors duration-300 tracking-tight leading-snug">
+            <a href="{{ silence_post.url | relative_url }}">{{ silence_post.title }}</a>
           </h3>
-          <p class="font-sans text-xs md:text-sm text-brandMuted leading-relaxed mb-6 font-light">
+          
+          <p class="font-serif italic text-xs text-brandMuted mt-3">
             An exploration of how modern filmmakers use negative space and silent room tones to construct tension and emotional resonance.
           </p>
         </div>
-        <a href="{{ silence_post.url | relative_url }}" class="inline-flex items-center gap-1 font-mono text-[10px] tracking-widest text-brandWhite group-hover:text-brandMuted transition-all duration-300 uppercase">
-          <span>Read Article</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
+        
+        <div class="mt-8 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
+          <span>QUIET ESSAY</span>
+          <a href="{{ silence_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandMuted transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+            <span>READ STORY</span>
+            <span class="text-brandRed">→</span>
+          </a>
+        </div>
       </div>
 
-      <!-- Clip 2: Indian Content: The Disconnect -->
+      <!-- Clip 2: Indian Content: The Disconnect (SPREAD STYLE) -->
       {% assign disconnect_post = site.posts | where: "title", "Indian Content: The Disconnect" | first %}
-      <div class="group border border-brandBorder bg-brandPureDark hover:border-brandWhite/20 transition-all duration-300 p-6 md:p-8 rounded-lg flex flex-col justify-between h-full">
+      <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm">
         <div>
-          <div class="font-mono text-[10px] tracking-widest text-brandMuted uppercase mb-4">
-            Source: Vyom Vertigo
+          <!-- Red Badge Category -->
+          <div class="flex justify-between items-center mb-4">
+            <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5">
+              SOURCE: VYOM VERTIGO
+            </span>
+            <span class="font-mono text-[9px] text-brandMuted">Vol. I, No. II</span>
           </div>
-          <h3 class="font-serif text-xl md:text-2xl text-brandWhite group-hover:text-brandMuted transition-colors duration-300 mb-3 leading-snug">
-            Indian Content: The Disconnect
+          
+          <h3 class="font-display text-2xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
+            <a href="{{ disconnect_post.url | relative_url }}">{{ disconnect_post.title }}</a>
           </h3>
-          <p class="font-sans text-xs md:text-sm text-brandMuted leading-relaxed mb-6 font-light">
+          
+          <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light">
             A critical look at the stagnation of Indian television and OTT spaces, highlighting their formulaic tropes and lack of creative risks.
           </p>
         </div>
-        <a href="{{ disconnect_post.url | relative_url }}" class="inline-flex items-center gap-1 font-mono text-[10px] tracking-widest text-brandWhite group-hover:text-brandMuted transition-all duration-300 uppercase">
-          <span>Read Article</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
+        
+        <div class="mt-8 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
+          <span>{{ disconnect_post.date | date: "%B %d, %Y" }}</span>
+          <a href="{{ disconnect_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+            <span>READ SPREAD</span>
+            <span class="text-brandRed">→</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Category 2: Technology, Tech Culture & Essays -->
   <section>
-    <h2 class="font-mono text-xs tracking-widest text-brandMuted uppercase mb-8 flex items-center gap-3">
-      <span class="w-1.5 h-1.5 bg-brandWhite rounded-full"></span>
-      Technology, Tech Culture & Essays
-    </h2>
     
-    <div class="grid md:grid-cols-2 gap-6">
-      <!-- Clip 3: Do Engineering -->
+    <!-- Category Header Border -->
+    <div class="w-full border-t border-b border-brandBorder/60 py-2.5 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase">
+      <span>Section 02</span>
+      <span>Technology, Tech Culture & Essays</span>
+      <span class="text-brandRed">❦</span>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Clip 3: Do Engineering (PAPERBACK STYLE) -->
       {% assign engineering_post = site.posts | where: "title", "Do Engineering" | first %}
-      <div class="group border border-brandBorder bg-brandPureDark hover:border-brandWhite/20 transition-all duration-300 p-6 md:p-8 rounded-lg flex flex-col justify-between h-full">
+      <div class="bg-paperCreamDark text-charcoal border border-charcoal/15 hover:border-brandRed/50 p-6 rounded-sm flex flex-col justify-between h-full group transition-all duration-300 shadow-sm relative">
         <div>
-          <div class="font-mono text-[10px] tracking-widest text-brandMuted uppercase mb-4">
-            Source: Vyom Vertigo
+          <!-- Paperback Series Details -->
+          <div class="text-center font-sans tracking-[0.2em] text-[9px] text-brandMuted uppercase border-b border-charcoal/10 pb-3 mb-3">
+            VERTIGO LIBRARY • NO. {{ engineering_post.date | date: "%y%d" }}
           </div>
-          <h3 class="font-serif text-xl md:text-2xl text-brandWhite group-hover:text-brandMuted transition-colors duration-300 mb-3 leading-snug">
-            Do Engineering
+          
+          <h3 class="font-display text-2xl text-charcoal group-hover:text-brandRed text-center transition-colors duration-300 mt-2 font-normal leading-snug">
+            <a href="{{ engineering_post.url | relative_url }}">{{ engineering_post.title }}</a>
           </h3>
-          <p class="font-sans text-xs md:text-sm text-brandMuted leading-relaxed mb-6 font-light">
+          
+          <!-- Graphic Book Divider -->
+          <div class="text-center my-3 text-brandRed font-serif select-none">❦</div>
+          
+          <p class="font-serif italic text-xs text-charcoal/70 text-center leading-relaxed max-w-xs mx-auto">
             A reflective personal essay on why studying engineering provides invaluable mental scaffolding and multidisciplinary perspectives.
           </p>
         </div>
-        <a href="{{ engineering_post.url | relative_url }}" class="inline-flex items-center gap-1 font-mono text-[10px] tracking-widest text-brandWhite group-hover:text-brandMuted transition-all duration-300 uppercase">
-          <span>Read Article</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
+        
+        <div class="mt-8 pt-4 border-t border-charcoal/10 flex items-center justify-between text-[8px] font-sans tracking-[0.2em] uppercase font-semibold text-brandMuted">
+          <span>PRICE: Rs. 1.50</span>
+          <a href="{{ engineering_post.url | relative_url }}" class="text-charcoal hover:text-brandRed transition-colors duration-300">OPEN COVER</a>
+        </div>
       </div>
 
-      <!-- Clip 4: AI and its place in our world -->
-      {% assign ai_post = site.posts | where: "title", "AI and it's place in our world" | first %}
-      <div class="group border border-brandBorder bg-brandPureDark hover:border-brandWhite/20 transition-all duration-300 p-6 md:p-8 rounded-lg flex flex-col justify-between h-full">
+      <!-- Clip 4: AI and its place in our world (SPREAD STYLE) -->
+      {% assign ai_post = site.posts | where: "title", "AI and its place in our world" | first %}
+      <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm">
         <div>
-          <div class="font-mono text-[10px] tracking-widest text-brandMuted uppercase mb-4">
-            Source: Vyom Vertigo
+          <!-- Red Badge Category -->
+          <div class="flex justify-between items-center mb-4">
+            <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5">
+              SOURCE: VYOM VERTIGO
+            </span>
+            <span class="font-mono text-[9px] text-brandMuted">Vol. I, No. II</span>
           </div>
-          <h3 class="font-serif text-xl md:text-2xl text-brandWhite group-hover:text-brandMuted transition-colors duration-300 mb-3 leading-snug">
-            AI and its place in our world
+          
+          <h3 class="font-display text-2xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
+            <a href="{{ ai_post.url | relative_url }}">{{ ai_post.title }}</a>
           </h3>
-          <p class="font-sans text-xs md:text-sm text-brandMuted leading-relaxed mb-6 font-light">
+          
+          <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light">
             An analytical deep-dive into the ethics of generative AI art, the importance of artistic labor, and the limits of automated creativity.
           </p>
         </div>
-        <a href="{{ ai_post.url | relative_url }}" class="inline-flex items-center gap-1 font-mono text-[10px] tracking-widest text-brandWhite group-hover:text-brandMuted transition-all duration-300 uppercase">
-          <span>Read Article</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
+        
+        <div class="mt-8 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
+          <span>{{ ai_post.date | date: "%B %d, %Y" }}</span>
+          <a href="{{ ai_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+            <span>READ SPREAD</span>
+            <span class="text-brandRed">→</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>

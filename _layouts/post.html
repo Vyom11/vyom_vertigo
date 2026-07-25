@@ -2,62 +2,191 @@
 layout: default
 ---
 
-<article class="w-full max-w-3xl mx-auto">
-  <!-- Back to index -->
-  <div class="mb-12">
-    <a href="{{ '/' | relative_url }}"
-      class="inline-flex items-center gap-2 group text-brandMuted hover:text-brandWhite transition-colors duration-300 font-mono text-xs tracking-widest uppercase">
-      <svg xmlns="http://www.w3.org/2000/svg"
-        class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none"
-        viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-      </svg>
-      Back to Journal
-    </a>
-  </div>
+{% assign p_style = page.post_style | default: "quiet" %}
 
-  <!-- Post Header -->
-  <header class="mb-12 md:mb-16">
-    <div
-      class="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs tracking-widest text-brandMuted uppercase">
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-      <span class="w-1.5 h-1.5 bg-brandBorder rounded-full"></span>
-      <span>
-        {% assign words = content | number_of_words %}
-        {% if words < 360 %} 1 min read {% else %} {{ words | divided_by: 180 | plus: 1 }} min read {% endif %} </span>
-          {% if page.category %}
-          <span class="w-1.5 h-1.5 bg-brandBorder rounded-full"></span>
-          <span class="text-brandWhite">{{ page.category }}</span>
+<article class="w-full max-w-4xl mx-auto font-sans relative">
+  
+  <!-- Dynamic Styles Wrapper -->
+  <div class="
+    {% if p_style == 'poster' %}
+      theme-poster bg-brandPureDark text-brandWhite border-2 border-brandRed p-6 md:p-12 rounded-lg relative shadow-2xl vintage-halftone
+    {% elsif p_style == 'paperback' %}
+      theme-paperback bg-paperCream text-charcoal p-6 md:p-16 rounded-sm border border-charcoal/20 relative shadow-lg font-serif
+    {% elsif p_style == 'spread' %}
+      theme-spread bg-black text-brandWhite p-6 md:p-10 border-t-8 border-brandRed relative
+    {% else %}
+      theme-quiet bg-transparent text-brandAccent py-4 relative
+    {% endif %}
+  ">
+
+    <!-- Back Button -->
+    <div class="mb-10 z-20 relative">
+      <a href="{{ '/' | relative_url }}"
+        class="inline-flex items-center gap-2 group font-retroSans text-xs tracking-widest uppercase transition-colors duration-300
+          {% if p_style == 'paperback' %}
+            text-brandMuted hover:text-brandRed
+          {% else %}
+            text-brandMuted hover:text-brandWhite
           {% endif %}
+        ">
+        <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Journal
+      </a>
     </div>
 
-    <h1
-      class="font-serif text-4xl md:text-6xl lg:text-7xl text-brandWhite font-normal leading-tight md:leading-none mt-4 tracking-tight">
-      {{ page.title }}
-    </h1>
+    <!-- POST HEADER -->
+    <header class="mb-10 md:mb-14 relative z-10">
+      
+      <!-- 1. POSTER STYLE HEADER -->
+      {% if p_style == 'poster' %}
+        <div class="text-center flex flex-col items-center">
+          {% if page.category %}
+            <span class="bg-brandRed text-brandWhite px-3 py-1 font-retroSans text-[10px] tracking-[0.2em] uppercase rounded-sm border border-brandYellow/40 mb-6 shadow">
+              {{ page.category }}
+            </span>
+          {% endif %}
+          
+          <h1 class="font-poster text-4xl md:text-6xl text-brandYellow font-normal leading-tight tracking-tight uppercase text-shadow-sm select-none">
+            {{ page.title }}
+          </h1>
 
-    {% if page.subtitle %}
-    <p class="font-serif italic text-xl md:text-2xl text-brandMuted mt-4 leading-relaxed font-light">
-      {{ page.subtitle }}
-    </p>
-    {% endif %}
-  </header>
+          {% if page.subtitle %}
+            <p class="font-serif italic text-lg md:text-xl text-brandAccent mt-4 max-w-2xl leading-relaxed">
+              “{{ page.subtitle }}”
+            </p>
+          {% endif %}
 
-  <!-- Post Content -->
-  <div class="prose-cinematic">
-    {{ content }}
+          <!-- Film Poster Style Billing Block -->
+          <div class="w-full mt-8 pt-6 border-t-2 border-dashed border-brandBorder flex flex-wrap justify-center items-center gap-x-4 gap-y-2 font-mono text-[9px] tracking-[0.2em] text-brandMuted uppercase">
+            <span>A VYOM VERTIGO PRESENTATION</span>
+            <span class="text-brandRed">•</span>
+            <span>WRITTEN BY {{ site.author }}</span>
+            <span class="text-brandRed">•</span>
+            <span>RELEASED {{ page.date | date: "%B %d, %Y" }}</span>
+          </div>
+        </div>
+
+      <!-- 2. PAPERBACK STYLE HEADER -->
+      {% elsif p_style == 'paperback' %}
+        <div class="text-center border-b border-charcoal/10 pb-8 flex flex-col items-center">
+          <span class="font-sans font-semibold tracking-[0.2em] text-[9px] text-brandMuted uppercase mb-4">
+            VERTIGO LIBRARY • VOL. {{ page.date | date: "%y" }} • NO. {{ page.date | date: "%m%d" }}
+          </span>
+          
+          <h1 class="font-display text-3xl md:text-5xl text-charcoal font-normal leading-tight tracking-tight max-w-2xl">
+            {{ page.title }}
+          </h1>
+          
+          <!-- Classic Paperback Divider -->
+          <div class="my-5 text-brandRed text-base select-none">❧ ❦ ☙</div>
+          
+          <span class="font-sans text-[11px] tracking-[0.25em] text-charcoal/80 uppercase font-semibold">
+            BY {{ site.author | upcase }}
+          </span>
+
+          {% if page.subtitle %}
+            <p class="font-serif italic text-base md:text-lg text-charcoal/70 mt-4 max-w-xl leading-relaxed">
+              {{ page.subtitle }}
+            </p>
+          {% endif %}
+        </div>
+
+      <!-- 3. SPREAD STYLE HEADER -->
+      {% elsif p_style == 'spread' %}
+        <div class="flex flex-col items-start">
+          {% if page.category %}
+            <span class="bg-brandRed text-brandWhite px-3 py-1 font-retroSans text-xs tracking-wider uppercase mb-4">
+              {{ page.category }}
+            </span>
+          {% endif %}
+          
+          <h1 class="font-display text-4xl md:text-7xl font-bold text-brandWhite leading-none tracking-tighter uppercase border-b-4 border-brandYellow pb-4 w-full">
+            {{ page.title }}
+          </h1>
+          
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4 font-mono text-[10px] tracking-wider text-brandMuted uppercase">
+            <span>BY {{ site.author }}</span>
+            <span>//</span>
+            <span>PUBLISHED: {{ page.date | date: "%B %d, %Y" }}</span>
+            {% assign words = content | number_of_words %}
+            <span>//</span>
+            <span>{{ words | divided_by: 180 | plus: 1 }} MIN READ</span>
+          </div>
+
+          {% if page.subtitle %}
+            <p class="font-sans font-light text-base md:text-lg text-brandAccent mt-6 max-w-3xl leading-relaxed border-l-2 border-brandRed pl-4">
+              {{ page.subtitle }}
+            </p>
+          {% endif %}
+        </div>
+
+      <!-- 4. QUIET STYLE HEADER -->
+      {% else %}
+        <div class="text-center max-w-3xl mx-auto flex flex-col items-center">
+          <div class="font-mono text-[10px] tracking-widest text-brandMuted uppercase flex items-center gap-2 mb-4">
+            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+            <span>•</span>
+            <span>{{ page.category | default: "JOURNAL" }}</span>
+          </div>
+
+          <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl text-brandWhite font-light leading-tight tracking-tight max-w-2xl">
+            {{ page.title }}
+          </h1>
+
+          {% if page.subtitle %}
+            <p class="font-serif italic text-lg md:text-xl text-brandMuted mt-4 max-w-xl leading-relaxed font-light">
+              {{ page.subtitle }}
+            </p>
+          {% endif %}
+          
+          <div class="w-12 h-[1px] bg-brandBorder mt-8"></div>
+        </div>
+      {% endif %}
+      
+    </header>
+
+    <!-- POST CONTENT -->
+    <div class="prose-cinematic max-w-3xl mx-auto z-10 relative">
+      {{ content }}
+    </div>
+
+    <!-- POST FOOTER -->
+    <footer class="mt-16 md:mt-24 pt-8 border-t relative z-10 flex justify-between items-center text-xs font-mono uppercase tracking-wider
+      {% if p_style == 'paperback' %}
+        border-charcoal/10 text-brandMuted
+      {% else %}
+        border-brandBorder text-brandMuted
+      {% endif %}
+    ">
+      <a href="{{ '/' | relative_url }}"
+        class="inline-flex items-center gap-2 transition-colors duration-300
+          {% if p_style == 'paperback' %}
+            hover:text-charcoal
+          {% else %}
+            hover:text-brandWhite
+          {% endif %}
+        ">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Return to Index
+      </a>
+      
+      <!-- Vintage graphic ornament on the right of the footer -->
+      {% if p_style == 'paperback' %}
+        <span class="select-none text-brandRed font-serif">❦</span>
+      {% elsif p_style == 'poster' %}
+        <span class="select-none text-brandYellow">★</span>
+      {% elsif p_style == 'spread' %}
+        <span class="select-none text-brandRed font-mono">■</span>
+      {% else %}
+        <span class="select-none text-brandBorder">◆</span>
+      {% endif %}
+    </footer>
+
   </div>
-
-  <!-- Post Footer Navigation -->
-  <footer
-    class="mt-20 pt-8 border-t border-brandBorder flex justify-between items-center text-xs font-mono uppercase tracking-wider text-brandMuted">
-    <a href="{{ '/' | relative_url }}"
-      class="hover:text-brandWhite transition-colors duration-300 inline-flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-      </svg>
-      Return to Index
-    </a>
-    <span class="select-none text-brandBorder">■</span>
-  </footer>
 </article>

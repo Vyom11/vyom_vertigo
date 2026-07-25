@@ -1,8 +1,10 @@
 ---
 layout: post
 title: "Do Engineering"
+subtitle: "A personal reflection on why studying engineering provides invaluable mental scaffolding."
 date: 2026-07-12 12:00:00 +0530
 category: thoughts
+post_style: paperback
 ---
 # What Engineering Actually Teaches You
 

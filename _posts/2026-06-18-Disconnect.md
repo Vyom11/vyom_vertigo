@@ -1,8 +1,10 @@
 ---
 layout: post
 title: "Indian Content: The Disconnect"
+subtitle: "A critical breakdown of stagnation in Indian TV and OTT storytelling."
 date: 2026-06-18 12:00:00 +0530
 category: thoughts
+post_style: spread
 ---
 
 So there I was, working in the office when my stomach informed me it was time to feed the monster that lived inside my belly, and I made my way to the cafeteria. Neatly taking everything and putting it in its right place to maintain the equilibrium of the thali being served. 

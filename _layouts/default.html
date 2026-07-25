@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,400i;1,400;1,400i&family=DM+Serif+Display:ital@0;1&family=Rozha+One&family=Federo&family=Inter:wght@300;400;500;600;700&family=Space+Mono&display=swap"
     rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
@@ -38,17 +38,33 @@
       theme: {
         extend: {
           colors: {
-            brandDark: '#000000',
-            brandPureDark: '#050505',
-            brandWhite: '#ffffff',
-            brandMuted: '#8a8a8a',
-            brandAccent: '#e5e5e5',
-            brandBorder: '#1c1c1e'
+            brandDark: '#0E0E0D', // warm charcoal/black
+            brandPureDark: '#080807', // very deep warm black
+            brandWhite: '#FAF6EE', // paper cream
+            brandMuted: '#7D766D', // muted dark cream
+            brandAccent: '#EFE8DE', // slightly darker paper cream
+            brandBorder: '#282622', // warm dark border
+            
+            // Vintage Accents
+            paperCream: '#FAF6EE',
+            paperCreamDark: '#F4EFE6',
+            paperCreamDarker: '#EFEAE0',
+            charcoal: '#1A1917',
+            charcoalDark: '#121211',
+            charcoalLight: '#2A2926',
+            brandRed: '#C93B2B',
+            brandYellow: '#D9A036',
+            brandOrange: '#C05C2E',
+            brandGreen: '#2A4B35',
+            brandAmber: '#D97706',
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
             serif: ['"Instrument Serif"', 'serif'],
             mono: ['"Space Mono"', 'monospace'],
+            display: ['"DM Serif Display"', 'serif'],
+            poster: ['"Rozha One"', 'serif'],
+            retroSans: ['"Federo"', 'sans-serif'],
           }
         }
       }
@@ -59,33 +75,56 @@
   <style>
     /* Premium smooth scrollbar and selections */
     ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+      width: 8px;
+      height: 8px;
     }
 
     ::-webkit-scrollbar-track {
-      background: #000000;
+      background: #121211;
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #2c2c2e;
-      border-radius: 3px;
+      background: #C93B2B;
+      border: 2px solid #121211;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #3a3a3c;
+      background: #D9A036;
     }
 
     ::selection {
-      background-color: #ffffff;
-      color: #000000;
+      background-color: #C93B2B;
+      color: #FAF6EE;
+    }
+
+    /* Vintage Paper Texture Overlay */
+    .vintage-grain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0.045;
+      pointer-events: none;
+      z-index: 9999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Halftone patterns */
+    .vintage-halftone {
+      background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1.5px, transparent 0);
+      background-size: 6px 6px;
+    }
+    .vintage-halftone-light {
+      background-image: radial-gradient(rgba(250, 246, 238, 0.03) 1.5px, transparent 0);
+      background-size: 8px 8px;
     }
 
     /* Fade-in Animation */
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(8px);
+        transform: translateY(12px);
       }
 
       to {
@@ -95,103 +134,104 @@
     }
 
     .animate-fade-in {
-      animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: fadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     /* Fine-grained typography styling for Markdown articles */
     .prose-cinematic {
-      color: #e5e5e5;
-      font-family: 'Inter', sans-serif;
-      line-height: 1.8;
-      letter-spacing: -0.011em;
+      line-height: 1.85;
+      font-size: 1.05rem;
     }
 
     .prose-cinematic p {
-      margin-bottom: 1.75em;
+      margin-bottom: 1.6em;
+      text-align: justify;
     }
 
     .prose-cinematic h1,
     .prose-cinematic h2,
     .prose-cinematic h3,
     .prose-cinematic h4 {
-      color: #ffffff;
-      font-family: 'Instrument Serif', serif;
-      font-weight: 400;
+      font-family: 'DM Serif Display', serif;
+      font-weight: normal;
       line-height: 1.25;
-      margin-top: 1.75em;
-      margin-bottom: 0.5em;
+      margin-top: 2em;
+      margin-bottom: 0.6em;
+      letter-spacing: -0.01em;
     }
 
     .prose-cinematic h1 {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
+      color: #FAF6EE;
     }
 
     .prose-cinematic h2 {
-      font-size: 2rem;
+      font-size: 1.85rem;
+      border-bottom: 1px dashed currentColor;
+      padding-bottom: 0.3em;
     }
 
     .prose-cinematic h3 {
-      font-size: 1.6rem;
+      font-size: 1.45rem;
     }
 
     .prose-cinematic blockquote {
-      border-left: 2px solid #ffffff;
+      border-left: 3px solid #C93B2B;
       padding-left: 1.5rem;
       font-style: italic;
       font-family: 'Instrument Serif', serif;
       font-size: 1.5rem;
-      line-height: 1.4;
-      color: #ffffff;
-      margin: 2rem 0;
+      line-height: 1.45;
+      margin: 2.5rem 0;
     }
 
     .prose-cinematic a {
-      color: #ffffff;
+      color: inherit;
       text-decoration: underline;
       text-decoration-thickness: 1px;
       text-underline-offset: 4px;
-      transition: color 0.2s ease;
+      transition: all 0.2s ease;
     }
 
     .prose-cinematic a:hover {
-      color: #8a8a8a;
+      color: #C93B2B;
     }
 
     .prose-cinematic code {
       font-family: 'Space Mono', monospace;
-      background-color: #1c1c1e;
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
+      background-color: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
       font-size: 0.9em;
     }
 
     .prose-cinematic pre {
-      background-color: #0c0c0e;
-      border: 1px solid #1c1c1e;
+      background-color: #0E0E0D;
+      border: 1px solid #282622;
       padding: 1.25rem;
       overflow-x: auto;
       border-radius: 4px;
-      margin: 1.75rem 0;
+      margin: 2rem 0;
     }
 
     .prose-cinematic pre code {
       background-color: transparent;
+      border: none;
       padding: 0;
-      border-radius: 0;
       font-size: 0.85em;
-      color: #e5e5e5;
     }
 
     .prose-cinematic ul {
       list-style-type: square;
       padding-left: 1.5rem;
-      margin-bottom: 1.75em;
+      margin-bottom: 1.6em;
     }
 
     .prose-cinematic ol {
       list-style-type: decimal;
       padding-left: 1.5rem;
-      margin-bottom: 1.75em;
+      margin-bottom: 1.6em;
     }
 
     .prose-cinematic li {
@@ -199,44 +239,86 @@
     }
 
     .prose-cinematic hr {
-      border-color: #1c1c1e;
+      border-color: #282622;
       margin: 3rem 0;
+      border-style: dashed;
+    }
+
+    /* Specific theme tweaks inside post layout */
+    .theme-paperback .prose-cinematic code {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 0, 0, 0.1);
+      color: #1A1917;
+    }
+    .theme-paperback .prose-cinematic pre {
+      background-color: #EFEAE0;
+      border-color: #D3C9BA;
+    }
+    .theme-paperback .prose-cinematic pre code {
+      color: #1A1917;
+    }
+
+    /* Dropcap in spread theme */
+    .theme-spread .prose-cinematic p:first-of-type::first-letter {
+      font-family: 'Rozha One', 'DM Serif Display', serif;
+      float: left;
+      font-size: 4.5rem;
+      line-height: 0.85;
+      margin-right: 0.6rem;
+      margin-top: 0.2rem;
+      color: #C93B2B;
+      text-shadow: 2px 2px 0px #D9A036;
     }
   </style>
 </head>
 
 <body
-  class="bg-brandDark text-brandAccent antialiased selection:bg-brandWhite selection:text-brandDark flex flex-col min-h-screen">
+  class="bg-brandDark text-brandAccent antialiased flex flex-col min-h-screen relative selection:bg-brandRed selection:text-brandWhite">
+
+  <!-- Paper grain texture overlay -->
+  <div class="vintage-grain"></div>
 
   <!-- Header -->
-  <header class="w-full max-w-5xl mx-auto px-6 pt-8 md:pt-16 pb-6 flex flex-col sm:flex-row justify-between items-center gap-4 z-10">
+  <header class="w-full max-w-5xl mx-auto px-6 pt-6 md:pt-10 pb-6 flex flex-col sm:flex-row justify-between items-center gap-4 z-10 border-b border-brandBorder/40 mb-6">
     <a href="{{ '/' | relative_url }}" class="group flex items-center gap-3">
-      <img src="{{ '/assets/83592848.jpeg' | relative_url }}" alt="Vertigo Logo" class="w-8 h-8 rounded-full object-cover transition-transform duration-300 group-hover:scale-110">
-      <span class="font-mono text-sm tracking-widest text-brandWhite uppercase group-hover:text-brandMuted transition-colors duration-300">Vertigo</span>
+      <div class="relative p-0.5 rounded-full border border-brandYellow/40 group-hover:border-brandRed/80 transition-colors duration-300">
+        <div class="rounded-full border border-brandRed/40 p-[1px]">
+          <img src="{{ '/assets/83592848.jpeg' | relative_url }}" alt="Vertigo Logo" class="w-8 h-8 rounded-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+        </div>
+      </div>
+      <span class="font-retroSans text-sm tracking-[0.25em] text-brandWhite uppercase group-hover:text-brandYellow transition-colors duration-300">Vertigo</span>
     </a>
     
-    <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-xs tracking-widest uppercase">
-      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' or page.url == '/index.html' %}text-brandWhite{% else %}text-brandMuted{% endif %} hover:text-brandWhite transition-colors duration-300">Journal</a>
-      <a href="{{ '/portfolio/' | relative_url }}" class="{% if page.url == '/portfolio/' %}text-brandWhite{% else %}text-brandMuted{% endif %} hover:text-brandWhite transition-colors duration-300">Portfolio</a>
-      <a href="{{ '/about/' | relative_url }}" class="{% if page.url == '/about/' %}text-brandWhite{% else %}text-brandMuted{% endif %} hover:text-brandWhite transition-colors duration-300">About & Contact</a>
+    <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 font-retroSans text-[11px] tracking-[0.2em] uppercase">
+      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' or page.url == '/index.html' %}text-brandRed border-b-2 border-brandRed{% else %}text-brandMuted border-b-2 border-transparent{% endif %} hover:text-brandWhite transition-colors duration-300 pb-1">Journal</a>
+      <a href="{{ '/portfolio/' | relative_url }}" class="{% if page.url == '/portfolio/' %}text-brandRed border-b-2 border-brandRed{% else %}text-brandMuted border-b-2 border-transparent{% endif %} hover:text-brandWhite transition-colors duration-300 pb-1">Portfolio</a>
+      <a href="{{ '/about/' | relative_url }}" class="{% if page.url == '/about/' %}text-brandRed border-b-2 border-brandRed{% else %}text-brandMuted border-b-2 border-transparent{% endif %} hover:text-brandWhite transition-colors duration-300 pb-1">About & Contact</a>
     </nav>
   </header>
 
   <!-- Main Content -->
-  <main class="flex-grow w-full max-w-5xl mx-auto px-6 pt-2 pb-8 md:pt-4 md:pb-16 animate-fade-in">
+  <main class="flex-grow w-full max-w-5xl mx-auto px-6 pt-2 pb-8 md:pt-4 md:pb-16 animate-fade-in z-10">
     {{ content }}
   </main>
 
   <!-- Footer -->
-  <footer class="w-full max-w-5xl mx-auto px-6 py-10 md:py-16 border-t border-brandBorder flex flex-col md:flex-row md:justify-between items-start md:items-center gap-6 text-brandMuted font-mono text-xs">
-    <div>
-      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All stories captured.</p>
+  <footer class="w-full max-w-5xl mx-auto px-6 py-12 md:py-16 mt-16 border-t-2 border-double border-brandBorder flex flex-col items-center gap-6 text-brandMuted font-retroSans text-[10px] tracking-wider text-center z-10">
+    
+    <!-- Vintage Divider Ornament -->
+    <div class="text-brandRed text-lg select-none">❦ ⚜ ❦</div>
+    
+    <div class="flex flex-col md:flex-row md:justify-between items-center w-full gap-4 text-xs font-mono">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }} • INDEPENDENT LITERARY CINEMA JOURNAL</p>
+      <div class="text-[10px] text-brandYellow font-retroSans uppercase tracking-[0.2em] px-3 py-1 border border-brandYellow/20 bg-charcoal/20">
+        Vol. 1 • Issue 2 • Monsoon 2026
+      </div>
     </div>
-    <div class="flex flex-wrap gap-x-6 gap-y-2">
-      <a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-brandWhite transition-colors duration-300">Instagram</a>
-      <a href="{{ site.letterboxd_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-brandWhite transition-colors duration-300">Letterboxd</a>
-      <a href="https://www.youtube.com/@VyomVertigo" target="_blank" rel="noopener noreferrer" class="hover:text-brandWhite transition-colors duration-300">YouTube</a>
-      <a href="mailto:{{ site.email }}" class="hover:text-brandWhite transition-colors duration-300">Contact</a>
+    
+    <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 font-retroSans border-t border-brandBorder/30 pt-6 w-full">
+      <a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-brandRed hover:scale-105 transition-all duration-300">INSTAGRAM</a>
+      <a href="{{ site.letterboxd_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-brandRed hover:scale-105 transition-all duration-300">LETTERBOXD</a>
+      <a href="https://www.youtube.com/@VyomVertigo" target="_blank" rel="noopener noreferrer" class="hover:text-brandRed hover:scale-105 transition-all duration-300">YOUTUBE</a>
+      <a href="mailto:{{ site.email }}" class="hover:text-brandRed hover:scale-105 transition-all duration-300">CONTACT</a>
     </div>
   </footer>
 

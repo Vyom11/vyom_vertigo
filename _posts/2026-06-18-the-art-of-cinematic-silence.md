@@ -4,6 +4,7 @@ title: "The Art of Cinematic Silence"
 subtitle: "How modern filmmakers use the space between sounds to command attention."
 date: 2026-06-18 18:00:00 +0530
 category: Critique
+post_style: quiet
 ---
 
 Sound defines cinema, but it is *silence* that shapes it. In the early days of talkies, Hollywood rushed to fill every frame with orchestral swells and snappy dialogue. Yet, as the medium matured, directors realized that the absence of sound could be far more powerful than its presence.

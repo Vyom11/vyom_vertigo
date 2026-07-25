@@ -5,6 +5,7 @@ subtitle: "A celebration of movies and stories."
 date: 2026-06-19 20:00:00 +0530
 category: Cinema
 pinned: true
+post_style: quiet
 ---
 
 My name is Vyom. And I really like movies.
