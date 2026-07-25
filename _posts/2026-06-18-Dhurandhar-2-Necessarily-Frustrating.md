@@ -4,7 +4,7 @@ title: "Dhurandhar: The Revenge — Necessarily Frustrating"
 subtitle: "A modern blockbuster masked as an introspective sequel."
 date: 2026-03-25 12:00:00 +0530
 category: movies
-post_style: poster
+post_style: spread
 ---
 
 A new day dawns upon Bollywood, where our grandparents had *Mughal-E-Azam*, our parents had *Sholay*, and we will have *Dhurandhar* as the defining film of this generation. And the reason for this is quite simple—it’s just that good of a film.

@@ -4,7 +4,7 @@ title: "I Have No Mouth and I Must Scream"
 subtitle: "A legendary short story of five humans trapped inside a deranged supercomputer."
 date: 2026-04-09 12:00:00 +0530
 category: stories
-post_style: paperback
+post_style: spread
 ---
 
 ### I Have No Mouth, and I Must Scream
