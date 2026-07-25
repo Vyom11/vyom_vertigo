@@ -2,25 +2,26 @@
 layout: default
 ---
 
-{% assign p_style = page.post_style | default: "quiet" %}
+{% assign p_style = page.post_style | default: "spread" %}
 
 <article class="w-full max-w-4xl mx-auto font-sans relative">
   
-  <!-- Dynamic Styles Wrapper -->
+  <!-- Standardized Editorial Spread Wrapper -->
   <div class="
-    {% if p_style == 'poster' %}
-      theme-poster bg-brandPureDark text-brandWhite border-2 border-brandRed p-6 md:p-12 rounded-lg relative shadow-2xl vintage-halftone
-    {% elsif p_style == 'paperback' %}
-      theme-paperback bg-paperCream text-charcoal p-6 md:p-16 rounded-sm border border-charcoal/20 relative shadow-lg font-serif
-    {% elsif p_style == 'spread' %}
-      theme-spread bg-black text-brandWhite p-6 md:p-10 border-t-8 border-brandRed relative
+    p-6 md:p-12 rounded-sm border relative shadow-2xl vintage-halftone transition-all duration-300
+    {% if p_style == 'paperback' %}
+      bg-paperCream text-charcoal border-charcoal/30 font-serif
+    {% elsif p_style == 'poster' %}
+      bg-brandPureDark text-brandWhite border-brandRed
+    {% elsif p_style == 'quiet' %}
+      bg-brandPureDark text-brandAccent border-brandBorder/80
     {% else %}
-      theme-quiet bg-brandPureDark text-brandAccent p-6 md:p-12 border border-brandBorder/60 rounded relative shadow-xl vintage-halftone-light
+      bg-black text-brandWhite border-brandYellow/60
     {% endif %}
   ">
 
-    <!-- Back Button -->
-    <div class="mb-10 z-20 relative">
+    <!-- Standardized Back Button -->
+    <div class="mb-8 z-20 relative">
       <a href="{{ '/' | relative_url }}"
         class="inline-flex items-center gap-2 group font-retroSans text-xs tracking-widest uppercase transition-colors duration-300
           {% if p_style == 'paperback' %}
@@ -38,126 +39,87 @@ layout: default
       </a>
     </div>
 
-    <!-- POST HEADER -->
-    <header class="mb-10 md:mb-14 relative z-10">
+    <!-- STANDARDIZED POST HEADER -->
+    <header class="mb-10 relative z-10 w-full flex flex-col items-start">
       
-      <!-- 1. POSTER STYLE HEADER -->
-      {% if p_style == 'poster' %}
-        <div class="text-center flex flex-col items-center">
-          {% if page.category %}
-            <span class="bg-brandRed text-brandWhite px-3 py-1 font-retroSans text-[10px] tracking-[0.2em] uppercase rounded-sm border border-brandYellow/40 mb-6 shadow">
-              {{ page.category }}
-            </span>
+      <!-- Category Tag Badge -->
+      {% if page.category %}
+        <span class="px-3 py-1 font-retroSans text-[10px] tracking-[0.2em] uppercase rounded-sm mb-4 shadow-sm inline-block
+          {% if p_style == 'paperback' %}
+            bg-charcoal text-paperCream
+          {% elsif p_style == 'poster' %}
+            bg-brandRed text-brandWhite border border-brandYellow/40
+          {% else %}
+            bg-brandRed text-brandWhite
           {% endif %}
-          
-          <h1 class="font-poster text-4xl md:text-6xl text-brandYellow font-normal leading-tight tracking-tight uppercase text-shadow-sm select-none">
-            {{ page.title }}
-          </h1>
-
-          {% if page.subtitle %}
-            <p class="font-serif italic text-lg md:text-xl text-brandAccent mt-4 max-w-2xl leading-relaxed">
-              “{{ page.subtitle }}”
-            </p>
-          {% endif %}
-
-          <!-- Film Poster Style Billing Block -->
-          <div class="w-full mt-8 pt-6 border-t-2 border-dashed border-brandBorder flex flex-wrap justify-center items-center gap-x-4 gap-y-2 font-mono text-[9px] tracking-[0.2em] text-brandMuted uppercase">
-            <span>A VYOM VERTIGO PRESENTATION</span>
-            <span class="text-brandRed">•</span>
-            <span>WRITTEN BY {{ site.author }}</span>
-            <span class="text-brandRed">•</span>
-            <span>RELEASED {{ page.date | date: "%B %d, %Y" }}</span>
-          </div>
-        </div>
-
-      <!-- 2. PAPERBACK STYLE HEADER -->
-      {% elsif p_style == 'paperback' %}
-        <div class="text-center border-b border-charcoal/10 pb-8 flex flex-col items-center">
-          <span class="font-sans font-semibold tracking-[0.2em] text-[9px] text-brandMuted uppercase mb-4">
-            VERTIGO LIBRARY • VOL. {{ page.date | date: "%y" }} • NO. {{ page.date | date: "%m%d" }}
-          </span>
-          
-          <h1 class="font-display text-3xl md:text-5xl text-charcoal font-normal leading-tight tracking-tight max-w-2xl">
-            {{ page.title }}
-          </h1>
-          
-          <!-- Classic Paperback Divider -->
-          <div class="my-5 text-brandRed text-base select-none">❧ ❦ ☙</div>
-          
-          <span class="font-sans text-[11px] tracking-[0.25em] text-charcoal/80 uppercase font-semibold">
-            BY {{ site.author | upcase }}
-          </span>
-
-          {% if page.subtitle %}
-            <p class="font-serif italic text-base md:text-lg text-charcoal/70 mt-4 max-w-xl leading-relaxed">
-              {{ page.subtitle }}
-            </p>
-          {% endif %}
-        </div>
-
-      <!-- 3. SPREAD STYLE HEADER -->
-      {% elsif p_style == 'spread' %}
-        <div class="flex flex-col items-start">
-          {% if page.category %}
-            <span class="bg-brandRed text-brandWhite px-3 py-1 font-retroSans text-xs tracking-wider uppercase mb-4">
-              {{ page.category }}
-            </span>
-          {% endif %}
-          
-          <h1 class="font-display text-4xl md:text-7xl font-bold text-brandWhite leading-none tracking-tighter uppercase border-b-4 border-brandYellow pb-4 w-full">
-            {{ page.title }}
-          </h1>
-          
-          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4 font-mono text-[10px] tracking-wider text-brandMuted uppercase">
-            <span>BY {{ site.author }}</span>
-            <span>//</span>
-            <span>PUBLISHED: {{ page.date | date: "%B %d, %Y" }}</span>
-            {% assign words = content | number_of_words %}
-            <span>//</span>
-            <span>{{ words | divided_by: 180 | plus: 1 }} MIN READ</span>
-          </div>
-
-          {% if page.subtitle %}
-            <p class="font-sans font-light text-base md:text-lg text-brandAccent mt-6 max-w-3xl leading-relaxed border-l-2 border-brandRed pl-4">
-              {{ page.subtitle }}
-            </p>
-          {% endif %}
-        </div>
-
-      <!-- 4. QUIET STYLE HEADER -->
-      {% else %}
-        <div class="text-center max-w-3xl mx-auto flex flex-col items-center">
-          <div class="font-mono text-[10px] tracking-widest text-brandMuted uppercase flex items-center gap-2 mb-4">
-            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-            <span>•</span>
-            <span>{{ page.category | default: "JOURNAL" }}</span>
-          </div>
-
-          <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl text-brandWhite font-light leading-tight tracking-tight max-w-2xl">
-            {{ page.title }}
-          </h1>
-
-          {% if page.subtitle %}
-            <p class="font-serif italic text-lg md:text-xl text-brandMuted mt-4 max-w-xl leading-relaxed font-light">
-              {{ page.subtitle }}
-            </p>
-          {% endif %}
-          
-          <div class="w-full border-b border-dashed border-brandBorder/60 mt-8 pb-4"></div>
-        </div>
+        ">
+          {{ page.category }}
+        </span>
       {% endif %}
+      
+      <!-- Standardized Large Editorial Title -->
+      <h1 class="w-full text-left font-display text-4xl md:text-6xl font-normal leading-tight tracking-tight uppercase select-none mb-3
+        {% if p_style == 'paperback' %}
+          text-charcoal font-semibold
+        {% elsif p_style == 'poster' %}
+          text-brandYellow font-poster
+        {% else %}
+          text-brandWhite
+        {% endif %}
+      ">
+        {{ page.title }}
+      </h1>
+
+      <!-- Standardized Subtitle -->
+      {% if page.subtitle %}
+        <p class="font-serif italic text-lg md:text-xl leading-relaxed mt-2 max-w-3xl
+          {% if p_style == 'paperback' %}
+            text-charcoal/80
+          {% else %}
+            text-brandAccent/80
+          {% endif %}
+        ">
+          “{{ page.subtitle }}”
+        </p>
+      {% endif %}
+
+      <!-- Standardized Metadata Row (bounded by borders) -->
+      <div class="w-full mt-6 py-3 border-t border-b border-dashed flex flex-wrap justify-between items-center gap-x-4 gap-y-2 font-mono text-[10px] tracking-[0.15em] uppercase
+        {% if p_style == 'paperback' %}
+          border-charcoal/20 text-brandMuted
+        {% else %}
+          border-brandBorder text-brandMuted
+        {% endif %}
+      ">
+        <div class="flex items-center gap-2">
+          <span>By {{ site.author }}</span>
+          <span>//</span>
+          <span>{{ page.date | date: "%B %d, %Y" }}</span>
+        </div>
+        <div>
+          {% assign words = content | number_of_words %}
+          <span>{{ words | divided_by: 180 | plus: 1 }} MIN READ</span>
+        </div>
+      </div>
       
     </header>
 
-    <!-- POST CONTENT -->
-    <div class="prose-cinematic max-w-3xl mx-auto z-10 relative">
+    <!-- STANDARDIZED POST CONTENT -->
+    <div class="
+      prose-cinematic max-w-3xl mx-auto z-10 relative
+      {% if p_style == 'paperback' %}
+        theme-paperback text-charcoal
+      {% else %}
+        theme-spread text-brandAccent
+      {% endif %}
+    ">
       {{ content }}
     </div>
 
-    <!-- POST FOOTER -->
-    <footer class="mt-16 md:mt-24 pt-8 border-t relative z-10 flex justify-between items-center text-xs font-mono uppercase tracking-wider
+    <!-- STANDARDIZED POST FOOTER -->
+    <footer class="mt-16 md:mt-20 pt-8 border-t relative z-10 flex justify-between items-center text-xs font-mono uppercase tracking-wider
       {% if p_style == 'paperback' %}
-        border-charcoal/10 text-brandMuted
+        border-charcoal/15 text-brandMuted
       {% else %}
         border-brandBorder text-brandMuted
       {% endif %}
@@ -181,10 +143,8 @@ layout: default
         <span class="select-none text-brandRed font-serif">❦</span>
       {% elsif p_style == 'poster' %}
         <span class="select-none text-brandYellow">★</span>
-      {% elsif p_style == 'spread' %}
-        <span class="select-none text-brandRed font-mono">■</span>
       {% else %}
-        <span class="select-none text-brandBorder">◆</span>
+        <span class="select-none text-brandRed font-mono">■</span>
       {% endif %}
     </footer>
 
