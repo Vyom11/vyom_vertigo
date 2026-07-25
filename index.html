@@ -6,152 +6,147 @@ layout: default
 <header class="py-10 text-center relative flex flex-col items-center">
 
   <!-- Giant Editorial Masthead Title -->
-  <h1 class="font-poster text-5xl sm:text-7xl md:text-9xl text-brandWhite font-normal tracking-tighter leading-none my-6 select-none hover:text-brandRed transition-colors duration-500 cursor-default">
+  <h1
+    class="font-poster text-5xl sm:text-7xl md:text-9xl text-brandWhite font-normal tracking-tighter leading-none my-6 select-none hover:text-brandRed transition-colors duration-500 cursor-default">
     VYOM VERTIGO
   </h1>
 
   <!-- Styled Tagline -->
   <div class="w-full max-w-2xl border-t border-dashed border-brandBorder pt-4 pb-1">
-    <p class="font-serif italic text-lg sm:text-xl md:text-2xl text-brandMuted font-light leading-relaxed max-w-xl mx-auto">
+    <p
+      class="font-serif italic text-lg sm:text-xl md:text-2xl text-brandMuted font-light leading-relaxed max-w-xl mx-auto">
       {{ site.tagline }}
     </p>
   </div>
 
-  <!-- Format/Category Checklist (Vertical Flow) -->
-  <div class="mt-6 pt-4 border-t border-brandBorder/35 w-full max-w-xs text-center flex flex-col items-center">
-    <h4 class="font-retroSans text-[10px] tracking-wider text-brandMuted uppercase mb-3">Featured Formats Inside:</h4>
-    <ul class="flex flex-col gap-2 text-xs font-serif italic text-brandAccent/80">
-      <li class="flex items-center gap-2 justify-center">
-        <span class="text-brandRed">❦</span> Bollywood Poster Aesthetics
-      </li>
-      <li class="flex items-center gap-2 justify-center">
-        <span class="text-brandRed">❦</span> Vintage Paperback Science Fiction
-      </li>
-      <li class="flex items-center gap-2 justify-center">
-        <span class="text-brandRed">❦</span> Provocative Media Criticism
-      </li>
-      <li class="flex items-center gap-2 justify-center">
-        <span class="text-brandRed">❦</span> Quiet Cinematic Spaces
-      </li>
-    </ul>
-  </div>
-  
+
   <div class="text-brandRed text-sm select-none my-4">❦</div>
 </header>
 
 <!-- Vertically Scrollable Sequence of Articles (Spread Layout) -->
 <section class="flex flex-col gap-8 my-10 max-w-3xl mx-auto w-full">
   {% if site.posts.size > 0 %}
-    
-    <!-- 1. Pinned/Featured Articles (Styled exactly like standard feed cards) -->
-    {% for post in site.posts %}
-      {% if post.pinned == true %}
-        <article class="w-full">
-          <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 md:p-8 rounded flex flex-col justify-between group transition-all duration-300 relative shadow-sm">
-            <div>
-              <!-- Card Header -->
-              <div class="flex justify-between items-center mb-4">
-                {% if post.category %}
-                  <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5 rounded-sm">
-                    {{ post.category }}
-                  </span>
-                {% endif %}
-                <div class="flex items-center gap-2 font-mono text-[9px] tracking-widest text-brandMuted uppercase">
-                  <span class="text-brandYellow font-retroSans font-semibold flex items-center gap-1">
-                    ★ Featured Cover
-                  </span>
-                  <span>•</span>
-                  <span>{{ post.date | date: "%B %d, %Y" }}</span>
-                </div>
-              </div>
-              
-              <!-- Title -->
-              <h3 class="font-display text-2xl md:text-3xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-              </h3>
 
-              <!-- Subtitle -->
-              {% if post.subtitle %}
-                <p class="font-sans font-light text-xs text-brandAccent/80 mt-3 leading-relaxed">
-                  {{ post.subtitle }}
-                </p>
-              {% endif %}
-              
-              <!-- Excerpt -->
-              {% if post.excerpt %}
-                <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light text-justify">
-                  {{ post.excerpt | strip_html | strip_newlines | truncate: 200 }}
-                </p>
-              {% endif %}
-            </div>
-            
-            <!-- Card Footer -->
-            <div class="mt-6 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
-              <span>By {{ site.author }}</span>
-              <a href="{{ post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
-                <span>READ SPREAD</span>
-                <span class="text-brandRed">→</span>
-              </a>
-            </div>
+  <!-- 1. Pinned/Featured Articles (Styled exactly like standard feed cards) -->
+  {% for post in site.posts %}
+  {% if post.pinned == true %}
+  <article class="w-full">
+    <div
+      class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 md:p-8 rounded flex flex-col justify-between group transition-all duration-300 relative shadow-sm">
+      <div>
+        <!-- Card Header -->
+        <div class="flex justify-between items-center mb-4">
+          {% if post.category %}
+          <span
+            class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5 rounded-sm">
+            {{ post.category }}
+          </span>
+          {% endif %}
+          <div class="flex items-center gap-2 font-mono text-[9px] tracking-widest text-brandMuted uppercase">
+            <span class="text-brandYellow font-retroSans font-semibold flex items-center gap-1">
+              ★ Featured Cover
+            </span>
+            <span>•</span>
+            <span>{{ post.date | date: "%B %d, %Y" }}</span>
           </div>
-        </article>
-      {% endif %}
-    {% endfor %}
+        </div>
 
-    <!-- 2. Chronological/Regular Articles -->
-    {% for post in site.posts %}
-      {% if post.pinned != true %}
-        <article class="w-full">
-          <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 md:p-8 rounded flex flex-col justify-between group transition-all duration-300 relative shadow-sm">
-            <div>
-              <!-- Card Header -->
-              <div class="flex justify-between items-center mb-4">
-                {% if post.category %}
-                  <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5 rounded-sm">
-                    {{ post.category }}
-                  </span>
-                {% endif %}
-                <div class="flex items-center gap-2 font-mono text-[9px] tracking-widest text-brandMuted uppercase">
-                  <span>{{ post.date | date: "%B %d, %Y" }}</span>
-                </div>
-              </div>
-              
-              <!-- Title -->
-              <h3 class="font-display text-2xl md:text-3xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-              </h3>
+        <!-- Title -->
+        <h3
+          class="font-display text-2xl md:text-3xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
 
-              <!-- Subtitle -->
-              {% if post.subtitle %}
-                <p class="font-sans font-light text-xs text-brandAccent/80 mt-3 leading-relaxed">
-                  {{ post.subtitle }}
-                </p>
-              {% endif %}
-              
-              <!-- Excerpt -->
-              {% if post.excerpt %}
-                <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light text-justify">
-                  {{ post.excerpt | strip_html | strip_newlines | truncate: 200 }}
-                </p>
-              {% endif %}
-            </div>
-            
-            <!-- Card Footer -->
-            <div class="mt-6 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
-              <span>By {{ site.author }}</span>
-              <a href="{{ post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
-                <span>READ SPREAD</span>
-                <span class="text-brandRed">→</span>
-              </a>
-            </div>
-          </div>
-        </article>
-      {% endif %}
-    {% endfor %}
-    
-  {% else %}
-    <div class="py-16 text-center border border-dashed border-brandBorder">
-      <p class="font-retroSans text-xs tracking-widest text-brandMuted uppercase">The projector screen is blank. Check back soon.</p>
+        <!-- Subtitle -->
+        {% if post.subtitle %}
+        <p class="font-sans font-light text-xs text-brandAccent/80 mt-3 leading-relaxed">
+          {{ post.subtitle }}
+        </p>
+        {% endif %}
+
+        <!-- Excerpt -->
+        {% if post.excerpt %}
+        <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light text-justify">
+          {{ post.excerpt | strip_html | strip_newlines | truncate: 200 }}
+        </p>
+        {% endif %}
+      </div>
+
+      <!-- Card Footer -->
+      <div
+        class="mt-6 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
+        <span>By {{ site.author }}</span>
+        <a href="{{ post.url | relative_url }}"
+          class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+          <span>READ SPREAD</span>
+          <span class="text-brandRed">→</span>
+        </a>
+      </div>
     </div>
+  </article>
+  {% endif %}
+  {% endfor %}
+
+  <!-- 2. Chronological/Regular Articles -->
+  {% for post in site.posts %}
+  {% if post.pinned != true %}
+  <article class="w-full">
+    <div
+      class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 md:p-8 rounded flex flex-col justify-between group transition-all duration-300 relative shadow-sm">
+      <div>
+        <!-- Card Header -->
+        <div class="flex justify-between items-center mb-4">
+          {% if post.category %}
+          <span
+            class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5 rounded-sm">
+            {{ post.category }}
+          </span>
+          {% endif %}
+          <div class="flex items-center gap-2 font-mono text-[9px] tracking-widest text-brandMuted uppercase">
+            <span>{{ post.date | date: "%B %d, %Y" }}</span>
+          </div>
+        </div>
+
+        <!-- Title -->
+        <h3
+          class="font-display text-2xl md:text-3xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+
+        <!-- Subtitle -->
+        {% if post.subtitle %}
+        <p class="font-sans font-light text-xs text-brandAccent/80 mt-3 leading-relaxed">
+          {{ post.subtitle }}
+        </p>
+        {% endif %}
+
+        <!-- Excerpt -->
+        {% if post.excerpt %}
+        <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light text-justify">
+          {{ post.excerpt | strip_html | strip_newlines | truncate: 200 }}
+        </p>
+        {% endif %}
+      </div>
+
+      <!-- Card Footer -->
+      <div
+        class="mt-6 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
+        <span>By {{ site.author }}</span>
+        <a href="{{ post.url | relative_url }}"
+          class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+          <span>READ SPREAD</span>
+          <span class="text-brandRed">→</span>
+        </a>
+      </div>
+    </div>
+  </article>
+  {% endif %}
+  {% endfor %}
+
+  {% else %}
+  <div class="py-16 text-center border border-dashed border-brandBorder">
+    <p class="font-retroSans text-xs tracking-widest text-brandMuted uppercase">The projector screen is blank. Check
+      back soon.</p>
+  </div>
   {% endif %}
 </section>
