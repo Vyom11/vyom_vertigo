@@ -29,30 +29,31 @@ description: "A curated collection of writing clips at the intersection of engin
     </div>
     
     <div class="grid md:grid-cols-2 gap-8">
-      <!-- Clip 1: The Art of Cinematic Silence (QUIET STYLE) -->
+      <!-- Clip 1: The Art of Cinematic Silence (SPREAD STYLE) -->
       {% assign silence_post = site.posts | where: "title", "The Art of Cinematic Silence" | first %}
-      <div class="bg-transparent border border-brandBorder/50 hover:border-brandMuted p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative">
+      <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm">
         <div>
-          <!-- Header Details -->
-          <div class="flex items-center gap-2 font-mono text-[9px] tracking-widest text-brandMuted uppercase mb-3 border-b border-brandBorder/20 pb-2">
-            <span>SOURCE: VYOM VERTIGO</span>
-            <span>•</span>
-            <span>{{ silence_post.date | date: "%B %d, %Y" }}</span>
+          <!-- Red Badge Category -->
+          <div class="flex justify-between items-center mb-4">
+            <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5">
+              SOURCE: VYOM VERTIGO
+            </span>
+            <span class="font-mono text-[9px] text-brandMuted">{{ silence_post.date | date: "%B %d, %Y" }}</span>
           </div>
           
-          <h3 class="font-serif text-2xl font-light text-brandWhite group-hover:text-brandMuted transition-colors duration-300 tracking-tight leading-snug">
+          <h3 class="font-display text-2xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
             <a href="{{ silence_post.url | relative_url }}">{{ silence_post.title }}</a>
           </h3>
           
-          <p class="font-serif italic text-xs text-brandMuted mt-3">
+          <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light">
             An exploration of how modern filmmakers use negative space and silent room tones to construct tension and emotional resonance.
           </p>
         </div>
         
         <div class="mt-8 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
-          <span>QUIET ESSAY</span>
-          <a href="{{ silence_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandMuted transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
-            <span>READ STORY</span>
+          <span>ESSAY</span>
+          <a href="{{ silence_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+            <span>READ SPREAD</span>
             <span class="text-brandRed">→</span>
           </a>
         </div>
@@ -67,7 +68,7 @@ description: "A curated collection of writing clips at the intersection of engin
             <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5">
               SOURCE: VYOM VERTIGO
             </span>
-            <span class="font-mono text-[9px] text-brandMuted">Vol. I, No. II</span>
+            <span class="font-mono text-[9px] text-brandMuted">{{ disconnect_post.date | date: "%B %d, %Y" }}</span>
           </div>
           
           <h3 class="font-display text-2xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
@@ -80,7 +81,7 @@ description: "A curated collection of writing clips at the intersection of engin
         </div>
         
         <div class="mt-8 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
-          <span>{{ disconnect_post.date | date: "%B %d, %Y" }}</span>
+          <span>CRITIQUE</span>
           <a href="{{ disconnect_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
             <span>READ SPREAD</span>
             <span class="text-brandRed">→</span>
@@ -101,30 +102,33 @@ description: "A curated collection of writing clips at the intersection of engin
     </div>
     
     <div class="grid md:grid-cols-2 gap-8">
-      <!-- Clip 3: Do Engineering (PAPERBACK STYLE) -->
+      <!-- Clip 3: Do Engineering (SPREAD STYLE) -->
       {% assign engineering_post = site.posts | where: "title", "Do Engineering" | first %}
-      <div class="bg-paperCreamDark text-charcoal border border-charcoal/15 hover:border-brandRed/50 p-6 rounded-sm flex flex-col justify-between h-full group transition-all duration-300 shadow-sm relative">
+      <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm">
         <div>
-          <!-- Paperback Series Details -->
-          <div class="text-center font-sans tracking-[0.2em] text-[9px] text-brandMuted uppercase border-b border-charcoal/10 pb-3 mb-3">
-            VERTIGO LIBRARY • NO. {{ engineering_post.date | date: "%y%d" }}
+          <!-- Red Badge Category -->
+          <div class="flex justify-between items-center mb-4">
+            <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5">
+              SOURCE: VYOM VERTIGO
+            </span>
+            <span class="font-mono text-[9px] text-brandMuted">{{ engineering_post.date | date: "%B %d, %Y" }}</span>
           </div>
           
-          <h3 class="font-display text-2xl text-charcoal group-hover:text-brandRed text-center transition-colors duration-300 mt-2 font-normal leading-snug">
+          <h3 class="font-display text-2xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
             <a href="{{ engineering_post.url | relative_url }}">{{ engineering_post.title }}</a>
           </h3>
           
-          <!-- Graphic Book Divider -->
-          <div class="text-center my-3 text-brandRed font-serif select-none">❦</div>
-          
-          <p class="font-serif italic text-xs text-charcoal/70 text-center leading-relaxed max-w-xs mx-auto">
+          <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light">
             A reflective personal essay on why studying engineering provides invaluable mental scaffolding and multidisciplinary perspectives.
           </p>
         </div>
         
-        <div class="mt-8 pt-4 border-t border-charcoal/10 flex items-center justify-between text-[8px] font-sans tracking-[0.2em] uppercase font-semibold text-brandMuted">
-          <span>PRICE: Rs. 1.50</span>
-          <a href="{{ engineering_post.url | relative_url }}" class="text-charcoal hover:text-brandRed transition-colors duration-300">OPEN COVER</a>
+        <div class="mt-8 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
+          <span>THOUGHTS</span>
+          <a href="{{ engineering_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+            <span>READ SPREAD</span>
+            <span class="text-brandRed">→</span>
+          </a>
         </div>
       </div>
 
@@ -137,7 +141,7 @@ description: "A curated collection of writing clips at the intersection of engin
             <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5">
               SOURCE: VYOM VERTIGO
             </span>
-            <span class="font-mono text-[9px] text-brandMuted">Vol. I, No. II</span>
+            <span class="font-mono text-[9px] text-brandMuted">{{ ai_post.date | date: "%B %d, %Y" }}</span>
           </div>
           
           <h3 class="font-display text-2xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
@@ -150,7 +154,7 @@ description: "A curated collection of writing clips at the intersection of engin
         </div>
         
         <div class="mt-8 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
-          <span>{{ ai_post.date | date: "%B %d, %Y" }}</span>
+          <span>ESSAY</span>
           <a href="{{ ai_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
             <span>READ SPREAD</span>
             <span class="text-brandRed">→</span>
