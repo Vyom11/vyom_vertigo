@@ -15,7 +15,7 @@ layout: default
     {% elsif p_style == 'spread' %}
       theme-spread bg-black text-brandWhite p-6 md:p-10 border-t-8 border-brandRed relative
     {% else %}
-      theme-quiet bg-transparent text-brandAccent py-4 relative
+      theme-quiet bg-brandPureDark text-brandAccent p-6 md:p-12 border border-brandBorder/60 rounded relative shadow-xl vintage-halftone-light
     {% endif %}
   ">
 
@@ -143,7 +143,7 @@ layout: default
             </p>
           {% endif %}
           
-          <div class="w-12 h-[1px] bg-brandBorder mt-8"></div>
+          <div class="w-full border-b border-dashed border-brandBorder/60 mt-8 pb-4"></div>
         </div>
       {% endif %}
       
