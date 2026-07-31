@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introducing Vyom Vertigo"
-subtitle: "A celebration of movies and stories."
+subtitle: "Essays on cinema, culture, technology and everything unfortunate enough to enter my brain."
 date: 2026-06-19 20:00:00 +0530
 category: Cinema
 pinned: true
@@ -12,7 +12,7 @@ My name is Vyom. And I really like movies.
 
 That is, more or less, where this website begins.
 
-**Vyom Vertigo** is a place for me to write about movies, television, books, and stories in general. The **Vyom** part is fairly self-explanatory. The **Vertigo** part comes from my love for Alfred Hitchcock's *Vertigo*. And the tagline is quite simple: **A celebration of movies and stories.**
+**Vyom Vertigo** is a place for me to write about movies, television, books, and stories in general. The **Vyom** part is fairly self-explanatory. The **Vertigo** part comes from my love for Alfred Hitchcock's *Vertigo*.
 
 Because that is ultimately what this is.
 
@@ -36,8 +36,7 @@ That is what I want to celebrate here: the stories that stay with us, the storie
 
 So welcome to **Vyom Vertigo**.
 
-A celebration of movies and stories.
-
+Essays on cinema, culture, technology and everything unfortunate enough to enter my brain.
 I hope you find something here that makes you want to watch something, read something, or think about something you have already watched.
 
 And, ideally, I hope you disagree with me occasionally.
