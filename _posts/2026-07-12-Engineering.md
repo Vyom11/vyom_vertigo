@@ -36,8 +36,4 @@ And at the end of the day, isn't that what a creative craves? A new way to look 
 
 This is all engineering teaches you.
 
-So yeah, those were my thoughts on why one must do engineering and how it ties into the creative side of your life. If you want to check out more of my work, you can take a look around this website or visit my Instagram. The links are available on the website.
-
-So yes, share your thoughts in the comments below, and I'll see you in the next article.
-
 Ciao.
