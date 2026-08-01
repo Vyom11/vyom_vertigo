@@ -29,8 +29,8 @@ description: "A curated collection of writing clips at the intersection of engin
     </div>
     
     <div class="grid md:grid-cols-2 gap-8">
-      <!-- Clip 1: The Art of Cinematic Silence (SPREAD STYLE) -->
-      {% assign silence_post = site.posts | where: "title", "The Art of Cinematic Silence" | first %}
+      <!-- Clip 1: The Cost of Following (SPREAD STYLE) -->
+      {% assign following_post = site.posts | where: "title", "The Cost of Following" | first %}
       <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm">
         <div>
           <!-- Red Badge Category -->
@@ -38,29 +38,29 @@ description: "A curated collection of writing clips at the intersection of engin
             <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5">
               SOURCE: VYOM VERTIGO
             </span>
-            <span class="font-mono text-[9px] text-brandMuted">{{ silence_post.date | date: "%B %d, %Y" }}</span>
+            <span class="font-mono text-[9px] text-brandMuted">{{ following_post.date | date: "%B %d, %Y" }}</span>
           </div>
           
           <h3 class="font-display text-2xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
-            <a href="{{ silence_post.url | relative_url }}">{{ silence_post.title }}</a>
+            <a href="{{ following_post.url | relative_url }}">{{ following_post.title }}</a>
           </h3>
           
           <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light">
-            An exploration of how modern filmmakers use negative space and silent room tones to construct tension and emotional resonance.
+            An essay exploring modern work culture, conformity, and why it is better to carve your own path than to blindly follow standard structures.
           </p>
         </div>
         
         <div class="mt-8 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
-          <span>ESSAY</span>
-          <a href="{{ silence_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+          <span>THOUGHTS</span>
+          <a href="{{ following_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
             <span>READ SPREAD</span>
             <span class="text-brandRed">→</span>
           </a>
         </div>
       </div>
 
-      <!-- Clip 2: Indian Content: The Disconnect (SPREAD STYLE) -->
-      {% assign disconnect_post = site.posts | where: "title", "Indian Content: The Disconnect" | first %}
+      <!-- Clip 2: Cover>Content (SPREAD STYLE) -->
+      {% assign cover_post = site.posts | where: "title", "Cover>Content" | first %}
       <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm">
         <div>
           <!-- Red Badge Category -->
@@ -68,21 +68,21 @@ description: "A curated collection of writing clips at the intersection of engin
             <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5">
               SOURCE: VYOM VERTIGO
             </span>
-            <span class="font-mono text-[9px] text-brandMuted">{{ disconnect_post.date | date: "%B %d, %Y" }}</span>
+            <span class="font-mono text-[9px] text-brandMuted">{{ cover_post.date | date: "%B %d, %Y" }}</span>
           </div>
           
           <h3 class="font-display text-2xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
-            <a href="{{ disconnect_post.url | relative_url }}">{{ disconnect_post.title }}</a>
+            <a href="{{ cover_post.url | relative_url }}">{{ cover_post.title }}</a>
           </h3>
           
           <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light">
-            A critical look at the stagnation of Indian television and OTT spaces, highlighting their formulaic tropes and lack of creative risks.
+            A critique on our growing obsession with packaging, aesthetics, and visual styles in modern cinema, at the expense of substantive storytelling.
           </p>
         </div>
         
         <div class="mt-8 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
           <span>CRITIQUE</span>
-          <a href="{{ disconnect_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+          <a href="{{ cover_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
             <span>READ SPREAD</span>
             <span class="text-brandRed">→</span>
           </a>
