@@ -2,7 +2,7 @@
 layout: post
 title: "The Cost of Following"
 subtitle: "Why it is better to be Odysseus than the crew."
-date: 2026-07-24 12:00:00 +0530
+date: 2026-08-01 12:00:00 +0530
 category: thoughts
 post_style: spread
 ---
