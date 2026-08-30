@@ -2,7 +2,7 @@
 layout: default
 title: Portfolio
 permalink: /portfolio/
-description: "A curated collection of writing clips at the intersection of engineering logic, culture, and cinematic art."
+description: "A small collection of things I’ve made while trying to figure out how my brain works. Essays, videos, questionable reviews, and the occasional thought that probably should’ve stayed in my head. All in one place."
 ---
 
 <!-- Portfolio Header -->
