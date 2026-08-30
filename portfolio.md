@@ -120,16 +120,20 @@ description: "A small collection of things I’ve made while trying to figure ou
   </details>
 
   <!-- Section 03: Channel Portals -->
-  <section class="pt-8 border-t border-brandBorder/40">
-    <div class="w-full border-t border-b border-brandBorder/60 py-2.5 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase">
-      <span>Section 03</span>
-      <span>Social Projections</span>
-      <span class="text-brandRed">❦</span>
-    </div>
+  <details class="group select-none" open>
+    <!-- Category Header Border -->
+    <summary class="w-full border-t border-b border-brandBorder/60 py-3 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase cursor-pointer hover:text-brandWhite transition-colors duration-300 list-none [&::-webkit-details-marker]:hidden">
+      <div class="flex items-center gap-3">
+        <span class="text-brandMuted group-open:rotate-90 transition-transform duration-300 text-[8px] transform origin-center">▶</span>
+        <span>Section 03</span>
+        <span class="text-brandMuted border-l border-brandBorder/60 pl-3">Social Projections</span>
+      </div>
+      <span class="text-brandRed group-open:scale-110 transition-transform duration-300">❦</span>
+    </summary>
     
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
       <!-- Instagram Portal Card -->
-      <div class="bg-charcoalDark/40 border border-brandBorder hover:border-brandYellow/40 rounded p-6 flex flex-col justify-between h-full group transition-all duration-300 relative shadow-md">
+      <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm animate-fade-in">
         <div>
           <!-- Header -->
           <div class="flex justify-between items-center mb-4 border-b border-brandBorder pb-2">
@@ -178,7 +182,7 @@ description: "A small collection of things I’ve made while trying to figure ou
       </div>
 
       <!-- YouTube Portal Card -->
-      <div class="bg-charcoalDark/40 border border-brandBorder hover:border-brandYellow/40 rounded p-6 flex flex-col justify-between h-full group transition-all duration-300 relative shadow-md">
+      <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm animate-fade-in">
         <div>
           <!-- Header -->
           <div class="flex justify-between items-center mb-4 border-b border-brandBorder pb-2">
@@ -227,7 +231,7 @@ description: "A small collection of things I’ve made while trying to figure ou
       </div>
 
       <!-- Letterboxd Portal Card -->
-      <div class="bg-charcoalDark/40 border border-brandBorder hover:border-brandYellow/40 rounded p-6 flex flex-col justify-between h-full group transition-all duration-300 relative shadow-md">
+      <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm animate-fade-in">
         <div>
           <!-- Header -->
           <div class="flex justify-between items-center mb-4 border-b border-brandBorder pb-2">
@@ -273,5 +277,5 @@ description: "A small collection of things I’ve made while trying to figure ou
         </div>
       </div>
     </div>
-  </section>
+  </details>
 </div>
