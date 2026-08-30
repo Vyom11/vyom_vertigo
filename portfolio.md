@@ -142,7 +142,7 @@ description: "A small collection of things I’ve made while trying to figure ou
           </div>
           
           <h3 class="font-display text-xl text-brandWhite mb-3 font-semibold tracking-tight group-hover:text-brandYellow transition-colors duration-300">
-            VISUAL SNIPPETS & WRITING LOGS
+            REELS EVERY MONDAY AND THURSDAY
           </h3>
           
           <!-- Mock Film Negative/Polaroid Strip -->
@@ -168,7 +168,7 @@ description: "A small collection of things I’ve made while trying to figure ou
           </div>
           
           <p class="font-sans text-xs text-brandMuted leading-relaxed font-light">
-            Behind-the-scenes thoughts, visual stories, design aesthetics, and short snippets of works-in-progress.
+            A showcase of the series Previously on Bharat and filmmaking thoughts on short-form of reels.
           </p>
         </div>
         
@@ -240,7 +240,7 @@ description: "A small collection of things I’ve made while trying to figure ou
           </div>
           
           <h3 class="font-display text-xl text-brandWhite mb-3 font-semibold tracking-tight group-hover:text-brandYellow transition-colors duration-300">
-            FILM LOGS & DIARY REVIEWS
+            LETTERBOXD
           </h3>
           
           <!-- Mock Review List -->
@@ -264,7 +264,7 @@ description: "A small collection of things I’ve made while trying to figure ou
           </div>
           
           <p class="font-sans text-xs text-brandMuted leading-relaxed font-light">
-            My raw, unfiltered diary logs, rating sheets, and rapid-fire reviews of everything I watch.
+            Taking grave risk by sharing my letterboxd to the world for everyone to see my pretentious my film taste and judge openly
           </p>
         </div>
         
