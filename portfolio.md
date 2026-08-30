@@ -19,9 +19,9 @@ description: "A small collection of things I’ve made while trying to figure ou
   <!-- Category 1: Film -->
   <details class="group select-none" open>
     <!-- Category Header Border -->
-    <summary class="w-full border-t border-b border-brandBorder/60 py-3 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase cursor-pointer hover:text-brandWhite transition-colors duration-300 list-none [&::-webkit-details-marker]:hidden">
+    <summary class="w-full border-t border-b border-brandBorder/60 py-3.5 sm:py-4 mb-8 flex justify-between items-center text-sm sm:text-base font-retroSans tracking-[0.2em] text-brandYellow uppercase cursor-pointer hover:text-brandWhite transition-colors duration-300 list-none [&::-webkit-details-marker]:hidden">
       <div class="flex items-center gap-3">
-        <span class="text-brandMuted group-open:rotate-90 transition-transform duration-300 text-[8px] transform origin-center">▶</span>
+        <span class="text-brandMuted group-open:rotate-90 transition-transform duration-300 text-[10px] sm:text-xs transform origin-center">▶</span>
         <span>Section 01</span>
         <span class="text-brandMuted border-l border-brandBorder/60 pl-3">Film & Media Critiques</span>
       </div>
@@ -69,9 +69,9 @@ description: "A small collection of things I’ve made while trying to figure ou
   <!-- Category 2: Thoughts -->
   <details class="group select-none" open>
     <!-- Category Header Border -->
-    <summary class="w-full border-t border-b border-brandBorder/60 py-3 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase cursor-pointer hover:text-brandWhite transition-colors duration-300 list-none [&::-webkit-details-marker]:hidden">
+    <summary class="w-full border-t border-b border-brandBorder/60 py-3.5 sm:py-4 mb-8 flex justify-between items-center text-sm sm:text-base font-retroSans tracking-[0.2em] text-brandYellow uppercase cursor-pointer hover:text-brandWhite transition-colors duration-300 list-none [&::-webkit-details-marker]:hidden">
       <div class="flex items-center gap-3">
-        <span class="text-brandMuted group-open:rotate-90 transition-transform duration-300 text-[8px] transform origin-center">▶</span>
+        <span class="text-brandMuted group-open:rotate-90 transition-transform duration-300 text-[10px] sm:text-xs transform origin-center">▶</span>
         <span>Section 02</span>
         <span class="text-brandMuted border-l border-brandBorder/60 pl-3">Thoughts & General Ideas</span>
       </div>
@@ -119,9 +119,9 @@ description: "A small collection of things I’ve made while trying to figure ou
   <!-- Section 03: Channel Portals -->
   <details class="group select-none" open>
     <!-- Category Header Border -->
-    <summary class="w-full border-t border-b border-brandBorder/60 py-3 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase cursor-pointer hover:text-brandWhite transition-colors duration-300 list-none [&::-webkit-details-marker]:hidden">
+    <summary class="w-full border-t border-b border-brandBorder/60 py-3.5 sm:py-4 mb-8 flex justify-between items-center text-sm sm:text-base font-retroSans tracking-[0.2em] text-brandYellow uppercase cursor-pointer hover:text-brandWhite transition-colors duration-300 list-none [&::-webkit-details-marker]:hidden">
       <div class="flex items-center gap-3">
-        <span class="text-brandMuted group-open:rotate-90 transition-transform duration-300 text-[8px] transform origin-center">▶</span>
+        <span class="text-brandMuted group-open:rotate-90 transition-transform duration-300 text-[10px] sm:text-xs transform origin-center">▶</span>
         <span>Section 03</span>
         <span class="text-brandMuted border-l border-brandBorder/60 pl-3">Social Projections</span>
       </div>
