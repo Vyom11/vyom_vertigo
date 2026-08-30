@@ -12,7 +12,7 @@ description: "Professional bio, writing services, and contact information for Vy
     About & Contact
   </h1>
   <p class="font-serif italic text-lg sm:text-xl text-brandMuted max-w-xl leading-relaxed">
-    Bridging technical systems and narrative craft to analyze cinema, technology, and modern culture.
+    The introduction to who I am, what my website is about and why you should care. Enjoy the show.
   </p>
   <div class="text-brandYellow text-xs select-none mt-2">✦</div>
 </header>

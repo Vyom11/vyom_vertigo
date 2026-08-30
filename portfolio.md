@@ -12,7 +12,7 @@ description: "A small collection of things I’ve made while trying to figure ou
     Selected Works
   </h1>
   <p class="font-serif italic text-lg sm:text-xl text-brandMuted max-w-xl leading-relaxed">
-    A curated collection of essays, cultural critiques, and analytical articles exploring the patterns in stories and systems.
+    A small collection of things I’ve made while trying to figure out how my brain works. Essays, videos, questionable reviews, and the occasional thought that probably should’ve stayed in my head. All in one place.
   </p>
   <div class="text-brandYellow text-xs select-none mt-2">✦</div>
 </header>
