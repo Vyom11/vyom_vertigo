@@ -7,13 +7,10 @@ description: "A small collection of things I’ve made while trying to figure ou
 
 <!-- Portfolio Header -->
 <header class="py-10 border-b border-brandBorder mb-10 text-center flex flex-col items-center">
-  <span class="font-retroSans text-[10px] tracking-[0.25em] text-brandRed uppercase mb-3">CURATED PORTFOLIO</span>
+  <span class="font-retroSans text-[10px] tracking-[0.25em] text-brandRed uppercase mb-3">COMPLETE PORTFOLIO</span>
   <h1 class="font-display text-4xl sm:text-5xl md:text-7xl text-brandWhite font-normal tracking-tight leading-none mb-4">
-    Selected Works
+    All the essays by Vyom Vertigo
   </h1>
-  <p class="font-serif italic text-lg sm:text-xl text-brandMuted max-w-xl leading-relaxed">
-    A small collection of things I’ve made while trying to figure out how my brain works. Essays, videos, questionable reviews, and the occasional thought that probably should’ve stayed in my head. All in one place.
-  </p>
   <div class="text-brandYellow text-xs select-none mt-2">✦</div>
 </header>
 
