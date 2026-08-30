@@ -19,15 +19,19 @@ description: "A curated collection of writing clips at the intersection of engin
 
 <div class="space-y-16">
   <!-- Category 1: Film -->
-  <section>
+  <!-- Category 1: Film -->
+  <details class="group select-none" open>
     <!-- Category Header Border -->
-    <div class="w-full border-t border-b border-brandBorder/60 py-2.5 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase">
-      <span>Section 01</span>
-      <span>Film & Media Critiques</span>
-      <span class="text-brandRed">❦</span>
-    </div>
+    <summary class="w-full border-t border-b border-brandBorder/60 py-3 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase cursor-pointer hover:text-brandWhite transition-colors duration-300 list-none [&::-webkit-details-marker]:hidden">
+      <div class="flex items-center gap-3">
+        <span class="text-brandMuted group-open:rotate-90 transition-transform duration-300 text-[8px] transform origin-center">▶</span>
+        <span>Section 01</span>
+        <span class="text-brandMuted border-l border-brandBorder/60 pl-3">Film & Media Critiques</span>
+      </div>
+      <span class="text-brandRed group-open:scale-110 transition-transform duration-300">❦</span>
+    </summary>
     
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="grid md:grid-cols-2 gap-8 mb-8">
       {% assign film_posts = site.posts | where: "category", "film" %}
       {% for post in film_posts %}
       <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm animate-fade-in">
@@ -63,18 +67,21 @@ description: "A curated collection of writing clips at the intersection of engin
       </div>
       {% endfor %}
     </div>
-  </section>
+  </details>
 
   <!-- Category 2: Thoughts -->
-  <section>
+  <details class="group select-none" open>
     <!-- Category Header Border -->
-    <div class="w-full border-t border-b border-brandBorder/60 py-2.5 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase">
-      <span>Section 02</span>
-      <span>Thoughts & General Ideas</span>
-      <span class="text-brandRed">❦</span>
-    </div>
+    <summary class="w-full border-t border-b border-brandBorder/60 py-3 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase cursor-pointer hover:text-brandWhite transition-colors duration-300 list-none [&::-webkit-details-marker]:hidden">
+      <div class="flex items-center gap-3">
+        <span class="text-brandMuted group-open:rotate-90 transition-transform duration-300 text-[8px] transform origin-center">▶</span>
+        <span>Section 02</span>
+        <span class="text-brandMuted border-l border-brandBorder/60 pl-3">Thoughts & General Ideas</span>
+      </div>
+      <span class="text-brandRed group-open:scale-110 transition-transform duration-300">❦</span>
+    </summary>
     
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="grid md:grid-cols-2 gap-8 mb-8">
       {% assign thoughts_posts = site.posts | where: "category", "thoughts" %}
       {% for post in thoughts_posts %}
       <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm animate-fade-in">
@@ -110,7 +117,7 @@ description: "A curated collection of writing clips at the intersection of engin
       </div>
       {% endfor %}
     </div>
-  </section>
+  </details>
 
   <!-- Section 03: Channel Portals -->
   <section class="pt-8 border-t border-brandBorder/40">
