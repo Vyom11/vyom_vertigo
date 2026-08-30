@@ -3,7 +3,7 @@ layout: post
 title: "Introducing Vyom Vertigo"
 subtitle: "Essays on cinema, culture, technology and everything unfortunate enough to enter my brain."
 date: 2026-06-19 20:00:00 +0530
-category: Cinema
+category: film
 pinned: true
 post_style: spread
 ---

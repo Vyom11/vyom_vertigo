@@ -3,7 +3,7 @@ layout: post
 title: "The Art of Cinematic Silence"
 subtitle: "How modern filmmakers use the space between sounds to command attention."
 date: 2026-06-18 18:00:00 +0530
-category: Critique
+category: film
 post_style: spread
 ---
 

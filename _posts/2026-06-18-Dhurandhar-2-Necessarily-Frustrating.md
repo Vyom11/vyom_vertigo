@@ -3,7 +3,7 @@ layout: post
 title: "Dhurandhar: The Revenge — Necessarily Frustrating"
 subtitle: "A modern blockbuster masked as an introspective sequel."
 date: 2026-03-25 12:00:00 +0530
-category: movies
+category: film
 post_style: spread
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: "Indian Content: The Disconnect"
 subtitle: "A critical breakdown of stagnation in Indian TV and OTT storytelling."
 date: 2026-06-18 12:00:00 +0530
-category: thoughts
+category: film
 post_style: spread
 ---
 

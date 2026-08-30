@@ -18,145 +18,249 @@ description: "A curated collection of writing clips at the intersection of engin
 </header>
 
 <div class="space-y-16">
-  <!-- Category 1: Arts, Cinema & Cultural Critique -->
+  <!-- Category 1: Film -->
   <section>
-    
     <!-- Category Header Border -->
     <div class="w-full border-t border-b border-brandBorder/60 py-2.5 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase">
       <span>Section 01</span>
-      <span>Arts, Cinema & Cultural Critique</span>
+      <span>Film & Media Critiques</span>
       <span class="text-brandRed">❦</span>
     </div>
     
     <div class="grid md:grid-cols-2 gap-8">
-      <!-- Clip 1: The Cost of Following (SPREAD STYLE) -->
-      {% assign following_post = site.posts | where: "title", "The Cost of Following" | first %}
-      <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm">
+      {% assign film_posts = site.posts | where: "category", "film" %}
+      {% for post in film_posts %}
+      <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm animate-fade-in">
         <div>
           <!-- Red Badge Category -->
           <div class="flex justify-between items-center mb-4">
-            <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5">
-              SOURCE: VYOM VERTIGO
+            <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5 rounded-sm">
+              {{ post.category }}
             </span>
-            <span class="font-mono text-[9px] text-brandMuted">{{ following_post.date | date: "%B %d, %Y" }}</span>
+            <span class="font-mono text-[9px] text-brandMuted">{{ post.date | date: "%B %d, %Y" }}</span>
           </div>
           
           <h3 class="font-display text-2xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
-            <a href="{{ following_post.url | relative_url }}">{{ following_post.title }}</a>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           </h3>
           
-          <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light">
-            An essay exploring modern work culture, conformity, and why it is better to carve your own path than to blindly follow standard structures.
+          <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light text-justify">
+            {% if post.subtitle %}
+              {{ post.subtitle }}
+            {% else %}
+              {{ post.excerpt | strip_html | strip_newlines | truncate: 160 }}
+            {% endif %}
           </p>
         </div>
         
         <div class="mt-8 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
-          <span>THOUGHTS</span>
-          <a href="{{ following_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+          <span>SOURCE: VYOM VERTIGO</span>
+          <a href="{{ post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
             <span>READ SPREAD</span>
             <span class="text-brandRed">→</span>
           </a>
         </div>
       </div>
-
-      <!-- Clip 2: Cover>Content (SPREAD STYLE) -->
-      {% assign cover_post = site.posts | where: "title", "Cover>Content" | first %}
-      <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm">
-        <div>
-          <!-- Red Badge Category -->
-          <div class="flex justify-between items-center mb-4">
-            <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5">
-              SOURCE: VYOM VERTIGO
-            </span>
-            <span class="font-mono text-[9px] text-brandMuted">{{ cover_post.date | date: "%B %d, %Y" }}</span>
-          </div>
-          
-          <h3 class="font-display text-2xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
-            <a href="{{ cover_post.url | relative_url }}">{{ cover_post.title }}</a>
-          </h3>
-          
-          <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light">
-            A critique on our growing obsession with packaging, aesthetics, and visual styles in modern cinema, at the expense of substantive storytelling.
-          </p>
-        </div>
-        
-        <div class="mt-8 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
-          <span>CRITIQUE</span>
-          <a href="{{ cover_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
-            <span>READ SPREAD</span>
-            <span class="text-brandRed">→</span>
-          </a>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </section>
 
-  <!-- Category 2: Technology, Tech Culture & Essays -->
+  <!-- Category 2: Thoughts -->
   <section>
-    
     <!-- Category Header Border -->
     <div class="w-full border-t border-b border-brandBorder/60 py-2.5 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase">
       <span>Section 02</span>
-      <span>Technology, Tech Culture & Essays</span>
+      <span>Thoughts & General Ideas</span>
       <span class="text-brandRed">❦</span>
     </div>
     
     <div class="grid md:grid-cols-2 gap-8">
-      <!-- Clip 3: Do Engineering (SPREAD STYLE) -->
-      {% assign engineering_post = site.posts | where: "title", "Do Engineering" | first %}
-      <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm">
+      {% assign thoughts_posts = site.posts | where: "category", "thoughts" %}
+      {% for post in thoughts_posts %}
+      <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm animate-fade-in">
         <div>
           <!-- Red Badge Category -->
           <div class="flex justify-between items-center mb-4">
-            <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5">
-              SOURCE: VYOM VERTIGO
+            <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5 rounded-sm">
+              {{ post.category }}
             </span>
-            <span class="font-mono text-[9px] text-brandMuted">{{ engineering_post.date | date: "%B %d, %Y" }}</span>
+            <span class="font-mono text-[9px] text-brandMuted">{{ post.date | date: "%B %d, %Y" }}</span>
           </div>
           
           <h3 class="font-display text-2xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
-            <a href="{{ engineering_post.url | relative_url }}">{{ engineering_post.title }}</a>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
           </h3>
           
-          <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light">
-            A reflective personal essay on why studying engineering provides invaluable mental scaffolding and multidisciplinary perspectives.
+          <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light text-justify">
+            {% if post.subtitle %}
+              {{ post.subtitle }}
+            {% else %}
+              {{ post.excerpt | strip_html | strip_newlines | truncate: 160 }}
+            {% endif %}
           </p>
         </div>
         
         <div class="mt-8 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
-          <span>THOUGHTS</span>
-          <a href="{{ engineering_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+          <span>SOURCE: VYOM VERTIGO</span>
+          <a href="{{ post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
             <span>READ SPREAD</span>
             <span class="text-brandRed">→</span>
           </a>
         </div>
       </div>
+      {% endfor %}
+    </div>
+  </section>
 
-      <!-- Clip 4: AI and its place in our world (SPREAD STYLE) -->
-      {% assign ai_post = site.posts | where: "title", "AI and its place in our world" | first %}
-      <div class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 rounded flex flex-col justify-between h-full group transition-all duration-300 relative shadow-sm">
+  <!-- Section 03: Channel Portals -->
+  <section class="pt-8 border-t border-brandBorder/40">
+    <div class="w-full border-t border-b border-brandBorder/60 py-2.5 mb-8 flex justify-between items-center text-[10px] font-retroSans tracking-[0.2em] text-brandYellow uppercase">
+      <span>Section 03</span>
+      <span>Social Projections</span>
+      <span class="text-brandRed">❦</span>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Instagram Portal Card -->
+      <div class="bg-charcoalDark/40 border border-brandBorder hover:border-brandYellow/40 rounded p-6 flex flex-col justify-between h-full group transition-all duration-300 relative shadow-md">
         <div>
-          <!-- Red Badge Category -->
-          <div class="flex justify-between items-center mb-4">
-            <span class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5">
-              SOURCE: VYOM VERTIGO
-            </span>
-            <span class="font-mono text-[9px] text-brandMuted">{{ ai_post.date | date: "%B %d, %Y" }}</span>
+          <!-- Header -->
+          <div class="flex justify-between items-center mb-4 border-b border-brandBorder pb-2">
+            <span class="text-[9px] font-retroSans tracking-widest text-brandRed uppercase">INSTAGRAM</span>
+            <span class="font-mono text-[9px] text-brandMuted">@vyom_vertigo</span>
           </div>
           
-          <h3 class="font-display text-2xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
-            <a href="{{ ai_post.url | relative_url }}">{{ ai_post.title }}</a>
+          <h3 class="font-display text-xl text-brandWhite mb-3 font-semibold tracking-tight group-hover:text-brandYellow transition-colors duration-300">
+            VISUAL SNIPPETS & WRITING LOGS
           </h3>
           
-          <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light">
-            An analytical deep-dive into the ethics of generative AI art, the importance of artistic labor, and the limits of automated creativity.
+          <!-- Mock Film Negative/Polaroid Strip -->
+          <div class="my-4 bg-brandDark p-3 rounded border border-brandBorder/60 flex items-center justify-between gap-2 overflow-hidden select-none">
+            <div class="w-1/3 aspect-square bg-charcoalLight border border-brandBorder/80 rounded-sm relative flex flex-col items-center justify-center">
+              <span class="font-mono text-[7px] text-brandMuted">FRAME_01</span>
+              <div class="w-4 h-4 rounded-full border border-brandRed/30 flex items-center justify-center mt-1">
+                <span class="text-brandRed text-[6px]">❦</span>
+              </div>
+            </div>
+            <div class="w-1/3 aspect-square bg-charcoalLight border border-brandBorder/80 rounded-sm relative flex flex-col items-center justify-center">
+              <span class="font-mono text-[7px] text-brandMuted">FRAME_02</span>
+              <div class="w-4 h-4 rounded-full border border-brandYellow/30 flex items-center justify-center mt-1">
+                <span class="text-brandYellow text-[6px]">✦</span>
+              </div>
+            </div>
+            <div class="w-1/3 aspect-square bg-charcoalLight border border-brandBorder/80 rounded-sm relative flex flex-col items-center justify-center">
+              <span class="font-mono text-[7px] text-brandMuted">FRAME_03</span>
+              <div class="w-4 h-4 rounded-full border border-brandOrange/30 flex items-center justify-center mt-1">
+                <span class="text-brandOrange text-[6px]">⚜</span>
+              </div>
+            </div>
+          </div>
+          
+          <p class="font-sans text-xs text-brandMuted leading-relaxed font-light">
+            Behind-the-scenes thoughts, visual stories, design aesthetics, and short snippets of works-in-progress.
           </p>
         </div>
         
-        <div class="mt-8 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
-          <span>ESSAY</span>
-          <a href="{{ ai_post.url | relative_url }}" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
-            <span>READ SPREAD</span>
+        <div class="mt-6 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
+          <span>FEED CHANNEL</span>
+          <a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+            <span>VIEW GALLERY</span>
+            <span class="text-brandRed">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- YouTube Portal Card -->
+      <div class="bg-charcoalDark/40 border border-brandBorder hover:border-brandYellow/40 rounded p-6 flex flex-col justify-between h-full group transition-all duration-300 relative shadow-md">
+        <div>
+          <!-- Header -->
+          <div class="flex justify-between items-center mb-4 border-b border-brandBorder pb-2">
+            <span class="text-[9px] font-retroSans tracking-widest text-brandRed uppercase">YOUTUBE</span>
+            <span class="font-mono text-[9px] text-brandMuted">@VyomVertigo</span>
+          </div>
+          
+          <h3 class="font-display text-xl text-brandWhite mb-3 font-semibold tracking-tight group-hover:text-brandYellow transition-colors duration-300">
+            CINEMATIC VIDEO ESSAYS
+          </h3>
+          
+          <!-- Mock YouTube Video Player -->
+          <div class="my-4 bg-brandDark border border-brandBorder/60 rounded-sm relative overflow-hidden group/player aspect-[16/9] flex flex-col justify-end p-2 select-none">
+            <!-- Semi-transparent overlay with a retro play symbol -->
+            <div class="absolute inset-0 bg-charcoal/40 flex items-center justify-center transition-colors duration-300 group-hover/player:bg-charcoal/20">
+              <div class="w-10 h-10 rounded-full bg-brandRed/90 group-hover/player:bg-brandRed group-hover/player:scale-110 flex items-center justify-center transition-all duration-300 shadow">
+                <!-- Play triangle icon -->
+                <svg class="w-4 h-4 text-brandWhite fill-current translate-x-[1px]" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <!-- Progress bar -->
+            <div class="w-full bg-charcoalLight/60 h-1 rounded-full relative z-10 overflow-hidden">
+              <div class="bg-brandRed h-full w-[68%]"></div>
+            </div>
+            <!-- Subtitles/Control strip -->
+            <div class="flex justify-between items-center text-[7px] font-mono text-brandMuted mt-1 relative z-10">
+              <span>08:42 / 12:54</span>
+              <span>HD [•••]</span>
+            </div>
+          </div>
+          
+          <p class="font-sans text-xs text-brandMuted leading-relaxed font-light">
+            In-depth breakdowns of screenplay structures, director styles, and essays on modern visual media.
+          </p>
+        </div>
+        
+        <div class="mt-6 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
+          <span>VIDEO ESSAYS</span>
+          <a href="{{ site.youtube_url }}" target="_blank" rel="noopener noreferrer" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+            <span>TUNE IN</span>
+            <span class="text-brandRed">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Letterboxd Portal Card -->
+      <div class="bg-charcoalDark/40 border border-brandBorder hover:border-brandYellow/40 rounded p-6 flex flex-col justify-between h-full group transition-all duration-300 relative shadow-md">
+        <div>
+          <!-- Header -->
+          <div class="flex justify-between items-center mb-4 border-b border-brandBorder pb-2">
+            <span class="text-[9px] font-retroSans tracking-widest text-brandRed uppercase">LETTERBOXD</span>
+            <span class="font-mono text-[9px] text-brandMuted">3LL6R</span>
+          </div>
+          
+          <h3 class="font-display text-xl text-brandWhite mb-3 font-semibold tracking-tight group-hover:text-brandYellow transition-colors duration-300">
+            FILM LOGS & DIARY REVIEWS
+          </h3>
+          
+          <!-- Mock Review List -->
+          <div class="my-4 bg-brandDark p-3 rounded border border-brandBorder/60 flex flex-col gap-2 font-serif text-[11px] leading-tight select-none">
+            <div class="flex justify-between items-center border-b border-brandBorder pb-1.5">
+              <span class="text-brandWhite truncate max-w-[100px]">The Godfather</span>
+              <span class="text-brandYellow font-mono text-[9px] font-semibold">★★★★★</span>
+            </div>
+            <div class="flex justify-between items-center border-b border-brandBorder pb-1.5">
+              <span class="text-brandWhite truncate max-w-[100px]">Main Tera Hero</span>
+              <span class="text-brandYellow font-mono text-[9px] font-semibold">★★★★½</span>
+            </div>
+            <div class="flex justify-between items-center border-b border-brandBorder pb-1.5">
+              <span class="text-brandWhite truncate max-w-[100px]">Dhurandhar</span>
+              <span class="text-brandYellow font-mono text-[9px] font-semibold">★★★★☆</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-brandWhite truncate max-w-[100px]">Interstellar</span>
+              <span class="text-brandYellow font-mono text-[9px] font-semibold">★★★★★</span>
+            </div>
+          </div>
+          
+          <p class="font-sans text-xs text-brandMuted leading-relaxed font-light">
+            My raw, unfiltered diary logs, rating sheets, and rapid-fire reviews of everything I watch.
+          </p>
+        </div>
+        
+        <div class="mt-6 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
+          <span>DIARY LOG</span>
+          <a href="{{ site.letterboxd_url }}" target="_blank" rel="noopener noreferrer" class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
+            <span>READ DIARY</span>
             <span class="text-brandRed">→</span>
           </a>
         </div>
