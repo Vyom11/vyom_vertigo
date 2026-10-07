@@ -2,6 +2,7 @@
 layout: post
 title: "Dhurandhar: The Revenge — Necessarily Frustrating"
 subtitle: "A modern blockbuster masked as an introspective sequel."
+description: "A review of Dhurandhar: The Revenge: masks and conscience, the third-act payoff, the propaganda debate and why it is necessarily frustrating."
 date: 2026-03-25 12:00:00 +0530
 category: film
 post_style: spread

@@ -2,14 +2,14 @@
 layout: default
 title: Portfolio
 permalink: /portfolio/
-description: "A small collection of things I’ve made while trying to figure out how my brain works. Essays, videos, questionable reviews, and the occasional thought that probably should’ve stayed in my head. All in one place."
+description: "Essays on cinema, culture and technology, plus reels, video essays and a film diary by Vyom Pandya."
 ---
 
 <!-- Portfolio Header -->
 <header class="py-10 border-b border-brandBorder mb-10 text-center flex flex-col items-center">
-  <span class="font-retroSans text-[10px] tracking-[0.25em] text-brandRed uppercase mb-3">COMPLETE PORTFOLIO</span>
+  <span class="font-retroSans text-[10px] tracking-[0.25em] text-brandRed uppercase mb-3">PORTFOLIO</span>
   <h1 class="font-display text-4xl sm:text-5xl md:text-7xl text-brandWhite font-normal tracking-tight leading-none mb-4">
-    All the essays by Vyom Vertigo
+    Essays, reels and a film diary.
   </h1>
   <div class="text-brandYellow text-xs select-none mt-2">✦</div>
 </header>
@@ -214,7 +214,7 @@ description: "A small collection of things I’ve made while trying to figure ou
           </div>
           
           <p class="font-sans text-xs text-brandMuted leading-relaxed font-light">
-            In-depth breakdowns of screenplay structures, director styles, and essays on modern visual media.
+            In-depth breakdowns of screenplay structures, director styles and modern visual media, including The Classics, a series on Indian cinema's essential films.
           </p>
         </div>
         
@@ -261,7 +261,7 @@ description: "A small collection of things I’ve made while trying to figure ou
           </div>
           
           <p class="font-sans text-xs text-brandMuted leading-relaxed font-light">
-            Taking grave risk by sharing my letterboxd to the world for everyone to see my pretentious my film taste and judge openly
+            Sharing my Letterboxd with the world, so everyone can admire my pretentious film taste and judge it openly.
           </p>
         </div>
         

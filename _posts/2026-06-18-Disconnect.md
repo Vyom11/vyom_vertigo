@@ -2,6 +2,7 @@
 layout: post
 title: "Indian Content: The Disconnect"
 subtitle: "A critical breakdown of stagnation in Indian TV and OTT storytelling."
+description: "From the death of the creative ad break to four repeating TV formulas and OTT sequel greed: a critique of stagnation in Indian TV and streaming."
 date: 2026-06-18 12:00:00 +0530
 category: film
 post_style: spread

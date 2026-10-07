@@ -2,6 +2,7 @@
 layout: post
 title: "Feeling Vito After Sacred Games"
 subtitle: "Look how they massacred my boy."
+description: "A reader's case that the Sacred Games novel is a character study the Netflix series flattened, and how that adaptation shaped Indian OTT."
 date: 2026-09-26 11:00:00 +0530
 category: film
 post_style: spread

@@ -2,6 +2,7 @@
 layout: post
 title: "The Art of Cinematic Silence"
 subtitle: "How modern filmmakers use the space between sounds to command attention."
+description: "How filmmakers use silence and negative space, from No Country for Old Men to Ozu and Bergman, to hold an audience's attention."
 date: 2026-06-18 18:00:00 +0530
 category: film
 post_style: spread

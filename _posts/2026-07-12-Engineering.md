@@ -2,6 +2,7 @@
 layout: post
 title: "Do Engineering"
 subtitle: "A personal reflection on why studying engineering provides invaluable mental scaffolding."
+description: "An engineer who writes explains why anyone creative should learn engineering, even as a hobby: range, people and a different way of seeing."
 date: 2026-07-12 12:00:00 +0530
 category: thoughts
 post_style: spread

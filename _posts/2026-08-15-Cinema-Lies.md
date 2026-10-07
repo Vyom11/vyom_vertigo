@@ -2,6 +2,7 @@
 layout: post
 title: "How Cinema Lies"
 subtitle: "What cinema teaches, what we learn, and what we forget."
+description: "Do Bigha Zamin, 3 Idiots, Article 15: great Indian films keep saying profound things. Has any of it changed how we behave?"
 date: 2026-08-22 11:00:00 +0530
 category: film
 post_style: spread

@@ -2,6 +2,7 @@
 layout: post
 title: "From Creators to Mimics"
 subtitle: "Outsourcing Our Thoughts to Make Life Easier"
+description: "On AI trends and a stop-motion launch film: why outsourcing our thinking turns creators into mimics."
 date: 2026-08-29 11:00:00 +0530
 category: thoughts
 post_style: spread

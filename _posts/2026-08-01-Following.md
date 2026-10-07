@@ -2,6 +2,7 @@
 layout: post
 title: "The Cost of Following"
 subtitle: "Why it is better to be Odysseus than the crew."
+description: "A green attendance tick, Pavlov and Odysseus: why we confuse visibility with productivity, and obedience with dedication."
 date: 2026-08-01 12:00:00 +0530
 category: thoughts
 post_style: spread
