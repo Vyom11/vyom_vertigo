@@ -30,34 +30,11 @@ layout: default
         </div>
         {% endif %}
 
-        <!-- Film Credits Style Block -->
-        {% if page.role_tags and page.role_tags.size > 0 %}
-        <div class="credits-roll-block" aria-label="Project Credits">
-          <div class="credits-roll-title">★ CREDITS ★</div>
-          <ul class="credits-roll-list">
-            {% for role in page.role_tags %}
-            <li class="credits-roll-item">
-              <span class="credits-role-name">{{ role }}</span>
-              <span aria-hidden="true">&mdash;</span>
-              <span class="credits-person-name">{{ site.author }}</span>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-        {% endif %}
       </header>
 
       <!-- 5 Sections Body -->
       <div class="article-body">
         {{ content }}
-
-        <!-- Evidence Slot -->
-        <div class="evidence-slot">
-          <!-- TODO(Vyom): add anonymised screenshots or reel links; no logos or brand names -->
-          <p style="font-family: var(--font-body); font-size: 0.8125rem; color: var(--text-muted); margin: 0;">
-            [Media Evidence Slot: Visual assets &amp; reel recordings available upon request]
-          </p>
-        </div>
       </div>
     </article>
 
