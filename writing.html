@@ -1,0 +1,66 @@
+---
+layout: default
+title: "Writing"
+permalink: /writing/
+description: "Personal essays and long-form takes on cinema, culture, tech and everything unfortunate enough to enter my brain."
+---
+
+<div class="site-wrapper">
+
+  <!-- Header -->
+  <header style="margin-block: 2rem 3rem; text-align: left;">
+    <span class="badge badge-pink" style="margin-bottom: 0.75rem;">ESSAYS &amp; CRITICISM</span>
+    <h1 style="font-family: var(--font-hero); font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 0.75rem;">
+      Writing
+    </h1>
+    <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 60ch; line-height: 1.6;">
+      Personal essays and long-form takes on cinema, culture, tech and everything unfortunate enough to enter my brain.
+    </p>
+  </header>
+
+  <!-- Start Here (Featured 3 Essays) -->
+  <section style="margin-bottom: 4rem;" aria-label="Start Here">
+    <div class="section-header">
+      <div>
+        <span class="badge badge-gold" style="margin-bottom: 0.5rem;">RECOMMENDED</span>
+        <h2 class="section-title">Start Here</h2>
+      </div>
+      <p style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--text-muted); margin: 0;">
+        Three essays that define the voice.
+      </p>
+    </div>
+
+    <div class="cards-grid cards-grid-3">
+      {% for post in site.posts %}
+        {% if post.start_here == true %}
+          {% include post-card.html post=post %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- All Essays with Category Filter -->
+  <section aria-label="All Essays Archive">
+    <div class="section-header">
+      <div>
+        <span class="badge badge-teal" style="margin-bottom: 0.5rem;">ARCHIVE</span>
+        <h2 class="section-title">All Essays ({{ site.posts.size }})</h2>
+      </div>
+
+      <!-- Filter Chips -->
+      <div class="filter-bar" role="toolbar" aria-label="Filter essays by category">
+        <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="filter-btn" data-filter="film" aria-pressed="false">Film &amp; Media</button>
+        <button type="button" class="filter-btn" data-filter="thoughts" aria-pressed="false">Thoughts</button>
+      </div>
+    </div>
+
+    <div class="cards-grid cards-grid-3" id="writing-archive-grid">
+      {% for post in site.posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  </section>
+
+</div>
+

@@ -1,0 +1,28 @@
+{% assign words = post.content | number_of_words %}
+{% assign read_time = words | divided_by: 180 | plus: 1 %}
+<article class="post-card post-card-item" data-category="{{ post.category }}">
+  <div>
+    <div class="post-card-meta">
+      <span class="badge {% if post.category == 'film' %}badge-pink{% else %}badge-gold{% endif %}">
+        {% if post.category == 'film' %}Film & Media{% elsif post.category == 'thoughts' %}Thoughts{% else %}{{ post.category }}{% endif %}
+      </span>
+      <span class="badge badge-muted">{{ read_time }} MIN READ</span>
+    </div>
+
+    <h3 class="post-card-title">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h3>
+
+    {% if post.subtitle %}
+      <p class="post-card-subtitle">{{ post.subtitle }}</p>
+    {% elsif post.description %}
+      <p class="post-card-subtitle">{{ post.description }}</p>
+    {% endif %}
+  </div>
+
+  <div class="post-card-footer">
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+    <a href="{{ post.url | relative_url }}" class="read-more-link" aria-label="Read essay: {{ post.title }}">Read Essay &rarr;</a>
+  </div>
+</article>
+

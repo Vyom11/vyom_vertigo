@@ -1,13 +1,20 @@
 title: Vyom Vertigo
 tagline: "Copywriter & creative strategist turning cinema, culture, technology and everything unfortunate enough to enter my brain into stories people want to repeat."
-url: ""
+description: "Vyom Pandya: copywriter, actor and director. Case studies, essays on cinema, culture and technology, and ways to get in touch."
+url: "https://vyom11.github.io"
 author: Vyom Pandya
 
 # Social Links & Contact
-instagram_url: "https://www.instagram.com/vyom_vertigo?igsh=aHBlZGl4ZjQzeXF6&utm_source=qr"
+instagram_url: "https://www.instagram.com/vyom_vertigo"
 letterboxd_url: "https://boxd.it/3LL6R"
 youtube_url: "https://www.youtube.com/@VyomVertigo"
 email: "vyomvertigo@gmail.com"
+
+# Collections
+collections:
+  case_studies:
+    output: true
+    permalink: /case-studies/:name/
 
 # Build Settings
 permalink: /posts/:title/

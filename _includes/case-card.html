@@ -1,0 +1,35 @@
+<article class="case-card">
+  <div>
+    {% if case_study.headline_metrics and case_study.headline_metrics.size > 0 %}
+      {% assign hero_metric = case_study.headline_metrics.first %}
+      <div class="case-card-hero-metric">{{ hero_metric.value }}</div>
+      <div class="case-card-metric-label">{{ hero_metric.label }}</div>
+    {% endif %}
+
+    <div style="margin-bottom: 0.75rem;">
+      <span class="badge badge-teal">{{ case_study.industry }}</span>
+    </div>
+
+    <h3 class="case-card-title">
+      <a href="{{ case_study.url | relative_url }}">{{ case_study.title }}</a>
+    </h3>
+
+    <p class="case-card-summary">{{ case_study.summary }}</p>
+  </div>
+
+  <div>
+    {% if case_study.role_tags and case_study.role_tags.size > 0 %}
+      <div class="case-card-chips" aria-label="Roles on project">
+        {% for role in case_study.role_tags %}
+          <span class="badge badge-muted">{{ role }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="post-card-footer">
+      <span class="badge badge-gold">Project 0{{ case_study.order }}</span>
+      <a href="{{ case_study.url | relative_url }}" class="read-more-link" aria-label="View case study: {{ case_study.title }}">View Case Study &rarr;</a>
+    </div>
+  </div>
+</article>
+

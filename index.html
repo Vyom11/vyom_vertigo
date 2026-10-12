@@ -1,158 +1,165 @@
 ---
 layout: default
-title: "Copywriter & Creative Strategist"
-description: "Vyom Pandya is a copywriter and creative strategist. Essays on cinema, culture and technology, plus reels, video essays and a film diary."
+title: "Vyom Vertigo — Creative Generalist HQ"
 ---
 
-<!-- Redesigned Publication Masthead -->
-<header class="py-10 text-center relative flex flex-col items-center">
+<div class="site-wrapper">
 
-  <!-- Giant Editorial Masthead Title -->
-  <h1
-    class="font-poster text-5xl sm:text-7xl md:text-9xl text-brandWhite font-normal tracking-tighter leading-none my-6 select-none hover:text-brandRed transition-colors duration-500 cursor-default">
-    VYOM VERTIGO
-  </h1>
+  <!-- 1. Hero Section -->
+  <section class="hero-section" aria-label="Introduction">
+    <div class="hero-copy">
+      <div class="hero-kicker">COPYWRITER · ACTOR · DIRECTOR · AI-LITERATE</div>
+      <h1 class="hero-wordmark">VYOM VERTIGO</h1>
+      <h2 class="hero-headline">I write it. I act in it. I direct it.</h2>
+      <p class="hero-sub">
+        Creative generalist who turns ideas into reels, campaigns and stories people actually share. Art-house on Friday, <em>Main Tera Hero</em> on Saturday, anime by midnight.
+      </p>
 
-  <!-- Styled Tagline -->
-  <div class="w-full max-w-2xl border-t border-dashed border-brandBorder pt-4 pb-1">
-    <p
-      class="font-serif italic text-lg sm:text-xl md:text-2xl text-brandMuted font-light leading-relaxed max-w-xl mx-auto">
-      {{ site.tagline }}
+      <div class="btn-group">
+        <a href="{{ '/case-studies/' | relative_url }}" class="btn btn-primary">See my case studies &rarr;</a>
+        <a href="{{ '/writing/' | relative_url }}" class="btn btn-secondary">Read my writing &rarr;</a>
+        <a href="{{ '/contact/' | relative_url }}" class="btn btn-accent">Say hello &rarr;</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="mascot-frame">
+        <img src="{{ '/assets/83592848.jpeg' | relative_url }}" alt="Vyom Vertigo, cartoon portrait" class="mascot-img" width="320" height="320" />
+        <div class="mascot-sticker sticker">
+          Plot twist: strict coffee person, writes tea copy.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Character Sheet Panel -->
+  <section class="character-sheet" aria-label="Character Sheet">
+    <div class="hud-header">
+      <h2 class="hud-title">★ CHARACTER SHEET</h2>
+      <div class="hud-class">Class: Creative Generalist // Alignment: Chaotic Curious</div>
+    </div>
+    <ul class="abilities-grid">
+      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> Copywriting</li>
+      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> Reel scripting</li>
+      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> Acting</li>
+      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> Direction</li>
+      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> Voiceover</li>
+      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> PPC copy</li>
+      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> AI literacy</li>
+      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> Sleight-of-hand magic</li>
+    </ul>
+  </section>
+
+  <!-- 3. Stats Strip -->
+  <section class="stats-strip" aria-label="Key Stats">
+    <div class="stat-item">
+      <!-- TODO(Vyom): confirm combined totals, no double counting -->
+      <div class="stat-number">4.9M+</div>
+      <div class="stat-label">Views Across Brand Work</div>
+    </div>
+    <div class="stat-item">
+      <!-- TODO(Vyom): confirm combined totals, no double counting -->
+      <div class="stat-number">85k+</div>
+      <div class="stat-label">Campaign Likes</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">7</div>
+      <div class="stat-label">Brands Partnered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">900+</div>
+      <div class="stat-label">Films Watched</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">150+</div>
+      <div class="stat-label">Novels Read</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">{{ site.posts.size }}</div>
+      <div class="stat-label">Essays Written</div>
+    </div>
+  </section>
+
+  <!-- 4. The Duality Band -->
+  <section class="duality-band" aria-label="Creative Duality">
+    <div class="duality-grid">
+      <div class="duality-card duality-arthouse">
+        <span class="duality-tag">01 / THE ARTHOUSE</span>
+        <blockquote class="duality-quote">
+          “European art-house on a Friday night.”
+        </blockquote>
+        <p style="margin: 0; color: var(--text-muted); font-size: 0.9375rem;">
+          Restraint, negative space, framing, silence, and stories that let scenes breathe without rushing to the punchline.
+        </p>
+      </div>
+
+      <div class="duality-card duality-masala">
+        <span class="duality-tag">02 / THE MASALA</span>
+        <blockquote class="duality-quote">
+          “<em>Main Tera Hero</em> is a masterpiece. Fight me.”
+        </blockquote>
+        <p style="margin: 0; color: #FFFFFF; font-size: 0.9375rem; opacity: 0.95;">
+          High-energy, unabashed commercial pop, killer hooks, camp swagger, and scripts that grab viewers by the lapels.
+        </p>
+      </div>
+
+      <div class="duality-third-strip">
+        …and anime after midnight.
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Short Bio Band -->
+  <section class="bio-band" aria-label="About Vyom">
+    <h2>The Person Behind the Projector</h2>
+    <p>
+      I'm <strong>Vyom Pandya</strong>, an engineer by degree, a writer by habit and a cinephile by every other measure: 900+ films, 150+ novels, and 10+ years of theatre and painting. I've spent time inside an AI/ML team, so I know what a language model can and can't do. That's why my scripts and copy start with my own thinking, not a prompt: human-made, machine-literate.
     </p>
-  </div>
-
-  <div class="text-brandRed text-sm select-none my-4">❦</div>
-</header>
-
-<!-- Vertically Scrollable Sequence of Articles (Spread Layout) -->
-<section class="flex flex-col gap-8 my-10 max-w-3xl mx-auto w-full">
-  {% if site.posts.size > 0 %}
-
-  {% assign post_limit = 3 %}
-  {% assign posts_printed = 0 %}
-
-  <!-- 1. Pinned/Featured Articles (Styled exactly like standard feed cards) -->
-  {% for post in site.posts %}
-  {% if post.pinned == true and posts_printed < post_limit %}
-  <article class="w-full">
-    <div
-      class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 md:p-8 rounded flex flex-col justify-between group transition-all duration-300 relative shadow-sm">
-      <div>
-        <!-- Card Header -->
-        <div class="flex justify-between items-center mb-4">
-          {% if post.category %}
-          <span
-            class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5 rounded-sm">
-            {{ post.category }}
-          </span>
-          {% endif %}
-          <div class="flex items-center gap-2 font-mono text-[9px] tracking-widest text-brandMuted uppercase">
-            <span class="text-brandYellow font-retroSans font-semibold flex items-center gap-1">
-              ★ Featured Cover
-            </span>
-            <span>•</span>
-            <span>{{ post.date | date: "%B %d, %Y" }}</span>
-          </div>
-        </div>
-
-        <!-- Title -->
-        <h3
-          class="font-display text-2xl md:text-3xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </h3>
-
-        <!-- Subtitle -->
-        {% if post.subtitle %}
-        <p class="font-sans font-light text-xs text-brandAccent/80 mt-3 leading-relaxed">
-          {{ post.subtitle }}
-        </p>
-        {% endif %}
-
-        <!-- Excerpt -->
-        {% if post.excerpt %}
-        <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light text-justify">
-          {{ post.excerpt | strip_html | strip_newlines | truncate: 200 }}
-        </p>
-        {% endif %}
-      </div>
-
-      <!-- Card Footer -->
-      <div
-        class="mt-6 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
-        <span>By {{ site.author }}</span>
-        <a href="{{ post.url | relative_url }}"
-          class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
-          <span>READ SPREAD</span>
-          <span class="text-brandRed">→</span>
-        </a>
-      </div>
+    <p>
+      I won first place in elocution at the 38th AIU Inter-University West Zone UniFest 2025, and I'm a sleight-of-hand magician—misdirection, timing and the reveal turn out to be a good copywriting education.
+    </p>
+    <div class="where-headed-box">
+      <strong>Where this is headed:</strong> Copy and strategy for brands now; ad films and short-form storytelling next; acting and directing long term.
     </div>
-  </article>
-  {% assign posts_printed = posts_printed | plus: 1 %}
-  {% endif %}
-  {% endfor %}
+  </section>
 
-  <!-- 2. Chronological/Regular Articles -->
-  {% for post in site.posts %}
-  {% if post.pinned != true and posts_printed < post_limit %}
-  <article class="w-full">
-    <div
-      class="bg-charcoalLight/20 border border-brandBorder hover:border-brandYellow/40 p-6 md:p-8 rounded flex flex-col justify-between group transition-all duration-300 relative shadow-sm">
+  <!-- 6. Featured Case Studies -->
+  <section style="margin-block: 3.5rem;" aria-label="Featured Case Studies">
+    <div class="section-header">
       <div>
-        <!-- Card Header -->
-        <div class="flex justify-between items-center mb-4">
-          {% if post.category %}
-          <span
-            class="bg-brandRed text-brandWhite text-[9px] font-retroSans tracking-widest uppercase px-2 py-0.5 rounded-sm">
-            {{ post.category }}
-          </span>
-          {% endif %}
-          <div class="flex items-center gap-2 font-mono text-[9px] tracking-widest text-brandMuted uppercase">
-            <span>{{ post.date | date: "%B %d, %Y" }}</span>
-          </div>
-        </div>
-
-        <!-- Title -->
-        <h3
-          class="font-display text-2xl md:text-3xl font-semibold text-brandWhite group-hover:text-brandYellow transition-colors duration-300 tracking-tight uppercase leading-snug border-b border-brandBorder/40 pb-2">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </h3>
-
-        <!-- Subtitle -->
-        {% if post.subtitle %}
-        <p class="font-sans font-light text-xs text-brandAccent/80 mt-3 leading-relaxed">
-          {{ post.subtitle }}
-        </p>
-        {% endif %}
-
-        <!-- Excerpt -->
-        {% if post.excerpt %}
-        <p class="font-sans text-xs text-brandMuted mt-4 leading-relaxed font-light text-justify">
-          {{ post.excerpt | strip_html | strip_newlines | truncate: 200 }}
-        </p>
-        {% endif %}
+        <span class="badge badge-teal" style="margin-bottom: 0.5rem;">WORK SAMPLES</span>
+        <h2 class="section-title">Featured Case Studies</h2>
       </div>
-
-      <!-- Card Footer -->
-      <div
-        class="mt-6 pt-4 border-t border-brandBorder/40 flex items-center justify-between text-[9px] font-mono tracking-widest uppercase text-brandMuted">
-        <span>By {{ site.author }}</span>
-        <a href="{{ post.url | relative_url }}"
-          class="text-brandWhite group-hover:text-brandYellow transition-colors duration-300 flex items-center gap-1 font-retroSans text-[10px] tracking-wider">
-          <span>READ SPREAD</span>
-          <span class="text-brandRed">→</span>
-        </a>
-      </div>
+      <a href="{{ '/case-studies/' | relative_url }}" class="btn btn-secondary">All Case Studies &rarr;</a>
     </div>
-  </article>
-  {% assign posts_printed = posts_printed | plus: 1 %}
-  {% endif %}
-  {% endfor %}
 
-  {% else %}
-  <div class="py-16 text-center border border-dashed border-brandBorder">
-    <p class="font-retroSans text-xs tracking-widest text-brandMuted uppercase">The projector screen is blank. Check
-      back soon.</p>
-  </div>
-  {% endif %}
-</section>
+    <div class="cards-grid cards-grid-3">
+      {% assign sorted_studies = site.case_studies | sort: "order" %}
+      {% for study in sorted_studies %}
+        {% if study.featured == true %}
+          {% include case-card.html case_study=study %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- 7. Featured Writing (Start Here) -->
+  <section style="margin-block: 3.5rem;" aria-label="Featured Writing">
+    <div class="section-header">
+      <div>
+        <span class="badge badge-gold" style="margin-bottom: 0.5rem;">START HERE</span>
+        <h2 class="section-title">Essential Essays</h2>
+      </div>
+      <a href="{{ '/writing/' | relative_url }}" class="btn btn-secondary">All Writing &rarr;</a>
+    </div>
+
+    <div class="cards-grid cards-grid-3">
+      {% for post in site.posts %}
+        {% if post.start_here == true %}
+          {% include post-card.html post=post %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+</div>

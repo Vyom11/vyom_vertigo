@@ -2,151 +2,60 @@
 layout: default
 ---
 
-{% assign p_style = page.post_style | default: "spread" %}
-
-<article class="w-full max-w-4xl mx-auto font-sans relative">
-  
-  <!-- Standardized Editorial Spread Wrapper -->
-  <div class="
-    p-6 md:p-12 rounded-sm border relative shadow-2xl vintage-halftone transition-all duration-300
-    {% if p_style == 'paperback' %}
-      bg-paperCream text-charcoal border-charcoal/30 font-serif
-    {% elsif p_style == 'poster' %}
-      bg-brandPureDark text-brandWhite border-brandRed
-    {% elsif p_style == 'quiet' %}
-      bg-brandPureDark text-brandAccent border-brandBorder/80
-    {% else %}
-      bg-black text-brandWhite border-brandYellow/60
-    {% endif %}
-  ">
-
-    <!-- Standardized Back Button -->
-    <div class="mb-8 z-20 relative">
-      <a href="{{ '/' | relative_url }}"
-        class="inline-flex items-center gap-2 group font-retroSans text-xs tracking-widest uppercase transition-colors duration-300
-          {% if p_style == 'paperback' %}
-            text-brandMuted hover:text-brandRed
-          {% else %}
-            text-brandMuted hover:text-brandWhite
-          {% endif %}
-        ">
-        <svg xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none"
-          viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-        Back to Journal
-      </a>
-    </div>
-
-    <!-- STANDARDIZED POST HEADER -->
-    <header class="mb-10 relative z-10 w-full flex flex-col items-start">
-      
-      <!-- Category Tag Badge -->
-      {% if page.category %}
-        <span class="px-3 py-1 font-retroSans text-[10px] tracking-[0.2em] uppercase rounded-sm mb-4 shadow-sm inline-block
-          {% if p_style == 'paperback' %}
-            bg-charcoal text-paperCream
-          {% elsif p_style == 'poster' %}
-            bg-brandRed text-brandWhite border border-brandYellow/40
-          {% else %}
-            bg-brandRed text-brandWhite
-          {% endif %}
-        ">
-          {{ page.category }}
-        </span>
-      {% endif %}
-      
-      <!-- Standardized Large Editorial Title -->
-      <h1 class="w-full text-left font-display text-4xl md:text-6xl font-normal leading-tight tracking-tight uppercase select-none mb-3
-        {% if p_style == 'paperback' %}
-          text-charcoal font-semibold
-        {% elsif p_style == 'poster' %}
-          text-brandYellow font-poster
-        {% else %}
-          text-brandWhite
+<div class="site-wrapper">
+  <div class="reading-panel-wrapper">
+    
+    <article class="reading-panel">
+      <header class="article-header">
+        <a href="{{ '/writing/' | relative_url }}" class="article-back-link">&larr; Back to Writing</a>
+        
+        {% if page.category %}
+        <div style="margin-bottom: 0.75rem;">
+          <span class="badge {% if page.category == 'film' %}badge-pink{% else %}badge-gold{% endif %}">
+            {% if page.category == 'film' %}Film & Media{% elsif page.category == 'thoughts' %}Thoughts{% else %}{{ page.category }}{% endif %}
+          </span>
+        </div>
         {% endif %}
-      ">
-        {{ page.title }}
-      </h1>
 
-      <!-- Standardized Subtitle -->
-      {% if page.subtitle %}
-        <p class="font-serif italic text-lg md:text-xl leading-relaxed mt-2 max-w-3xl
-          {% if p_style == 'paperback' %}
-            text-charcoal/80
-          {% else %}
-            text-brandAccent/80
-          {% endif %}
-        ">
-          “{{ page.subtitle }}”
-        </p>
-      {% endif %}
+        <h1 class="article-title">{{ page.title }}</h1>
 
-      <!-- Standardized Metadata Row (bounded by borders) -->
-      <div class="w-full mt-6 py-3 border-t border-b border-dashed flex flex-wrap justify-between items-center gap-x-4 gap-y-2 font-mono text-[10px] tracking-[0.15em] uppercase
-        {% if p_style == 'paperback' %}
-          border-charcoal/20 text-brandMuted
-        {% else %}
-          border-brandBorder text-brandMuted
+        {% if page.subtitle %}
+        <p class="article-subtitle">“{{ page.subtitle }}”</p>
         {% endif %}
-      ">
-        <div class="flex items-center gap-2">
+
+        <div class="article-byline">
           <span>By {{ site.author }}</span>
-          <span>//</span>
-          <span>{{ page.date | date: "%B %d, %Y" }}</span>
-        </div>
-        <div>
+          <span aria-hidden="true">//</span>
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+          <span aria-hidden="true">//</span>
           {% assign words = content | number_of_words %}
-          <span>{{ words | divided_by: 180 | plus: 1 }} MIN READ</span>
+          {% assign read_time = words | divided_by: 180 | plus: 1 %}
+          <span>{{ read_time }} MIN READ</span>
         </div>
+      </header>
+
+      <div class="article-body">
+        {{ content }}
       </div>
-      
-    </header>
+    </article>
 
-    <!-- STANDARDIZED POST CONTENT -->
-    <div class="
-      prose-cinematic max-w-3xl mx-auto z-10 relative
-      {% if p_style == 'paperback' %}
-        theme-paperback text-charcoal
-      {% else %}
-        theme-spread text-brandAccent
-      {% endif %}
-    ">
-      {{ content }}
+    <!-- Navigation between articles & closing strip outside the reading panel -->
+    <nav class="post-pagination" aria-label="Article navigation">
+      <div>
+        {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}" rel="prev">&larr; {{ page.previous.title }}</a>
+        {% endif %}
+      </div>
+      <div>
+        {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}" rel="next">{{ page.next.title }} &rarr;</a>
+        {% endif %}
+      </div>
+    </nav>
+
+    <div class="closing-strip">
+      <p style="margin: 0;">Like this? See my <a href="{{ '/case-studies/' | relative_url }}">case studies</a> or <a href="{{ '/contact/' | relative_url }}">say hello</a>.</p>
     </div>
-
-    <!-- STANDARDIZED POST FOOTER -->
-    <footer class="mt-16 md:mt-20 pt-8 border-t relative z-10 flex justify-between items-center text-xs font-mono uppercase tracking-wider
-      {% if p_style == 'paperback' %}
-        border-charcoal/15 text-brandMuted
-      {% else %}
-        border-brandBorder text-brandMuted
-      {% endif %}
-    ">
-      <a href="{{ '/' | relative_url }}"
-        class="inline-flex items-center gap-2 transition-colors duration-300
-          {% if p_style == 'paperback' %}
-            hover:text-charcoal
-          {% else %}
-            hover:text-brandWhite
-          {% endif %}
-        ">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-        Return to Index
-      </a>
-      
-      <!-- Vintage graphic ornament on the right of the footer -->
-      {% if p_style == 'paperback' %}
-        <span class="select-none text-brandRed font-serif">❦</span>
-      {% elsif p_style == 'poster' %}
-        <span class="select-none text-brandYellow">★</span>
-      {% else %}
-        <span class="select-none text-brandRed font-mono">■</span>
-      {% endif %}
-    </footer>
 
   </div>
-</article>
+</div>
