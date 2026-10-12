@@ -1,3 +1,4 @@
+{% assign post = include.post | default: post %}
 {% assign words = post.content | number_of_words %}
 {% assign read_time = words | divided_by: 180 | plus: 1 %}
 <article class="post-card post-card-item" data-category="{{ post.category }}">

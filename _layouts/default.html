@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="masala">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +9,14 @@
   <script>
     (function () {
       try {
-        var saved = localStorage.getItem('vv_theme');
-        if (saved === 'arthouse' || saved === 'masala') {
-          document.documentElement.setAttribute('data-theme', saved);
+        var saved = localStorage.getItem('vv-theme');
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
         } else {
-          document.documentElement.setAttribute('data-theme', 'masala');
+          document.documentElement.setAttribute('data-theme', 'light');
         }
       } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'masala');
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
   </script>
@@ -27,7 +27,7 @@
   <meta name="description" content="{{ page_desc | strip_html | strip_newlines | escape }}">
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
 
   <!-- Favicon using cartoon mascot avatar -->
   <link rel="icon" type="image/jpeg" href="{{ '/assets/83592848.jpeg' | relative_url }}">
@@ -38,19 +38,19 @@
   <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{{ page_desc | strip_html | strip_newlines | escape }}">
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
-  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
-  <meta property="og:image" content="{{ site.url }}{{ '/assets/og-default.png' | relative_url }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ '/assets/og-default.png' | absolute_url }}">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
   <meta name="twitter:description" content="{{ page_desc | strip_html | strip_newlines | escape }}">
-  <meta name="twitter:image" content="{{ site.url }}{{ '/assets/og-default.png' | relative_url }}">
+  <meta name="twitter:image" content="{{ '/assets/og-default.png' | absolute_url }}">
 
-  <!-- Google Fonts: Instrument Serif, Rozha One, Space Grotesk, Space Mono, Noto Serif Devanagari -->
+  <!-- Google Fonts: Exactly two families (Poppins + Rozha One) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Serif+Devanagari:wght@400;600;700&family=Rozha+One&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Rozha+One&display=swap" rel="stylesheet">
 
   <!-- Hand-written CSS (Zero frameworks, pure custom properties) -->
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
@@ -66,8 +66,8 @@
     "@type": "Person",
     "name": "{{ site.author }}",
     "url": "{{ site.url }}",
-    "image": "{{ site.url }}{{ '/assets/83592848.jpeg' | relative_url }}",
-    "jobTitle": "Copywriter, Actor, Director",
+    "image": "{{ '/assets/83592848.jpeg' | absolute_url }}",
+    "jobTitle": "Copywriter, Creative Strategist, Engineer",
     "description": "{{ site.description | escape }}",
     "sameAs": [
       "{{ site.instagram_url }}",
@@ -88,8 +88,8 @@
       "name": "{{ site.author }}"
     },
     "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "url": "{{ site.url }}{{ site.baseurl }}{{ page.url }}",
-    "image": "{{ site.url }}{{ '/assets/og-default.png' | relative_url }}"
+    "url": "{{ page.url | absolute_url }}",
+    "image": "{{ '/assets/og-default.png' | absolute_url }}"
   }
   </script>
   {% endif %}

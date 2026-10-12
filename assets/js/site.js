@@ -7,31 +7,31 @@
 (function () {
   'use strict';
 
-  // --- 1. Theme Toggle ---
+  // --- 1. Theme Toggle (Light <-> Dark) ---
   function initTheme() {
     var toggleBtn = document.getElementById('theme-toggle');
     if (!toggleBtn) return;
 
     function getTheme() {
-      return document.documentElement.getAttribute('data-theme') || 'masala';
+      return document.documentElement.getAttribute('data-theme') || 'light';
     }
 
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       try {
-        localStorage.setItem('vv_theme', theme);
+        localStorage.setItem('vv-theme', theme);
       } catch (err) {
         // LocalStorage disabled or restricted
       }
-      toggleBtn.setAttribute('aria-pressed', theme === 'arthouse' ? 'true' : 'false');
+      toggleBtn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
     }
 
     // Set initial aria-pressed state based on current theme
     var currentTheme = getTheme();
-    toggleBtn.setAttribute('aria-pressed', currentTheme === 'arthouse' ? 'true' : 'false');
+    toggleBtn.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
 
     toggleBtn.addEventListener('click', function () {
-      var nextTheme = getTheme() === 'masala' ? 'arthouse' : 'masala';
+      var nextTheme = getTheme() === 'dark' ? 'light' : 'dark';
       setTheme(nextTheme);
     });
   }

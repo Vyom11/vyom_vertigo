@@ -1,3 +1,4 @@
+{% assign case_study = include.case_study | default: case_study %}
 <article class="case-card">
   <div>
     {% if case_study.headline_metrics and case_study.headline_metrics.size > 0 %}
