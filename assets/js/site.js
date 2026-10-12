@@ -1,6 +1,6 @@
 /**
  * Vyom Vertigo — Minimal Vanilla JS
- * Handles Theme Toggle (Arthouse <-> Masala) and Writing Category Filters.
+ * Handles Theme Toggle (Light <-> Dark) and Writing Category Filters.
  * Pure progressive enhancement: site is 100% readable with JS disabled.
  */
 
