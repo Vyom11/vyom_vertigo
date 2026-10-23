@@ -9,7 +9,7 @@ role_tags:
   - "Reel Scriptwriter"
 headline_metrics:
   - value: "2M+"
-    label: "Total Views"
+    label: "Views"
 summary: "High-intent PPC ad copy paired with festive-season reels and model explainer scripts, generating 2M+ views for a regional dealership."
 ---
 

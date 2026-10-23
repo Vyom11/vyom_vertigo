@@ -1,26 +1,28 @@
-<footer class="site-footer">
-  <div class="site-wrapper">
-    <div class="footer-inner">
-      <nav aria-label="Footer Navigation">
-        <ul class="footer-nav">
-          <li><a href="{{ '/' | relative_url }}">Home</a></li>
-          <li><a href="{{ '/writing/' | relative_url }}">Writing</a></li>
-          <li><a href="{{ '/case-studies/' | relative_url }}">Case Studies</a></li>
-          <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
-        </ul>
-      </nav>
+<footer class="site-footer" data-commentary="{{ site.data.commentary.footer | escape }}">
+  <div class="wrap">
 
-      <div class="footer-socials">
-        <a href="mailto:{{ site.email }}" class="footer-link">EMAIL</a>
-        <a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer" class="footer-link">INSTAGRAM</a>
-        <a href="{{ site.youtube_url }}" target="_blank" rel="noopener noreferrer" class="footer-link">YOUTUBE</a>
-        <a href="{{ site.letterboxd_url }}" target="_blank" rel="noopener noreferrer" class="footer-link">LETTERBOXD</a>
-      </div>
+    <p class="eyebrow">Have a brief?</p>
+    <h2 class="footer-cta-title">Tell me the brand, the audience and the deadline.</h2>
+    <a class="footer-mail" href="mailto:{{ site.email }}?subject=Hello%20Vyom">{{ site.email }}</a>
 
-      <p class="footer-copy">
-        &copy; {{ 'now' | date: "%Y" }} Vyom Vertigo. Human-made, machine-literate.
-      </p>
+    <!-- The billing block from the bottom of a film poster -->
+    <p class="billing">
+      <span class="billing-credit"><span class="billing-role">Written by</span> <span class="billing-name">Vyom Pandya</span></span>
+      <span class="billing-credit"><span class="billing-role">Creative strategy</span> <span class="billing-name">Vyom Pandya</span></span>
+      <span class="billing-credit"><span class="billing-role">Copy &amp; scripts</span> <span class="billing-name">Vyom Pandya</span></span>
+      <span class="billing-credit"><span class="billing-role">On camera</span> <span class="billing-name">Vyom Pandya</span></span>
+      <span class="billing-credit"><span class="billing-role">Directed by</span> <span class="billing-name">Vyom Pandya</span></span>
+      <span class="billing-credit"><span class="billing-role">Formerly AI/ML engineering</span> <span class="billing-name">Vyom Pandya</span></span>
+    </p>
+
+    <div class="footer-base">
+      <ul class="footer-links" aria-label="Elsewhere">
+        <li><a href="mailto:{{ site.email }}">Email</a></li>
+        <li><a href="{{ site.instagram_url }}" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li><a href="{{ site.youtube_url }}" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+        <li><a href="{{ site.letterboxd_url }}" rel="noopener noreferrer" target="_blank">Letterboxd</a></li>
+      </ul>
+      <p class="footer-small">&copy; {{ 'now' | date: "%Y" }} Vyom Pandya. Human-made, machine-literate.</p>
     </div>
   </div>
 </footer>
-

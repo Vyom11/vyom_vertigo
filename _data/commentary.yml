@@ -1,0 +1,32 @@
+# Director's commentary: the subtitle-style asides that appear when a visitor turns on CC.
+# Edit freely, in your own voice. Keep each line short enough to read in two seconds.
+
+home:
+  hero: "Commentary's on. I'll keep it short, like a good reel."
+  stats: "The receipts, before anyone asks."
+  work: "Pick any one. None of them runs longer than three minutes."
+  writing: "Fair warning: one of these has a Hercule Poirot cameo."
+  films: "Four films, four rules for how I work. Hover slowly."
+
+# Case studies: keyed by the section heading text, so every case study shares them
+case_study:
+  intro: "Every case study here is a short film. This is the poster."
+  numbers: "Box office first. The story comes after."
+  sections:
+    "The brief": "Act one: somebody has a problem."
+    "The idea": "Act two: the twist."
+    "What I did": "The montage sequence."
+    "How it worked": "The director's cut explanation."
+    "The results": "Roll credits."
+
+about:
+  bio: "Yes, the magic is real. No, I won't explain the trick."
+  taste: "Both of these are true at the same time."
+  films: "If you only read one section, make it this one."
+  next: "The sequel is already in pre-production."
+
+contact:
+  intro: "This is the part where you send the brief."
+  channels: "Email is fastest. Letterboxd is most honest."
+
+footer: "Every credit is me. Low budget, high commitment."

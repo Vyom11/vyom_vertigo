@@ -5,65 +5,50 @@ permalink: /contact/
 description: "Get in touch with Vyom Pandya for copywriting briefs, reel scripting, acting, and creative direction."
 ---
 
-<div class="site-wrapper">
+<header class="page-head wrap">
+  <p class="eyebrow">Contact</p>
+  <h1 class="page-title display">Say hello</h1>
+</header>
 
-  <!-- Header styled as End Credits -->
-  <header class="credits-header">
-    <div class="hero-kicker" style="letter-spacing: 0.25em;">ROLL CREDITS // REACH OUT</div>
-    <h1>Contact &amp; Find Me</h1>
-    <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 50ch; margin-inline: auto;">
-      Got a project, a script in need of punch, or an unhinged take on Hindi cinema? My inbox is open.
-    </p>
-  </header>
-
-  <!-- Four Large Link Cards -->
-  <section class="contact-cards-grid" aria-label="Direct Channels">
-    <a href="mailto:{{ site.email }}?subject=Hello%20Vyom" class="contact-card">
-      <div class="contact-card-label">01 / DIRECT DISPATCH</div>
-      <div class="contact-card-val">Email</div>
-      <p style="margin: 0; color: var(--text-muted); font-size: 0.875rem;">{{ site.email }}</p>
-    </a>
-
-    <a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer" class="contact-card">
-      <div class="contact-card-label">02 / REELS &amp; SHORTS</div>
-      <div class="contact-card-val">Instagram</div>
-      <p style="margin: 0; color: var(--text-muted); font-size: 0.875rem;">@vyom_vertigo</p>
-    </a>
-
-    <a href="{{ site.youtube_url }}" target="_blank" rel="noopener noreferrer" class="contact-card">
-      <div class="contact-card-label">03 / VIDEO ESSAYS</div>
-      <div class="contact-card-val">YouTube</div>
-      <p style="margin: 0; color: var(--text-muted); font-size: 0.875rem;">@VyomVertigo</p>
-    </a>
-
-    <a href="{{ site.letterboxd_url }}" target="_blank" rel="noopener noreferrer" class="contact-card">
-      <div class="contact-card-label">04 / DIARY &amp; LOG</div>
-      <div class="contact-card-val">Letterboxd</div>
-      <p style="margin: 0; color: var(--text-muted); font-size: 0.875rem;">boxd.it/3LL6R</p>
-    </a>
-  </section>
-
-  <!-- Got a brief? Block -->
-  <section class="brief-ticket" aria-label="Send a Brief">
-    <span class="badge badge-gold" style="margin-bottom: 0.75rem;">NEW INQUIRIES</span>
-    <h2>Got a brief?</h2>
-    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.25rem;">
-      Tell me the brand, the audience and the deadline. Looking for a copywriter who can bridge technical systems, pop culture, and screen direction? Let's connect.
-    </p>
-
-    <!-- TODO(Vyom): availability and rates -->
-
-    <div style="margin-top: 1.5rem;">
-      <a href="mailto:{{ site.email }}?subject=Project%20inquiry" class="btn btn-primary">
-        Send a brief &rarr;
-      </a>
+<section class="section--tight wrap contact-grid" aria-label="Get in touch">
+  <div class="contact-copy" data-commentary="{{ site.data.commentary.contact.intro | escape }}">
+    <p>Got a project, a script in need of punch, or an unhinged take on Hindi cinema? My inbox is open.</p>
+    <p>Tell me the brand, the audience and the deadline. Looking for a copywriter who can bridge technical systems, pop culture, and screen direction? Let's connect.</p>
+    <div class="ctas">
+      <a class="cta" href="mailto:{{ site.email }}?subject=Project%20inquiry">Send a brief <span class="cta-arrow" aria-hidden="true">&rarr;</span></a>
     </div>
-  </section>
-
-  <!-- Single Schedule Note Line -->
-  <div class="schedule-note">
-    A thing is a thing, not what is said of that thing.
   </div>
 
-</div>
+  <ul class="list" role="list" aria-label="Channels" data-commentary="{{ site.data.commentary.contact.channels | escape }}">
+    <li>
+      <a href="mailto:{{ site.email }}?subject=Hello%20Vyom" class="channel">
+        <span class="channel-lbl">Direct</span>
+        <span class="channel-name">Email</span>
+        <span class="channel-handle">{{ site.email }}</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{ site.instagram_url }}" target="_blank" rel="noopener noreferrer" class="channel">
+        <span class="channel-lbl">Reels &amp; shorts</span>
+        <span class="channel-name">Instagram</span>
+        <span class="channel-handle">@vyom_vertigo</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{ site.youtube_url }}" target="_blank" rel="noopener noreferrer" class="channel">
+        <span class="channel-lbl">Video essays</span>
+        <span class="channel-name">YouTube</span>
+        <span class="channel-handle">@VyomVertigo</span>
+      </a>
+    </li>
+    <li>
+      <a href="{{ site.letterboxd_url }}" target="_blank" rel="noopener noreferrer" class="channel">
+        <span class="channel-lbl">Film diary</span>
+        <span class="channel-name">Letterboxd</span>
+        <span class="channel-handle">boxd.it/3LL6R</span>
+      </a>
+    </li>
+  </ul>
+</section>
 
+<p class="closing-line wrap">A thing is a thing, not what is said of that thing.</p>

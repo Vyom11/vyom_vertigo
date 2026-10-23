@@ -1,0 +1,70 @@
+---
+layout: default
+title: "About"
+permalink: /about/
+description: "Vyom Pandya: engineer by degree, writer by habit, cinephile by every other measure. The long version, four favourite films, and where this is headed."
+---
+
+<header class="page-head wrap">
+  <p class="eyebrow">About</p>
+  <h1 class="page-title display">The long version</h1>
+</header>
+
+<!-- Bio: Vyom's own words, unchanged -->
+<section class="section--tight wrap" aria-label="Bio" data-commentary="{{ site.data.commentary.about.bio | escape }}">
+  <div class="prose">
+    <p>
+      I'm <strong>Vyom Pandya</strong>, an engineer by degree, a writer by habit and a cinephile by every other measure: 900+ films, 150+ novels, and 10+ years of theatre and painting. I've spent time inside an AI/ML team, so I know what a language model can and can't do. That's why my scripts and copy start with my own thinking, not a prompt: human-made, machine-literate.
+    </p>
+    <p>
+      I won first place in elocution at the 38th AIU Inter-University West Zone UniFest 2025, and I'm a sleight-of-hand magician—misdirection, timing and the reveal turn out to be a good copywriting education.
+    </p>
+  </div>
+</section>
+
+<!-- Double bill: Vyom's own lines, unchanged -->
+<section class="section wrap" aria-labelledby="taste-title" data-commentary="{{ site.data.commentary.about.taste | escape }}">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">Taste</p>
+      <h2 class="section-title" id="taste-title">A double bill.</h2>
+    </div>
+  </div>
+  <div class="pair">
+    <div class="pair-half">
+      <p class="eyebrow">01 / The arthouse</p>
+      <blockquote class="pair-quote">“European art-house on a Friday night.”</blockquote>
+      <p class="pair-desc">Restraint, negative space, framing, silence, and stories that let scenes breathe without rushing to the punchline.</p>
+    </div>
+    <div class="pair-half">
+      <p class="eyebrow">02 / The masala</p>
+      <blockquote class="pair-quote">“<em>Main Tera Hero</em> is a masterpiece. Fight me.”</blockquote>
+      <p class="pair-desc">High-energy, unabashed commercial pop, killer hooks, camp swagger, and scripts that grab viewers by the lapels.</p>
+    </div>
+    <p class="pair-late">…and anime after midnight.</p>
+  </div>
+</section>
+
+<section class="section wrap" aria-labelledby="films-title" data-commentary="{{ site.data.commentary.about.films | escape }}">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">Top 4</p>
+      <h2 class="section-title" id="films-title">Four films that explain how I work.</h2>
+    </div>
+  </div>
+  {% include top4.html %}
+  <p class="top4-hint">
+    <span><span class="hint-hover">Hover over</span><span class="hint-tap">Tap</span> a poster.</span>
+    <a class="cta cta--muted" href="{{ site.letterboxd_url }}" rel="noopener noreferrer" target="_blank">Letterboxd <span class="cta-arrow" aria-hidden="true">&nearr;</span></a>
+  </p>
+</section>
+
+<section class="section wrap" aria-label="Where this is headed" data-commentary="{{ site.data.commentary.about.next | escape }}">
+  <p class="statement">
+    <strong>Where this is headed:</strong> Copy and strategy for brands now; ad films and short-form storytelling next; acting and directing long term.
+  </p>
+  <div class="ctas">
+    <a class="cta" href="{{ '/case-studies/' | relative_url }}">See the work <span class="cta-arrow" aria-hidden="true">&rarr;</span></a>
+    <a class="cta cta--muted" href="{{ '/contact/' | relative_url }}">Get in touch <span class="cta-arrow" aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>

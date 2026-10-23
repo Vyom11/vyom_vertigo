@@ -1,0 +1,7 @@
+# Each case study's own colour: the row flood on hover, the band behind its results, its ticket stub.
+# Keyed by the case study's file name. Off-white text on each stays above 4.5:1 (WCAG AA).
+real-estate: "#3B34B8"          # garba-night indigo
+tea-brand: "#15703F"            # tea-leaf green
+car-dealership: "#1D5BB0"       # showroom blue
+healthcare-savings: "#0B746C"   # SmartEco pharmacy teal
+small-business-reels: "#9C1F66" # neighbourhood magenta

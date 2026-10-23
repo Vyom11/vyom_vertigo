@@ -1,0 +1,11 @@
+<!-- Ticket stubs: one per case study, torn when a visitor opens it (stored in their browser only) -->
+<div class="stubs" data-stubs data-total="{{ site.case_studies.size }}">
+  <ul class="stubs-row">
+    {% assign sorted_studies = site.case_studies | sort: "order" %}
+    {% for s in sorted_studies %}
+    <li><a class="stub" data-stub="{{ s.slug }}" href="{{ s.url | relative_url }}" style="--row-color: {{ site.data.case_colors[s.slug] | default: '#1E1E1E' }}" aria-label="{{ s.title }}" title="{{ s.title }}"></a></li>
+    {% endfor %}
+  </ul>
+  <p class="stubs-label">Ticket stubs: <span data-stubs-count>0</span> of {{ site.case_studies.size }} case studies seen</p>
+  <p class="stubs-full" hidden>Full house. You've seen everything. <a href="{{ '/contact/' | relative_url }}">Send a brief?</a></p>
+</div>

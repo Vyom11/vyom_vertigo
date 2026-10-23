@@ -5,39 +5,20 @@ permalink: /case-studies/
 description: "Real-world commercial copy, short-form reels, creative strategy and performance campaigns across industries."
 ---
 
-<div class="site-wrapper">
+{% assign sorted_studies = site.case_studies | sort: "order" %}
 
-  <header style="margin-block: 2rem 3rem; text-align: left;">
-    <span class="badge badge-teal" style="margin-bottom: 0.75rem;">COMMERCIAL PORTFOLIO</span>
-    <h1 style="font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 0.75rem;">
-      Case Studies
-    </h1>
-    <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 60ch; line-height: 1.6; margin-bottom: 1rem;">
-      Commercial copy, short-form reel scripting, on-camera acting, and campaign direction that move numbers.
-    </p>
-    <div class="sticker" style="display: inline-block;">
-      Client names are withheld; the work is real.
-    </div>
-  </header>
+<header class="page-head wrap">
+  <p class="eyebrow">{{ site.case_studies.size }} case studies</p>
+  <h1 class="page-title display">Work</h1>
+  <p class="page-lede">Commercial copy, short-form reel scripting, on-camera acting, and campaign direction that move numbers.</p>
+  <p class="page-note">Client names are withheld; the work is real.</p>
+  <div class="page-stubs">{% include stubs.html %}</div>
+</header>
 
-  <section aria-label="Case Studies Grid">
-    <div class="cards-grid cards-grid-3">
-      {% assign sorted_studies = site.case_studies | sort: "order" %}
-      {% for study in sorted_studies %}
-        {% include case-card.html case_study=study %}
-      {% endfor %}
-    </div>
-  </section>
-
-  <section style="margin-top: 4rem;">
-    <div class="closing-strip">
-      <h2 style="font-family: var(--font-display); font-size: 1.75rem; margin-bottom: 0.5rem;">Have a brief that needs personality?</h2>
-      <p style="margin-bottom: 1rem; color: var(--text-muted);">
-        Looking for a copywriter who can bridge technical systems, pop culture, and screen direction?
-      </p>
-      <a href="{{ '/contact/' | relative_url }}" class="btn btn-primary">Say Hello &rarr;</a>
-    </div>
-  </section>
-
-</div>
-
+<section class="section--tight wrap" aria-label="Case studies">
+  <ol class="list" role="list">
+    {% for study in sorted_studies %}
+      {% include work-row.html case_study=study %}
+    {% endfor %}
+  </ol>
+</section>

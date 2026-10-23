@@ -12,7 +12,7 @@ role_tags:
   - "Concept Creator"
 headline_metrics:
   - value: "1.7M+"
-    label: "Instagram Views"
+    label: "Views"
   - value: "40k+"
     label: "Likes"
 summary: "Turning BHK counts into cultural entertainment: game-show hooks, Navratri festival metrics, and face-to-camera property tours that earned 1.7M+ views."

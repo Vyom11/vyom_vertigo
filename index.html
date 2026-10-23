@@ -1,165 +1,88 @@
 ---
 layout: default
-title: "Vyom Vertigo — Creative Generalist HQ"
 ---
 
-<div class="site-wrapper">
+{% assign featured = site.case_studies | where: "featured", true | sort: "order" %}
+{% assign start_here = site.posts | where: "start_here", true %}
+{% assign cc = site.data.commentary.home %}
 
-  <!-- 1. Hero Section -->
-  <section class="hero-section" aria-label="Introduction">
-    <div class="hero-copy">
-      <div class="hero-kicker">COPYWRITER · CREATIVE STRATEGIST · ENGINEER</div>
-      <h1 class="hero-wordmark">VYOM VERTIGO</h1>
-      <h2 class="hero-headline">I write it. I act in it. I direct it.</h2>
-      <p class="hero-sub">
-        Creative generalist who turns ideas into reels, campaigns and stories people actually share. Art-house on Friday, <em>Main Tera Hero</em> on Saturday, anime by midnight.
+<section class="hero" aria-labelledby="hero-title" data-commentary="{{ cc.hero | escape }}">
+  <div class="hero-inner wrap">
+  <div class="hero-top">
+    <h1 class="hero-title display title-card" id="hero-title">
+      <span class="tc-line"><span>Writ</span></span>
+      <span class="tc-line"><span>to write.</span></span>
+    </h1>
+
+    {% include tapes.html %}
+  </div>
+
+  <div class="hero-row">
+    <div>
+      <p class="hero-intro">
+        I'm <strong>Vyom Pandya</strong>. Like everyone, I did engineering. Like Farhan, I chose the passion over the placement.
+        (Fortunately, <em>abba maan gaye</em>.) Now I write and shape brand content: reels, campaigns and copy. Lights down. Enjoy the show.
       </p>
-
-      <div class="btn-group">
-        <a href="{{ '/case-studies/' | relative_url }}" class="btn btn-primary">See my case studies &rarr;</a>
-        <a href="{{ '/writing/' | relative_url }}" class="btn btn-secondary">Read my writing &rarr;</a>
-        <a href="{{ '/contact/' | relative_url }}" class="btn btn-accent">Say hello &rarr;</a>
+      <div class="ctas">
+        <a class="cta" href="#work">See the work <span class="cta-arrow" aria-hidden="true">&darr;</span></a>
+        <button type="button" class="cta cta--muted cta-button" data-cc-on>Watch with commentary <span class="cc-badge cc-badge--inline" aria-hidden="true">CC</span></button>
       </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="mascot-frame">
-        <img src="{{ '/assets/IMG_4939.jpg' | relative_url }}" alt="Vyom Vertigo, cartoon portrait" class="mascot-img" width="320" height="320" />
-        <div class="mascot-sticker sticker">
-          Jack of All Trades. Master of Many
-        </div>
-      </div>
-    </div>
-  </section>
+    <dl class="stats" data-commentary="{{ cc.stats | escape }}">
+      <div class="stat"><dt class="stat-lbl">Views</dt><dd class="stat-num">12M+</dd></div>
+      <div class="stat"><dt class="stat-lbl">Likes</dt><dd class="stat-num">100K+</dd></div>
+      <div class="stat"><dt class="stat-lbl">Brands</dt><dd class="stat-num">7</dd></div>
+    </dl>
+  </div>
+  </div>
+</section>
 
-  <!-- 2. Character Sheet Panel -->
-  <section class="character-sheet" aria-label="Character Sheet">
-    <div class="hud-header">
-      <h2 class="hud-title">★ CHARACTER SHEET</h2>
-      <div class="hud-class">Class: Creative Generalist // Alignment: Chaotic Curious</div>
+<section class="section wrap" id="work" aria-labelledby="work-title" data-commentary="{{ cc.work | escape }}">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">Selected work</p>
+      <h2 class="section-title" id="work-title">Work that got watched.</h2>
     </div>
-    <ul class="abilities-grid">
-      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> Copywriting</li>
-      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> Reel scripting</li>
-      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> Acting</li>
-      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> Direction</li>
-      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> Voiceover</li>
-      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> PPC copy</li>
-      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> AI Engineer</li>
-      <li class="ability-chip"><span class="chip-dot" aria-hidden="true"></span> Sleight-of-hand magic</li>
-    </ul>
-  </section>
+    {% include stubs.html %}
+  </div>
 
-  <!-- 3. Stats Strip -->
-  <section class="stats-strip" aria-label="Key Stats">
-    <div class="stat-item">
-      <!-- TODO(Vyom): confirm combined totals, no double counting -->
-      <div class="stat-number">4.9M+</div>
-      <div class="stat-label">Views Across Brand Work</div>
-    </div>
-    <div class="stat-item">
-      <!-- TODO(Vyom): confirm combined totals, no double counting -->
-      <div class="stat-number">85k+</div>
-      <div class="stat-label">Campaign Likes</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">7</div>
-      <div class="stat-label">Brands Partnered</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">900+</div>
-      <div class="stat-label">Films Watched</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">150+</div>
-      <div class="stat-label">Novels Read</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">{{ site.posts.size }}</div>
-      <div class="stat-label">Essays Written</div>
-    </div>
-  </section>
+  <ol class="list" role="list">
+    {% for study in featured %}
+      {% include work-row.html case_study=study %}
+    {% endfor %}
+  </ol>
+  <p class="list-more"><a class="cta" href="{{ '/case-studies/' | relative_url }}">All {{ site.case_studies.size }} case studies <span class="cta-arrow" aria-hidden="true">&rarr;</span></a></p>
+</section>
 
-  <!-- 4. The Duality Band -->
-  <section class="duality-band" aria-label="Creative Duality">
-    <div class="duality-grid">
-      <div class="duality-card duality-calm">
-        <span class="duality-tag">01 / THE ARTHOUSE</span>
-        <blockquote class="duality-quote">
-          “European art-house on a Friday night.”
-        </blockquote>
-        <p class="duality-desc">
-          Restraint, negative space, framing, silence, and stories that let scenes breathe without rushing to the punchline.
-        </p>
-      </div>
-
-      <div class="duality-card duality-pop">
-        <span class="duality-tag">02 / THE MASALA</span>
-        <blockquote class="duality-quote">
-          “<em>Main Tera Hero</em> is a masterpiece. Fight me.”
-        </blockquote>
-        <p class="duality-desc">
-          High-energy, unabashed commercial pop, killer hooks, camp swagger, and scripts that grab viewers by the lapels.
-        </p>
-      </div>
-
-      <div class="duality-third-strip">
-        …and anime after midnight.
-      </div>
+<section class="section wrap" aria-labelledby="writing-title" data-commentary="{{ cc.writing | escape }}">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">Writing</p>
+      <h2 class="section-title" id="writing-title">Long reads, strong opinions.</h2>
     </div>
-  </section>
+  </div>
 
-  <!-- 5. Short Bio Band -->
-  <section class="bio-band" aria-label="About Vyom">
-    <h2>The Person Behind the Projector</h2>
-    <p>
-      I'm <strong>Vyom Pandya</strong>, an engineer by degree, a writer by habit and a cinephile by every other measure: 900+ films, 150+ novels, and 10+ years of theatre and painting. I've spent time inside an AI/ML team, so I know what a language model can and can't do. That's why my scripts and copy start with my own thinking, not a prompt: human-made, machine-literate.
-    </p>
-    <p>
-      I won first place in elocution at the 38th AIU Inter-University West Zone UniFest 2025, and I'm a sleight-of-hand magician—misdirection, timing and the reveal turn out to be a good copywriting education.
-    </p>
-    <div class="where-headed-box">
-      <strong>Where this is headed:</strong> Copy and strategy for brands now; ad films and short-form storytelling next; acting and directing long term.
+  <ol class="list" role="list">
+    {% for post in start_here %}
+      {% include essay-row.html post=post %}
+    {% endfor %}
+  </ol>
+  <p class="list-more"><a class="cta" href="{{ '/writing/' | relative_url }}">All {{ site.posts.size }} essays <span class="cta-arrow" aria-hidden="true">&rarr;</span></a></p>
+</section>
+
+<section class="section wrap" id="films" aria-labelledby="films-title" data-commentary="{{ cc.films | escape }}">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">Top 4</p>
+      <h2 class="section-title" id="films-title">Four films that explain how I work.</h2>
     </div>
-  </section>
+  </div>
 
-  <!-- 6. Featured Case Studies -->
-  <section style="margin-block: 3.5rem;" aria-label="Featured Case Studies">
-    <div class="section-header">
-      <div>
-        <span class="badge badge-teal" style="margin-bottom: 0.5rem;">WORK SAMPLES</span>
-        <h2 class="section-title">Featured Case Studies</h2>
-      </div>
-      <a href="{{ '/case-studies/' | relative_url }}" class="btn btn-secondary">All Case Studies &rarr;</a>
-    </div>
+  {% include top4.html %}
 
-    <div class="cards-grid cards-grid-3">
-      {% assign sorted_studies = site.case_studies | sort: "order" %}
-      {% for study in sorted_studies %}
-        {% if study.featured == true %}
-          {% include case-card.html case_study=study %}
-        {% endif %}
-      {% endfor %}
-    </div>
-  </section>
-
-  <!-- 7. Featured Writing (Start Here) -->
-  <section style="margin-block: 3.5rem;" aria-label="Featured Writing">
-    <div class="section-header">
-      <div>
-        <span class="badge badge-gold" style="margin-bottom: 0.5rem;">START HERE</span>
-        <h2 class="section-title">Essential Essays</h2>
-      </div>
-      <a href="{{ '/writing/' | relative_url }}" class="btn btn-secondary">All Writing &rarr;</a>
-    </div>
-
-    <div class="cards-grid cards-grid-3">
-      {% for post in site.posts %}
-        {% if post.start_here == true %}
-          {% include post-card.html post=post %}
-        {% endif %}
-      {% endfor %}
-    </div>
-  </section>
-
-</div>
+  <p class="top4-hint">
+    <span><span class="hint-hover">Hover over</span><span class="hint-tap">Tap</span> a poster.</span>
+    <a class="cta cta--muted" href="{{ site.letterboxd_url }}" rel="noopener noreferrer" target="_blank">Letterboxd <span class="cta-arrow" aria-hidden="true">&nearr;</span></a>
+  </p>
+</section>

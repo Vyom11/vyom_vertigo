@@ -1,0 +1,22 @@
+{% assign cs = include.case_study %}
+{% assign words = cs.content | number_of_words %}
+{% assign read_time = words | divided_by: 200 | plus: 1 %}
+{% assign row_color = site.data.case_colors[cs.slug] | default: "#1E1E1E" %}
+<li class="work-row" data-slug="{{ cs.slug }}" style="--row-color: {{ row_color }}">
+  <a class="work-row-link" href="{{ cs.url | relative_url }}">
+    <span class="work-row-no">No. 0{{ cs.order }}<span class="work-row-seen"> · Seen</span></span>
+    <span class="work-row-main">
+      <span class="work-row-meta">{{ cs.industry }} · {% for role in cs.role_tags limit: 3 %}{{ role }}{% unless forloop.last %}, {% endunless %}{% endfor %} · {{ read_time }} min</span>
+      <h3 class="work-row-title">{{ cs.title }}</h3>
+      <span class="work-row-summary">{{ cs.summary }}</span>
+    </span>
+    {% if cs.headline_metrics and cs.headline_metrics.size > 0 %}
+    {% assign m = cs.headline_metrics.first %}
+    <span class="work-row-metric">
+      <span class="work-row-metric-val">{{ m.value }}</span>
+      <span class="work-row-metric-lbl">{{ m.label }}</span>
+    </span>
+    {% endif %}
+    <span class="work-row-arrow" aria-hidden="true">&rarr;</span>
+  </a>
+</li>

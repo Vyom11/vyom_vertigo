@@ -1,0 +1,13 @@
+{% assign post = include.post %}
+{% assign words = post.content | number_of_words %}
+{% assign read_time = words | divided_by: 180 | plus: 1 %}
+<li class="essay-row" data-category="{{ post.category }}" style="--row-color: {{ site.data.essay_colors[post.slug] | default: '#2A2A2A' }}">
+  <a class="essay-row-link" href="{{ post.url | relative_url }}">
+    <time class="essay-row-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time>
+    <span class="essay-row-main">
+      <h3 class="essay-row-title">{{ post.title }}</h3>
+      {% if post.subtitle %}<span class="essay-row-sub">{{ post.subtitle }}</span>{% endif %}
+    </span>
+    <span class="essay-row-meta">{% if post.category == 'film' %}Film{% else %}Thoughts{% endif %} · {{ read_time }} min</span>
+  </a>
+</li>

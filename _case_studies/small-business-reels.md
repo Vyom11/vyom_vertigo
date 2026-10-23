@@ -9,7 +9,7 @@ role_tags:
   - "Direction Support"
 headline_metrics:
   - value: "200k+"
-    label: "Combined Views"
+    label: "Views"
 summary: "High-energy, character-led short-form reels for independent local businesses (including a bakery and two neighborhood retail establishments), crossing 200k+ combined views."
 ---
 

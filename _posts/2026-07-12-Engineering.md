@@ -7,7 +7,7 @@ date: 2026-07-12 12:00:00 +0530
 category: thoughts
 post_style: spread
 ---
-# What Engineering Actually Teaches You
+## What Engineering Actually Teaches You
 
 I know this website is meant for movie discussions, but trust me, this title will make sense by the time you finish this article.
 

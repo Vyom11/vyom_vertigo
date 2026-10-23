@@ -1,0 +1,16 @@
+# Each essay's own colour: the row flood on hover and the title band at the top of the essay.
+# Keyed by the essay's slug (the part of its file name after the date). Off-white text stays above 5:1 on each.
+AI-Death: "#5B2BA0"                              # synthetic violet
+Dhurandhar-2-Necessarily-Frustrating: "#A8121C"  # the blood-red background
+Disconnect: "#9C1F66"                            # prime-time TV magenta
+the-art-of-cinematic-silence: "#2F5486"          # quiet night blue
+introducing-vyom-vertigo: "#B3302A"              # Vertigo poster red
+Engineering: "#2448A8"                           # blueprint blue
+Grey: "#4D5259"                                  # grey, obviously
+Cover: "#B0206E"                                 # neon-vibe pink
+Following: "#0B6A75"                             # Odysseus's sea
+Cinema-Lies: "#3B34B8"                           # screen-glow indigo
+India: "#15703F"                                 # the green stripe
+Creators-To-Mimics: "#1B573E"                    # hand-drawn forest
+Satya: "#7E1420"                                 # Mumbai noir red
+Sacred-Games: "#6B2150"                          # pulp-paperback plum

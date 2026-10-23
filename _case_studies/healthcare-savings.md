@@ -2,7 +2,7 @@
 layout: case-study
 title: "Chronic-Care Medicine Savings Sub-Brand"
 order: 4
-featured: false
+featured: true
 industry: "Healthcare & Diagnostics"
 role_tags:
   - "Actor"
@@ -10,6 +10,8 @@ role_tags:
   - "Carousel Copywriter"
   - "Director"
 headline_metrics:
+  - value: "7.5M+"
+    label: "Views"
   - value: "20k+"
     label: "Likes"
 summary: "Directing and performing in consumer-first health video campaigns, framing chronic-care medicine savings with clarity and human warmth."

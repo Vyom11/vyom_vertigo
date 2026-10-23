@@ -1,61 +1,46 @@
 ---
 layout: default
 ---
+{% assign words = content | number_of_words %}
+{% assign read_time = words | divided_by: 180 | plus: 1 %}
 
-<div class="site-wrapper">
-  <div class="reading-panel-wrapper">
-    
-    <article class="reading-panel">
-      <header class="article-header">
-        <a href="{{ '/writing/' | relative_url }}" class="article-back-link">&larr; Back to Writing</a>
-        
-        {% if page.category %}
-        <div style="margin-bottom: 0.75rem;">
-          <span class="badge {% if page.category == 'film' %}badge-pink{% else %}badge-gold{% endif %}">
-            {% if page.category == 'film' %}Film & Media{% elsif page.category == 'thoughts' %}Thoughts{% else %}{{ page.category }}{% endif %}
-          </span>
-        </div>
-        {% endif %}
-
-        <h1 class="article-title">{{ page.title }}</h1>
-
-        {% if page.subtitle %}
-        <p class="article-subtitle">“{{ page.subtitle }}”</p>
-        {% endif %}
-
-        <div class="article-byline">
-          <span>By {{ site.author }}</span>
-          <span aria-hidden="true">//</span>
-          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-          <span aria-hidden="true">//</span>
-          {% assign words = content | number_of_words %}
-          {% assign read_time = words | divided_by: 180 | plus: 1 %}
-          <span>{{ read_time }} MIN READ</span>
-        </div>
-      </header>
-
-      <div class="article-body">
-        {{ content }}
-      </div>
-    </article>
-
-    <!-- Navigation between articles & closing strip outside the reading panel -->
-    <nav class="post-pagination" aria-label="Article navigation">
-      <div>
-        {% if page.previous %}
-        <a href="{{ page.previous.url | relative_url }}" rel="prev">&larr; {{ page.previous.title }}</a>
-        {% endif %}
-      </div>
-      <div>
-        {% if page.next %}
-        <a href="{{ page.next.url | relative_url }}" rel="next">{{ page.next.title }} &rarr;</a>
-        {% endif %}
-      </div>
-    </nav>
-
-    <div class="closing-strip">
-      <p style="margin: 0;">Like this? See my <a href="{{ '/case-studies/' | relative_url }}">case studies</a> or <a href="{{ '/contact/' | relative_url }}">say hello</a>.</p>
-    </div>
-
+<article>
+  <div class="essay-band" style="--row-color: {{ site.data.essay_colors[page.slug] | default: '#2A2A2A' }}">
+  <header class="doc-head wrap">
+    <a href="{{ '/writing/' | relative_url }}" class="back-link"><span aria-hidden="true">&larr;</span> All essays</a>
+    <p class="eyebrow">{% if page.category == 'film' %}Film &amp; media{% elsif page.category == 'thoughts' %}Thoughts{% else %}{{ page.category }}{% endif %}</p>
+    <h1 class="doc-title">{{ page.title }}</h1>
+    {% if page.subtitle %}<p class="doc-deck">{{ page.subtitle }}</p>{% endif %}
+    <p class="doc-byline">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+      <span aria-hidden="true">&nbsp;·&nbsp;</span> {{ read_time }} min read
+    </p>
+  </header>
   </div>
-</div>
+
+  <div class="reading wrap">
+    <div class="article-body">
+      {{ content }}
+    </div>
+    <p class="doc-end" aria-hidden="true">Fin</p>
+  </div>
+</article>
+
+<nav class="pager wrap" aria-label="More essays">
+  <div>
+    {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}" rel="prev">
+      <span class="pager-lbl"><span aria-hidden="true">&larr;</span> Earlier</span>
+      <span class="pager-title">{{ page.previous.title }}</span>
+    </a>
+    {% endif %}
+  </div>
+  <div class="pager-next">
+    {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}" rel="next">
+      <span class="pager-lbl">Later <span aria-hidden="true">&rarr;</span></span>
+      <span class="pager-title">{{ page.next.title }}</span>
+    </a>
+    {% endif %}
+  </div>
+</nav>

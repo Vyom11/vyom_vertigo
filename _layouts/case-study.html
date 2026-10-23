@@ -1,75 +1,71 @@
 ---
 layout: default
 ---
+{% assign words = content | number_of_words %}
+{% assign read_time = words | divided_by: 200 | plus: 1 %}
+{% assign cc = site.data.commentary.case_study %}
+{% assign band = site.data.case_colors[page.slug] | default: "#1E1E1E" %}
 
-<div class="site-wrapper">
-  <div class="reading-panel-wrapper">
+<article data-case-slug="{{ page.slug }}" style="--row-color: {{ band }}">
+  <header class="doc-head doc-head--wide wrap" data-commentary="{{ cc.intro | escape }}">
+    <a href="{{ '/case-studies/' | relative_url }}" class="back-link"><span aria-hidden="true">&larr;</span> All work</a>
+    <p class="eyebrow">Case study 0{{ page.order }}</p>
+    <h1 class="doc-title">{{ page.title }}</h1>
+    <p class="doc-deck">{{ page.summary }}</p>
 
-    <article class="reading-panel">
-      <!-- Poster Header -->
-      <header class="case-hero">
-        <a href="{{ '/case-studies/' | relative_url }}" class="article-back-link">&larr; Back to Case Studies</a>
+    <dl class="doc-meta">
+      <div><dt>Industry</dt><dd>{{ page.industry }}</dd></div>
+      <div><dt>Role</dt><dd>{{ page.role_tags | join: ", " }}</dd></div>
+      <div><dt>Read</dt><dd>{{ read_time }} min</dd></div>
+    </dl>
+  </header>
 
-        <div style="margin-bottom: 0.75rem;">
-          <span class="badge badge-teal">{{ page.industry }}</span>
-          <span class="badge badge-gold" style="margin-left: 0.5rem;">Project #0{{ page.order }}</span>
-        </div>
-
-        <h1 class="article-title">{{ page.title }}</h1>
-        <p class="article-subtitle">{{ page.summary }}</p>
-
-        <!-- Headline Metrics Banner -->
-        {% if page.headline_metrics and page.headline_metrics.size > 0 %}
-        <div class="case-metrics-banner" aria-label="Key project metrics">
-          {% for metric in page.headline_metrics %}
-          <div class="case-metric-box">
-            <div class="case-metric-val">{{ metric.value }}</div>
-            <div class="case-metric-lbl">{{ metric.label }}</div>
-          </div>
-          {% endfor %}
-        </div>
-        {% endif %}
-
-      </header>
-
-      <!-- 5 Sections Body -->
-      <div class="article-body">
-        {{ content }}
-      </div>
-    </article>
-
-    <!-- Prev / Next Case Study Links -->
-    {% assign all_studies = site.case_studies | sort: "order" %}
-    {% assign prev_study = nil %}
-    {% assign next_study = nil %}
-    {% for study in all_studies %}
-      {% if study.order < page.order %}
-        {% assign prev_study = study %}
-      {% endif %}
-    {% endfor %}
-    {% for study in all_studies %}
-      {% if study.order > page.order and next_study == nil %}
-        {% assign next_study = study %}
-      {% endif %}
-    {% endfor %}
-
-    <nav class="post-pagination" aria-label="Case study navigation">
-      <div>
-        {% if prev_study %}
-        <a href="{{ prev_study.url | relative_url }}" rel="prev">&larr; {{ prev_study.title }}</a>
-        {% endif %}
-      </div>
-      <div>
-        {% if next_study %}
-        <a href="{{ next_study.url | relative_url }}" rel="next">{{ next_study.title }} &rarr;</a>
-        {% endif %}
-      </div>
-    </nav>
-
-    <div class="closing-strip">
-      <p style="margin: 0;">Have a project in mind? <a href="{{ '/contact/' | relative_url }}">Send a brief</a> or <a href="{{ '/writing/' | relative_url }}">read my essays</a>.</p>
+  {% if page.headline_metrics and page.headline_metrics.size > 0 %}
+  <section class="doc-band" aria-label="Results" data-commentary="{{ cc.numbers | escape }}">
+    <div class="doc-numbers wrap">
+      {% for metric in page.headline_metrics %}
+      <p>
+        <span class="doc-number-val">{{ metric.value }}</span>
+        <span class="doc-number-lbl">{{ metric.label }}</span>
+      </p>
+      {% endfor %}
     </div>
+  </section>
+  {% endif %}
 
+  <div class="wrap reading-case">
+    <script type="application/json" id="cc-headings">{{ cc.sections | jsonify }}</script>
+    <div class="article-body">
+      {{ content }}
+    </div>
   </div>
-</div>
+</article>
 
+{% assign all_studies = site.case_studies | sort: "order" %}
+{% assign prev_study = nil %}
+{% assign next_study = nil %}
+{% for study in all_studies %}
+  {% if study.order < page.order %}{% assign prev_study = study %}{% endif %}
+{% endfor %}
+{% for study in all_studies %}
+  {% if study.order > page.order and next_study == nil %}{% assign next_study = study %}{% endif %}
+{% endfor %}
+
+<nav class="pager wrap" aria-label="More case studies">
+  <div>
+    {% if prev_study %}
+    <a href="{{ prev_study.url | relative_url }}" rel="prev">
+      <span class="pager-lbl"><span aria-hidden="true">&larr;</span> Previous</span>
+      <span class="pager-title">{{ prev_study.title }}</span>
+    </a>
+    {% endif %}
+  </div>
+  <div class="pager-next">
+    {% if next_study %}
+    <a href="{{ next_study.url | relative_url }}" rel="next">
+      <span class="pager-lbl">Next <span aria-hidden="true">&rarr;</span></span>
+      <span class="pager-title">{{ next_study.title }}</span>
+    </a>
+    {% endif %}
+  </div>
+</nav>

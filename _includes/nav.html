@@ -1,34 +1,17 @@
-<header class="site-header">
-  <div class="site-wrapper">
-    <div class="header-inner">
-      <a href="{{ '/' | relative_url }}" class="brand-link" aria-label="Vyom Vertigo Home">
-        <img src="{{ '/assets/83592848.jpeg' | relative_url }}" alt="Vyom Vertigo, cartoon portrait" class="brand-avatar" width="44" height="44" />
-        <span class="brand-name">Vyom Vertigo</span>
-      </a>
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a href="{{ '/' | relative_url }}" class="wordmark">Vyom Pandya</a>
 
-      <div class="nav-group">
-        <nav aria-label="Main Navigation">
-          <ul class="nav-links">
-            <li class="nav-item">
-              <a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.url == '/index.html' %}aria-current="page"{% endif %}>Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ '/writing/' | relative_url }}" {% if page.url contains '/writing' or page.layout == 'post' %}aria-current="page"{% endif %}>Writing</a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ '/case-studies/' | relative_url }}" {% if page.url contains '/case-studies' %}aria-current="page"{% endif %}>Case Studies</a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ '/contact/' | relative_url }}" {% if page.url contains '/contact' %}aria-current="page"{% endif %}>Contact</a>
-            </li>
-          </ul>
-        </nav>
-
-        <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle color theme between Light and Dark" aria-pressed="false">
-          <span class="theme-toggle-icon" aria-hidden="true">☼</span> LIGHT ⇄ DARK
-        </button>
-      </div>
-    </div>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="{{ '/case-studies/' | relative_url }}" {% if page.url contains '/case-studies' %}aria-current="page"{% endif %}>Work</a></li>
+        <li><a href="{{ '/writing/' | relative_url }}" {% if page.url contains '/writing' or page.layout == 'post' %}aria-current="page"{% endif %}>Writing</a></li>
+        <li><a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about' %}aria-current="page"{% endif %}>About</a></li>
+        <li><a href="{{ '/contact/' | relative_url }}" {% if page.url contains '/contact' %}aria-current="page"{% endif %}>Contact</a></li>
+      </ul>
+    </nav>
   </div>
+  {% if page.layout == 'post' or page.layout == 'case-study' %}
+  <div class="read-progress" aria-hidden="true"><span></span></div>
+  {% endif %}
 </header>
-
