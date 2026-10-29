@@ -1,0 +1,15 @@
+{%- comment -%}
+  The six talents, written in one by one like points being added to a list, each with a red pen mark.
+  Screen readers get a plain list. Without JavaScript, or with reduced motion, the full list shows at once.
+{%- endcomment -%}
+{%- assign roles = site.data.roles -%}
+<div class="revisions">
+  <ul class="rev-list" role="list" aria-label="What I do" data-revisions>
+    {%- for role in roles %}
+    <li class="rev-item is-written">
+      <svg class="rev-mark" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 11 C 7 10, 12 9.5, 17 8" pathLength="1"/></svg>
+      <span class="rev-word">{{ role.name }}</span>
+    </li>
+    {%- endfor %}
+  </ul>
+</div>
