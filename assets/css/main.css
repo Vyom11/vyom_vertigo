@@ -14,7 +14,7 @@
   --raised: #161616;
   --text: #EDECE8;          /* 16.9:1 on --bg */
   --soft: #C4C3BE;          /* 11.4:1 */
-  --muted: #8F8E8A;         /* 6.1:1  */
+  --muted: #ABAAA5;         /* 8.6:1  */
   --line: #262626;
   --line-strong: #3A3A3A;
 
@@ -85,7 +85,7 @@ body::before {
   position: absolute;
   inset: -4% 0 0;
   clip-path: polygon(45% 0, 55% 0, 94% 100%, 6% 100%);
-  background: linear-gradient(180deg, rgba(237, 236, 232, 0.085) 0%, rgba(237, 236, 232, 0.035) 45%, rgba(237, 236, 232, 0) 85%);
+  background: linear-gradient(180deg, rgba(255, 190, 105, 0.19) 0%, rgba(232, 104, 48, 0.085) 45%, rgba(200, 60, 30, 0) 85%);
   animation: projector-flicker 5s steps(1, end) infinite;
 }
 .projector-dust { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -173,7 +173,7 @@ a:hover { text-decoration-color: currentColor; }
 .eyebrow {
   margin-bottom: 1.5rem;
   font-family: var(--f-display);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -203,7 +203,7 @@ a:hover { text-decoration-color: currentColor; }
   gap: 0.5em;
   min-height: var(--tap);
   font-family: var(--f-display);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -241,7 +241,7 @@ a:hover { text-decoration-color: currentColor; }
   align-items: center;
   min-height: var(--tap);
   font-family: var(--f-display);
-  font-size: 1rem;
+  font-size: 1.125rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
@@ -266,7 +266,7 @@ a:hover { text-decoration-color: currentColor; }
 .nav a[aria-current="page"]::after { transform: scaleX(1); }
 
 @media (max-width: 420px) {
-  .wordmark, .nav a { font-size: 0.875rem; letter-spacing: 0.06em; }
+  .wordmark, .nav a { font-size: 0.95rem; letter-spacing: 0.05em; }
   .nav { gap: 0.85rem; }
 }
 
@@ -294,7 +294,6 @@ a:hover { text-decoration-color: currentColor; }
   isolation: isolate;
   overflow: hidden;
   padding-top: clamp(2.5rem, 7vw, 5.5rem);
-  padding-bottom: clamp(1rem, 3vw, 2rem);
 }
 .hero-inner { position: relative; }
 .hero-top { position: relative; display: grid; gap: 2.25rem; }
@@ -509,7 +508,7 @@ a:hover { text-decoration-color: currentColor; }
   display: block;
   margin-top: 0.5rem;
   font-family: var(--f-display);
-  font-size: 0.875rem;
+  font-size: 1.0rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -547,7 +546,7 @@ a:hover { text-decoration-color: currentColor; }
 .work-row-no {
   grid-column: 1 / -1;
   font-family: var(--f-display);
-  font-size: 0.875rem;
+  font-size: 1.0rem;
   letter-spacing: 0.08em;
   color: var(--muted);
 }
@@ -556,7 +555,7 @@ a:hover { text-decoration-color: currentColor; }
   display: block;
   margin-bottom: 0.4rem;
   font-family: var(--f-display);
-  font-size: 0.875rem;
+  font-size: 1.0rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -585,7 +584,7 @@ a:hover { text-decoration-color: currentColor; }
   display: block;
   margin-top: 0.4rem;
   font-family: var(--f-display);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -624,7 +623,7 @@ a:hover { text-decoration-color: currentColor; }
 .essay-row-date,
 .essay-row-meta {
   font-family: var(--f-display);
-  font-size: 0.875rem;
+  font-size: 1.0rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -687,7 +686,7 @@ a:hover { text-decoration-color: currentColor; }
 .poster-year,
 .poster-director {
   font-family: var(--f-display);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -717,7 +716,7 @@ a:hover { text-decoration-color: currentColor; }
 .poster-line { font-size: clamp(1.05rem, 1.5vw, 1.2rem); line-height: 1.4; }
 .poster-sign {
   font-family: var(--f-display);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   opacity: 0.75;
@@ -762,7 +761,7 @@ a:hover { text-decoration-color: currentColor; }
    ========================================================================== */
 
 .site-footer {
-  margin-top: var(--section);
+  margin-top: calc(var(--section) - clamp(4rem, 9vw, 7rem));
   padding-block: clamp(4rem, 9vw, 7rem) calc(5.5rem + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--line);
 }
@@ -824,7 +823,7 @@ a:hover { text-decoration-color: currentColor; }
   align-items: center;
   min-height: var(--tap);
   font-family: var(--f-display);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
@@ -855,7 +854,7 @@ a:hover { text-decoration-color: currentColor; }
   min-height: var(--tap);
   margin-bottom: 2rem;
   font-family: var(--f-display);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
@@ -871,7 +870,7 @@ a:hover { text-decoration-color: currentColor; }
   border: 1px solid var(--line-strong);
   border-radius: 999px;
   font-family: var(--f-display);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -905,7 +904,7 @@ a:hover { text-decoration-color: currentColor; }
   padding-top: 1.25rem;
   border-top: 1px solid var(--line);
   font-family: var(--f-display);
-  font-size: 0.875rem;
+  font-size: 1.0rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -922,7 +921,7 @@ a:hover { text-decoration-color: currentColor; }
 .doc-meta dt {
   margin-bottom: 0.2rem;
   font-family: var(--f-display);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -946,7 +945,7 @@ a:hover { text-decoration-color: currentColor; }
   display: block;
   margin-top: 0.9rem;
   font-family: var(--f-display);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1003,7 +1002,7 @@ a:hover { text-decoration-color: currentColor; }
   margin: 3rem auto 0;
   text-align: center;
   font-family: var(--f-display);
-  font-size: 0.875rem;
+  font-size: 1.0rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1021,7 +1020,7 @@ a:hover { text-decoration-color: currentColor; }
 .pager-lbl {
   display: block;
   font-family: var(--f-display);
-  font-size: 0.875rem;
+  font-size: 1.0rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1069,7 +1068,7 @@ a:hover { text-decoration-color: currentColor; }
   display: block;
   margin-bottom: 1rem;
   font-family: var(--f-display);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1095,7 +1094,7 @@ a:hover { text-decoration-color: currentColor; }
 .channel-lbl,
 .channel-handle {
   font-family: var(--f-display);
-  font-size: 0.875rem;
+  font-size: 1.0rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1188,7 +1187,7 @@ a:hover { text-decoration-color: currentColor; }
 }
 .stubs-label {
   font-family: var(--f-display);
-  font-size: 0.875rem;
+  font-size: 1.0rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1254,7 +1253,7 @@ html:not(.js) .stubs { display: none; }
   border: 1px solid var(--line-strong);
   border-radius: 999px;
   font-family: var(--f-display);
-  font-size: 0.875rem;
+  font-size: 1.0rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1302,3 +1301,38 @@ html:not(.js) [data-cc-on] { display: none; }
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* ---- The talents beside the headline: points added to a list one by one, each with a red pen mark ---- */
+.revisions { position: relative; z-index: 1; }
+.rev-list { display: grid; gap: 0.2rem; justify-items: start; }
+.rev-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--f-text);
+  font-size: clamp(1.75rem, 2.7vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.22;
+  color: var(--text);
+  clip-path: inset(-0.2em 100% -0.3em -0.2em);
+  opacity: 0;
+  transition: clip-path 700ms cubic-bezier(0.45, 0, 0.2, 1), opacity 200ms linear;
+}
+.rev-item.is-written { clip-path: inset(-0.2em -0.4em -0.3em -0.2em); opacity: 1; }
+.rev-mark { flex: none; width: 0.7em; height: 0.7em; overflow: visible; }
+.rev-mark path {
+  fill: none;
+  stroke: #E0473A;          /* editor's red, 5.0:1 on the dark page */
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 300ms cubic-bezier(0.5, 0, 0.3, 1);
+}
+.rev-item:not(.is-written) .rev-mark path { stroke-dashoffset: 1; }
+.rev-list.is-fading .rev-item { opacity: 0; transition: opacity 600ms var(--ease); }
+@media (prefers-reduced-motion: reduce) {
+  .rev-item, .rev-mark path { transition: none; }
+}
+@media (max-width: 699px) { .hero { padding-bottom: 0.625rem; } }

@@ -211,7 +211,7 @@
         var depth = 1 - Math.min(p.y / (h * 0.85), 1);          // brighter near the lens
         var twinkle = 0.6 + 0.4 * Math.sin(time / 900 + p.phase); // catching the light
         ctx.globalAlpha = 0.38 * depth * twinkle;
-        ctx.fillStyle = '#EDECE8';
+        ctx.fillStyle = '#FFD49A';
         ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
       });
     }
@@ -323,6 +323,29 @@
     if (!still) items[items.length - 1].classList.add('is-playing');
   }
 
+  // The talents beside the headline: write them in one by one, hold the full list, then start again
+  function initRevisions() {
+    var list = document.querySelector('[data-revisions]');
+    if (!list || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var items = Array.prototype.slice.call(list.querySelectorAll('.rev-item'));
+    function later(fn, ms) { window.setTimeout(function () { if (document.hidden) { later(fn, 500); } else { fn(); } }, ms); }
+    function reset() {
+      list.classList.remove('is-fading');
+      items.forEach(function (li) { li.classList.remove('is-written'); });
+    }
+    function write(i) {
+      items[i].classList.add('is-written');
+      if (i < items.length - 1) { later(function () { write(i + 1); }, 850); }
+      else { later(fade, 6000); }
+    }
+    function fade() {
+      list.classList.add('is-fading');
+      later(function () { reset(); later(function () { write(0); }, 500); }, 700);
+    }
+    reset();
+    later(function () { write(0); }, 600);
+  }
+
   function init() {
     initProgress();
     initPosters();
@@ -331,6 +354,7 @@
     initCommentary();
     initDust();
     initTapes();
+    initRevisions();
 
     // Back/forward restores pages from memory without re-running scripts;
     // recount the stubs whenever a page is shown, or another tab changes them.
