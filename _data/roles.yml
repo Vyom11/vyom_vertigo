@@ -1,5 +1,5 @@
-# The cassettes beside the homepage headline, top of the pile first.
-# colour = the stripe on that tape's label (off-white text never sits on it).
+# The talents listed beside the homepage headline, in order.
+# (colour is unused now; kept for reference)
 - { name: "Copywriter",          color: "#3B34B8" }
 - { name: "Content writer",      color: "#15703F" }
 - { name: "Creative strategist", color: "#1D5BB0" }

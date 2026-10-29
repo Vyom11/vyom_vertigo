@@ -301,169 +301,6 @@ a:hover { text-decoration-color: currentColor; }
   .hero-top { grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 2rem 3rem; }
 }
 
-/* A pile of cassettes, one per role. Pick any up and move it; a nod to the tapes in Drive My Car. */
-.tapes {
-  --tape-w: 16rem;
-  --tape-h: calc(var(--tape-w) * 0.63);
-  --step: calc(var(--tape-w) * 0.1625);
-  position: relative;
-  z-index: 2;
-  width: calc(var(--tape-w) + 1rem);
-  max-width: 100%;
-}
-@media (max-width: 699px) { .tapes { --tape-w: 14rem; } }
-.tape-stack {
-  position: relative;
-  height: calc(var(--tape-h) + (var(--count) - 1) * var(--step) + 0.5rem);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.tape-item {
-  --dx: 0px;
-  --dy: 0px;
-  position: absolute;
-  top: calc(var(--i) * var(--step));
-  left: 0;
-  width: var(--tape-w);
-  z-index: calc(var(--i) + 1);
-  transform: translate(var(--dx), var(--dy)) rotate(var(--r, 0deg));
-  transition: transform 500ms var(--ease);
-}
-/* A hand-made pile, not a perfect column */
-.tape-item:nth-child(6n+1) { --r: -2deg; left: 0.25rem; }
-.tape-item:nth-child(6n+2) { --r: 1.5deg; left: 0.9rem; }
-.tape-item:nth-child(6n+3) { --r: -1deg; left: 0; }
-.tape-item:nth-child(6n+4) { --r: 2deg; left: 0.6rem; }
-.tape-item:nth-child(6n+5) { --r: -1.5deg; left: 0.15rem; }
-.tape-item:nth-child(6n+6) { --r: 0.5deg; left: 0.5rem; }
-.tape-item.is-moving { transition: none; }
-
-.tape {
-  position: relative;
-  display: block;
-  width: 100%;
-  aspect-ratio: 100 / 63;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 7% / 11%;
-  background:
-    radial-gradient(circle at 4.5% 8%, #0A0A0A 0 1.3%, #3A3A3A 1.5% 2.4%, transparent 2.6%),
-    radial-gradient(circle at 95.5% 8%, #0A0A0A 0 1.3%, #3A3A3A 1.5% 2.4%, transparent 2.6%),
-    radial-gradient(circle at 4.5% 92%, #0A0A0A 0 1.3%, #3A3A3A 1.5% 2.4%, transparent 2.6%),
-    radial-gradient(circle at 95.5% 92%, #0A0A0A 0 1.3%, #3A3A3A 1.5% 2.4%, transparent 2.6%),
-    linear-gradient(180deg, #2A2928 0%, #1A1918 55%, #141312 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.09),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.4),
-    0 10px 22px -12px rgba(0, 0, 0, 0.9);
-  color: #0E0E0E;
-  cursor: grab;
-  touch-action: none;
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
-}
-.tape:hover { transform: translateY(-2px); }
-.tape:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
-.tape-item.is-held .tape {
-  cursor: grabbing;
-  transform: scale(1.05) rotate(-1deg);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.09),
-    0 28px 40px -14px rgba(0, 0, 0, 0.95);
-}
-.tape-label {
-  position: absolute;
-  inset: 6% 6% 32%;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding: 2% 5% 0;
-  border-radius: 3px;
-  background:
-    linear-gradient(180deg, transparent 0 63%, var(--role-color) 63% 80%, transparent 80%),
-    repeating-linear-gradient(180deg, transparent 0 0.62rem, rgba(14, 14, 14, 0.09) 0.62rem calc(0.62rem + 1px)) 0 1.5rem / 100% 100% no-repeat,
-    #E9E6DE;
-  text-align: left;
-}
-.tape-role {
-  font-family: var(--f-display);
-  font-size: calc(var(--tape-w) * 0.074);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-.tape-meta {
-  flex: none;
-  font-family: var(--f-display);
-  font-size: 0.625rem;
-  letter-spacing: 0.1em;
-  color: #55534F;
-}
-.tape-window {
-  position: absolute;
-  left: 22%;
-  width: 56%;
-  bottom: 36%;
-  height: auto;
-  transform: translateY(50%);
-  filter: drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.6));
-}
-.tape-hub { transform-box: fill-box; transform-origin: center; }
-.tape-item.is-playing .tape-hub { animation: tape-spin 2.4s linear infinite; }
-@keyframes tape-spin { to { transform: rotate(-360deg); } }
-.tape-foot {
-  position: absolute;
-  left: 21%;
-  right: 21%;
-  bottom: 0;
-  height: 17%;
-  clip-path: polygon(7% 0, 93% 0, 100% 100%, 0 100%);
-  background:
-    radial-gradient(circle at 20% 55%, #070707 0 7%, transparent 8%),
-    radial-gradient(circle at 80% 55%, #070707 0 7%, transparent 8%),
-    linear-gradient(180deg, #232221, #181716);
-}
-
-.tapes-note {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.25rem 1rem;
-  margin: 0.75rem 0 0;
-  font-size: 0.9375rem;
-  font-style: italic;
-  color: var(--muted);
-}
-.tapes-note > span { max-width: calc(100vw - 2rem); width: max-content; }
-.tapes-note a { white-space: nowrap; color: var(--soft); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 0.2em; }
-.tapes-note a:hover { color: var(--text); }
-.tapes-restack {
-  min-height: 44px;
-  padding: 0;
-  border: 0;
-  background: none;
-  font-family: var(--f-display);
-  font-size: 0.8125rem;
-  font-style: normal;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--soft);
-  cursor: pointer;
-}
-.tapes-restack:hover { color: var(--text); }
-.tapes-restack:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
-.tapes-restack[hidden] { display: none; }
-@media (prefers-reduced-motion: reduce) {
-  .tape-item, .tape { transition: none; }
-  .tape-item.is-playing .tape-hub { animation: none; }
-}
-
 .hero-title {
   max-width: 13ch;
   font-size: clamp(3.5rem, 9vw, 7.5rem);
@@ -493,7 +330,7 @@ a:hover { text-decoration-color: currentColor; }
   display: grid;
   grid-template-columns: repeat(3, auto);
   justify-content: start;
-  gap: 1.25rem clamp(1.75rem, 4vw, 3rem);
+  gap: 1.25rem clamp(1.25rem, 2.6vw, 2.25rem);
   align-content: start;
 }
 .stat { display: flex; flex-direction: column-reverse; }
@@ -1336,3 +1173,4 @@ html:not(.js) [data-cc-on] { display: none; }
   .rev-item, .rev-mark path { transition: none; }
 }
 @media (max-width: 699px) { .hero { padding-bottom: 0.625rem; } }
+@media (min-width: 900px) { .stats { justify-content: end; } }

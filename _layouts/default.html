@@ -49,8 +49,8 @@
   <!-- Devanagari for one word (the Devdas poster) -->
   <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&display=swap&text=%E0%A4%A6%E0%A5%87%E0%A4%B5%E0%A4%A6%E0%A4%BE%E0%A4%B8" rel="stylesheet">
 
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 
   <!-- Structured Data JSON-LD -->
   {% if page.url == '/' or page.url == '/index.html' %}

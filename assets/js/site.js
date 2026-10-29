@@ -232,97 +232,6 @@
     raf = window.requestAnimationFrame(loop);
   }
 
-  // The pile of cassettes: pick any tape up and move it around the hero (pointer or arrow keys).
-  // The tape you last touched comes to the top and plays; Restack puts them all back.
-  function initTapes() {
-    var stack = document.querySelector('[data-tapes]');
-    if (!stack) return;
-    var area = stack.closest('.hero') || document.body;
-    var items = Array.prototype.slice.call(stack.querySelectorAll('.tape-item'));
-    var restack = document.querySelector('[data-tapes-restack]');
-    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var top = items.length;
-
-    function clamp(v, lo, hi) { return Math.min(Math.max(v, lo), hi); }
-    function place(item) {
-      item.style.setProperty('--dx', item._x + 'px');
-      item.style.setProperty('--dy', item._y + 'px');
-    }
-    // How far this tape may move and still stay inside the hero
-    function bounds(item) {
-      var a = area.getBoundingClientRect(), t = item.getBoundingClientRect();
-      return {
-        minX: item._x + a.left - t.left, maxX: item._x + a.right - t.right,
-        minY: item._y + a.top - t.top, maxY: item._y + a.bottom - t.bottom
-      };
-    }
-    function play(item) {
-      top += 1;
-      item.style.zIndex = top;
-      items.forEach(function (o) { o.classList.toggle('is-playing', o === item && !still); });
-    }
-    function moved() { if (restack) restack.hidden = false; }
-
-    items.forEach(function (item) {
-      var tape = item.querySelector('.tape');
-      var drag = null;
-      item._x = 0; item._y = 0;
-
-      tape.addEventListener('pointerdown', function (e) {
-        if (e.button !== 0) return;
-        drag = { px: e.clientX, py: e.clientY, x: item._x, y: item._y, b: bounds(item), on: false };
-        tape.setPointerCapture(e.pointerId);
-        play(item);
-        item.classList.add('is-held', 'is-moving');
-      });
-      tape.addEventListener('pointermove', function (e) {
-        if (!drag) return;
-        var dx = e.clientX - drag.px, dy = e.clientY - drag.py;
-        if (!drag.on && Math.abs(dx) + Math.abs(dy) < 4) return;
-        drag.on = true;
-        item._x = clamp(drag.x + dx, drag.b.minX, drag.b.maxX);
-        item._y = clamp(drag.y + dy, drag.b.minY, drag.b.maxY);
-        place(item);
-        moved();
-      });
-      function drop() {
-        if (!drag) return;
-        drag = null;
-        item.classList.remove('is-held', 'is-moving');
-      }
-      tape.addEventListener('pointerup', drop);
-      tape.addEventListener('pointercancel', drop);
-      tape.addEventListener('click', function () { play(item); });
-      tape.addEventListener('keydown', function (e) {
-        var step = e.shiftKey ? 48 : 16;
-        var d = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] }[e.key];
-        if (!d) return;
-        e.preventDefault();
-        var b = bounds(item);
-        item._x = clamp(item._x + d[0], b.minX, b.maxX);
-        item._y = clamp(item._y + d[1], b.minY, b.maxY);
-        play(item);
-        place(item);
-        moved();
-      });
-    });
-
-    if (restack) {
-      restack.addEventListener('click', function () {
-        items.forEach(function (item, k) {
-          item._x = 0; item._y = 0;
-          item.style.zIndex = '';
-          place(item);
-          item.classList.toggle('is-playing', k === items.length - 1 && !still);
-        });
-        top = items.length;
-        restack.hidden = true;
-      });
-    }
-    // The tape on top of the pile is the one playing
-    if (!still) items[items.length - 1].classList.add('is-playing');
-  }
-
   // The talents beside the headline: write them in one by one, hold the full list, then start again
   function initRevisions() {
     var list = document.querySelector('[data-revisions]');
@@ -353,7 +262,6 @@
     initStubs();
     initCommentary();
     initDust();
-    initTapes();
     initRevisions();
 
     // Back/forward restores pages from memory without re-running scripts;
