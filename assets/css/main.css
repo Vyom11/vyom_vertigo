@@ -461,114 +461,6 @@ a:hover { text-decoration-color: currentColor; }
 }
 
 /* ==========================================================================
-   7. Top 4: the only colour on the site
-   ========================================================================== */
-
-.top4 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(0.75rem, 2vw, 1.25rem);
-}
-@media (min-width: 820px) { .top4 { grid-template-columns: repeat(4, 1fr); } }
-
-.poster { --p-bg: var(--raised); --p-ink: var(--text); aspect-ratio: 2 / 3; }
-.poster-btn {
-  position: relative;
-  background-image: var(--sheen);
-  display: block;
-  width: 100%; height: 100%;
-  overflow: hidden;
-  padding: 0;
-  border: 0;
-  background: var(--p-bg);
-  color: var(--p-ink);
-  text-align: left;
-  cursor: pointer;
-}
-.poster-front,
-.poster-back {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: clamp(0.9rem, 2vw, 1.4rem);
-  transition: opacity var(--t) var(--ease), transform var(--t) var(--ease);
-}
-.poster-year,
-.poster-director {
-  font-family: var(--f-display);
-  font-size: 0.9375rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.poster-title {
-  font-family: var(--f-display);
-  font-size: clamp(1.9rem, 3.6vw, 3rem);
-  font-weight: 700;
-  line-height: 0.95;
-  text-transform: uppercase;
-}
-.poster-native {
-  display: block;
-  margin-bottom: 0.2em;
-  font-family: var(--f-deva);
-  font-size: 0.6em;
-  font-weight: 400;
-  line-height: 1.4;
-  text-transform: none;
-}
-.poster-back {
-  justify-content: flex-end;
-  gap: 0.75rem;
-  opacity: 0;
-  transform: translateY(8px);
-  background: var(--p-bg);
-}
-.poster-line { font-size: clamp(1.05rem, 1.5vw, 1.2rem); line-height: 1.4; }
-.poster-sign {
-  font-family: var(--f-display);
-  font-size: 0.9375rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  opacity: 0.75;
-}
-.poster-sign em { font-style: normal; }
-
-.poster-btn[aria-expanded="true"] .poster-front,
-.poster-btn:focus-visible .poster-front { opacity: 0; transform: translateY(-8px); }
-.poster-btn[aria-expanded="true"] .poster-back,
-.poster-btn:focus-visible .poster-back { opacity: 1; transform: none; }
-.poster-btn:focus-visible { outline-offset: 3px; }
-@media (hover: hover) {
-  .poster-btn:hover .poster-front { opacity: 0; transform: translateY(-8px); }
-  .poster-btn:hover .poster-back { opacity: 1; transform: none; }
-}
-
-.poster--devdas     { --p-bg: #A8121C; --p-ink: #F8F1EA; }
-.poster--lunchbox   { --p-bg: #E6E2D8; --p-ink: #1A1A1A; }
-.poster--sunrise    { --p-bg: #2F5486; --p-ink: #F1F4F8; }
-.poster--drivemycar { --p-bg: #1B573E; --p-ink: #EEF4F0; }
-
-.top4-hint {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem 2rem;
-  margin-top: 1rem;
-  font-size: 1.0625rem;
-  font-style: italic;
-  color: var(--muted);
-}
-.top4-hint .cta { font-style: normal; }
-.hint-tap { display: none; }
-@media (hover: none) {
-  .hint-hover { display: none; }
-  .hint-tap { display: inline; }
-}
-
-/* ==========================================================================
    8. Footer: CTA + billing block
    ========================================================================== */
 
@@ -831,45 +723,6 @@ a:hover { text-decoration-color: currentColor; }
 .prose p { font-size: clamp(1.375rem, 2vw, 1.625rem); line-height: 1.5; }
 .prose p + p { margin-top: 1em; color: var(--soft); }
 
-.pair {
-  display: grid;
-  border-top: 1px solid var(--line-strong);
-}
-.pair-half { padding-block: 2rem; }
-.pair-half + .pair-half { border-top: 1px solid var(--line); }
-@media (min-width: 820px) {
-  .pair { grid-template-columns: 1fr 1fr; }
-  .pair-half:first-child { padding-right: 3rem; }
-  .pair-half + .pair-half { border-top: 0; border-left: 1px solid var(--line); padding-left: 3rem; }
-}
-.pair-quote { margin-top: 0.75rem; font-size: clamp(1.6rem, 2.8vw, 2.1rem); line-height: 1.2; }
-.pair-desc { max-width: 42ch; margin-top: 1rem; color: var(--soft); }
-.pair-late {
-  grid-column: 1 / -1;
-  padding-block: 1.25rem;
-  border-block: 1px solid var(--line);
-  text-align: center;
-  font-style: italic;
-  color: var(--muted);
-}
-
-.statement {
-  max-width: 30ch;
-  font-size: clamp(1.75rem, 3.4vw, 2.6rem);
-  line-height: 1.22;
-}
-.statement strong {
-  display: block;
-  margin-bottom: 1rem;
-  font-family: var(--f-display);
-  font-size: 1.0625rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.statement + .ctas { margin-top: 2rem; }
-
 .contact-grid { display: grid; gap: clamp(3rem, 6vw, 5rem); }
 @media (min-width: 900px) {
   .contact-grid { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
@@ -1105,8 +958,6 @@ html:not(.js) .theme-toggle { display: none; }
   .essay-row-link { grid-template-columns: 1fr; padding-block: 1.5rem; }
   .essay-row-meta { text-align: left; }
 }
-.top4, .top4 { grid-template-columns: repeat(2, 1fr); }
-@media (min-width: 820px) { .top4 { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
 
 /* No colour floods: hover is just the title lighting up */
@@ -1116,13 +967,6 @@ html:not(.js) .theme-toggle { display: none; }
 .essay-row-link:hover .essay-row-title { color: var(--accent); }
 .work-row-link:hover .work-row-summary,
 .essay-row-link:hover .essay-row-sub { color: var(--soft); }
-
-/* Posters: outlined, red */
-.poster-btn { background: transparent; background-image: none; color: var(--text); border: 1px solid var(--line-strong); }
-.poster-back { background: var(--bg); }
-.poster-year, .poster-director, .poster-title, .poster-sign { color: var(--accent); }
-.poster-native { color: var(--accent); }
-.poster--devdas, .poster--lunchbox, .poster--sunrise, .poster--drivemycar { --p-bg: transparent; --p-ink: var(--text); }
 
 /* Essay and case study heads: no coloured band, just a rule */
 .essay-band { background: none; border-bottom: 1px solid var(--line); }
@@ -1157,7 +1001,6 @@ html:not(.js) .theme-toggle { display: none; }
 .hero-name,
 .page-title,
 .doc-title,
-.poster-title,
 .footer-mail,
 .billing-name {
   font-family: var(--f-name);
@@ -1165,7 +1008,7 @@ html:not(.js) .theme-toggle { display: none; }
   -webkit-text-stroke: 0.022em currentColor;
   paint-order: stroke fill;
 }
-.poster-title, .footer-mail, .billing-name { -webkit-text-stroke-width: 0.018em; text-transform: none; }
+.footer-mail, .billing-name { -webkit-text-stroke-width: 0.018em; text-transform: none; }
 
 /* Big numbers stay in Spectral: IM Fell's old-style figures make "12" read as "I2" */
 .stat-num, .work-row-metric-val, .doc-number-val {
@@ -1177,20 +1020,18 @@ html:not(.js) .theme-toggle { display: none; }
 .stat-num { font-size: clamp(2.75rem, 9vw, 4rem); }
 .work-row-metric-val { font-size: clamp(2.75rem, 5vw, 4rem); }
 .doc-number-val { font-size: clamp(4.5rem, 13vw, 9rem); line-height: 0.9; }
-.poster-title { line-height: 1.02; font-size: clamp(1.7rem, 4vw, 2.4rem); }
 .footer-mail { font-size: clamp(1.4rem, 4.4vw, 2.5rem); }
 
 /* Labels, nav and meta: Spectral capitals, bold, a little tracking */
 .eyebrow, .cta, .wordmark, .nav a, .toc a, .stat-lbl, .work-row-no, .work-row-meta,
-.work-row-metric-lbl, .work-row-arrow, .essay-row-date, .essay-row-meta, .poster-year,
-.poster-director, .poster-sign, .footer-links a, .back-link, .doc-byline, .doc-meta dt,
-.doc-number-lbl, .pager-lbl, .doc-end, .statement strong, .channel-lbl, .channel-handle,
-.page-no, .version, .skip-link, .top4-hint .cta {
+.work-row-metric-lbl, .work-row-arrow, .essay-row-date, .essay-row-meta, .footer-links a, .back-link, .doc-byline, .doc-meta dt,
+.doc-number-lbl, .pager-lbl, .doc-end, .channel-lbl, .channel-handle,
+.page-no, .version, .skip-link, .entry-tag, .entry-meta {
   font-weight: 600;
   letter-spacing: 0.05em;
 }
 .eyebrow, .stat-lbl, .work-row-no, .work-row-meta, .work-row-metric-lbl, .essay-row-date,
-.essay-row-meta, .poster-year, .poster-director, .doc-byline, .doc-meta dt, .doc-number-lbl,
+.essay-row-meta, .entry-tag, .entry-meta, .doc-byline, .doc-meta dt, .doc-number-lbl,
 .pager-lbl, .channel-lbl, .version { font-size: 0.9rem; }
 .wordmark, .nav a, .footer-links a, .back-link, .cta { font-size: 1rem; }
 .toc a { font-size: 1.15rem; }
@@ -1201,7 +1042,7 @@ html:not(.js) .theme-toggle { display: none; }
 .article-body strong { font-weight: 800; }
 .article-body h2, .article-body h3 { font-weight: 700; }
 .article-body blockquote { font-weight: 500; }
-.section-title, .work-row-title, .essay-row-title, .pager-title, .channel-name, .footer-cta-title, .pair-quote { font-weight: 700; }
+.section-title, .work-row-title, .essay-row-title, .pager-title, .channel-name, .footer-cta-title { font-weight: 700; }
 .doc-deck, .essay-row-sub { font-weight: 500; }
 .hero-tag { font-weight: 700; }
 .page-lede, .prose p, .contact-copy p { font-weight: 500; }
@@ -1311,3 +1152,25 @@ html:not(.js) .theme-toggle { display: none; }
 /* Inside a case study: the number is the first thing you see */
 .doc-no { display: flex; align-items: baseline; gap: 0.5rem; font-size: 2.4rem; font-weight: 800; letter-spacing: 0; line-height: 1; text-transform: none; color: var(--accent); }
 .doc-no-lbl { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* ==========================================================================
+   19. About: the same list pattern as Writing and Work, start to finish
+   ========================================================================== */
+
+.entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0 1.5rem;
+  align-items: baseline;
+  padding-block: 1.75rem;
+  border-bottom: 1px solid var(--line);
+}
+.entry-title { font-size: clamp(1.4rem, 2.3vw, 1.7rem); font-weight: 700; line-height: 1.2; }
+.entry-native { font-family: var(--f-deva); font-weight: 400; }
+.entry-meta { margin-top: 0.4rem; font-size: 0.9rem; text-transform: uppercase; color: var(--accent); }
+.entry-text { margin-top: 0.5rem; max-width: 48ch; font-size: 1.1rem; font-weight: 400; color: var(--soft); }
+.entry-tag { grid-column: 2; grid-row: 1; white-space: nowrap; font-size: 0.9rem; text-transform: uppercase; color: var(--accent); }
+.entry-coda { margin-top: 1.5rem; font-style: italic; color: var(--accent); }
+.entry-coda .cta { font-style: normal; }
+.about-next { max-width: 34ch; font-size: clamp(1.35rem, 2.3vw, 1.65rem); font-weight: 500; line-height: 1.4; }
+.about-next + .ctas { margin-top: 1.5rem; }

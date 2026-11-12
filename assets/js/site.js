@@ -28,18 +28,6 @@
     update();
   }
 
-  // --- 2. Top 4 posters: tap or click to pin the line open ---
-  function initPosters() {
-    var buttons = document.querySelectorAll('.poster-btn');
-    buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var open = btn.getAttribute('aria-expanded') === 'true';
-        buttons.forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
-        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
-      });
-    });
-  }
-
   // --- 6. Theme toggle: dark by default, the choice is remembered in this browser ---
   function initTheme() {
     var btn = document.getElementById('theme-toggle');
@@ -62,7 +50,6 @@
 
   function init() {
     initProgress();
-    initPosters();
     initTheme();
   }
 
