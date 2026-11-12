@@ -3,7 +3,6 @@ layout: default
 body_class: home
 ---
 
-{% assign featured = site.case_studies | where: "featured", true | sort: "order" %}
 {% assign cc = site.data.commentary.home %}
 
 <section class="hero" aria-labelledby="hero-title" data-commentary="{{ cc.hero | escape }}">
@@ -32,36 +31,4 @@ body_class: home
       <button type="button" class="cta cta--muted cta-button" data-cc-on>Watch with commentary <span class="cc-badge cc-badge--inline" aria-hidden="true">CC</span></button>
     </div>
   </div>
-</section>
-
-<section class="section wrap" aria-labelledby="writing-title" data-commentary="{{ cc.writing | escape }}">
-  <div class="section-head">
-    <div>
-      <p class="eyebrow">Writing</p>
-      <h2 class="section-title" id="writing-title">Latest writing.</h2>
-    </div>
-  </div>
-
-  <ol class="list" role="list">
-    {% for post in site.posts limit: 3 %}
-      {% include essay-row.html post=post %}
-    {% endfor %}
-  </ol>
-  <p class="list-more"><a class="cta" href="{{ '/writing/' | relative_url }}">All {{ site.posts.size }} essays <span class="cta-arrow" aria-hidden="true">&rarr;</span></a></p>
-</section>
-
-<section class="section wrap" id="work" aria-labelledby="work-title" data-commentary="{{ cc.work | escape }}">
-  <div class="section-head">
-    <div>
-      <p class="eyebrow">Selected work</p>
-      <h2 class="section-title" id="work-title">Work that got watched.</h2>
-    </div>
-  </div>
-
-  <ol class="list" role="list">
-    {% for study in featured %}
-      {% include work-row.html case_study=study %}
-    {% endfor %}
-  </ol>
-  <p class="list-more"><a class="cta" href="{{ '/case-studies/' | relative_url }}">All {{ site.case_studies.size }} case studies <span class="cta-arrow" aria-hidden="true">&rarr;</span></a></p>
 </section>
