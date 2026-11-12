@@ -31,10 +31,10 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="{% if page.redirect_to %}{{ page.redirect_to | absolute_url }}{% else %}{{ page.url | absolute_url }}{% endif %}">
 
-  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32x32.png' | relative_url }}">
-  <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}?v=2" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32x32.png' | relative_url }}?v=2">
+  <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}?v=2">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="{{ site.title }}">
@@ -42,7 +42,7 @@
   <meta property="og:description" content="{{ page_desc | strip_html | strip_newlines | escape }}">
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:image" content="{{ '/assets/og-default.png' | absolute_url }}">
+  <meta property="og:image" content="{{ '/assets/og-default.png' | absolute_url }}?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
@@ -50,7 +50,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
   <meta name="twitter:description" content="{{ page_desc | strip_html | strip_newlines | escape }}">
-  <meta name="twitter:image" content="{{ '/assets/og-default.png' | absolute_url }}">
+  <meta name="twitter:image" content="{{ '/assets/og-default.png' | absolute_url }}?v=2">
 
   <!-- Type: IM Fell English (display) + Spectral (everything else) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,7 +70,7 @@
     "@type": "Person",
     "name": "{{ site.author }}",
     "url": "{{ site.url }}{{ site.baseurl }}/",
-    "image": "{{ '/assets/og-default.png' | absolute_url }}",
+    "image": "{{ '/assets/og-default.png' | absolute_url }}?v=2",
     "jobTitle": "Creative Strategist and Writer",
     "description": "{{ site.description | escape }}",
     "sameAs": [
@@ -93,7 +93,7 @@
     },
     "datePublished": "{{ page.date | date_to_xmlschema }}",
     "url": "{{ page.url | absolute_url }}",
-    "image": "{{ '/assets/og-default.png' | absolute_url }}"
+    "image": "{{ '/assets/og-default.png' | absolute_url }}?v=2"
   }
   </script>
   {% endif %}
