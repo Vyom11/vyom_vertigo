@@ -9,17 +9,21 @@ description: "Vyom Pandya: engineer by degree, writer by habit, cinephile by eve
   <p class="page-no" aria-hidden="true">III</p>
   <p class="eyebrow">About</p>
   <h1 class="page-title display">The long version</h1>
-  <p class="page-lede">Like everyone, I did engineering. Like Farhan, I chose the passion over the placement. (Fortunately, <em>abba maan gaye</em>.) Now I write and shape brand content: reels, campaigns and copy. Lights down. Enjoy the show.</p>
 </header>
 
-<!-- Bio: Vyom's own words, unchanged -->
 <section class="section--tight wrap" aria-label="Bio">
   <div class="prose">
     <p>
-      I'm <strong>Vyom Pandya</strong>, an engineer by degree, a writer by habit and a cinephile by every other measure: 900+ films, 150+ novels, and 10+ years of theatre and painting. I've spent time inside an AI/ML team, so I know what a language model can and can't do. That's why my scripts and copy start with my own thinking, not a prompt: human-made, machine-literate.
+      Like everyone, I did engineering. Like Farhan, I chose the passion over the placement. (Fortunately, <em>abba maan gaye</em>.)
     </p>
     <p>
-      I won first place in elocution at the 38th AIU Inter-University West Zone UniFest 2025, and I'm a sleight-of-hand magician—misdirection, timing and the reveal turn out to be a good copywriting education.
+      I'm <strong>Vyom Pandya</strong>, an engineer by degree, a writer by habit and a cinephile by every other measure: 900+ films, 150+ novels, and 10+ years of theatre and painting. Now I write and shape brand content: reels, campaigns and copy.
+    </p>
+    <p>
+      I've spent time inside an AI/ML team, so I know what a language model can and can't do. That's why my scripts and copy start with my own thinking, not a prompt: human-made, machine-literate.
+    </p>
+    <p>
+      I won first place in elocution at the 38th AIU Inter-University West Zone UniFest 2025, and I'm a sleight-of-hand magician. Misdirection, timing and the reveal turn out to be a good copywriting education. Lights down. Enjoy the show.
     </p>
   </div>
 </section>
@@ -58,19 +62,11 @@ description: "Vyom Pandya: engineer by degree, writer by habit, cinephile by eve
       <h2 class="section-title" id="films-title">Four films that explain how I work.</h2>
     </div>
   </div>
-  <ol class="list" role="list">
-    {% for film in site.data.top4 %}
-    <li class="entry">
-      <div class="entry-main">
-        <h3 class="entry-title">{% if film.native %}<span class="entry-native" lang="hi">{{ film.native }}</span> {% endif %}{{ film.title }}</h3>
-        <p class="entry-meta">{{ film.director }}</p>
-        <p class="entry-text">{{ film.line }}</p>
-      </div>
-      <span class="entry-tag">{{ film.year }}</span>
-    </li>
-    {% endfor %}
-  </ol>
-  <p class="entry-coda"><a class="cta cta--muted" href="{{ site.letterboxd_url }}" rel="noopener noreferrer" target="_blank">More on Letterboxd <span class="cta-arrow" aria-hidden="true">&nearr;</span></a></p>
+  {% include top4.html %}
+  <p class="top4-hint">
+    <span><span class="hint-hover">Hover over</span><span class="hint-tap">Tap</span> a poster.</span>
+    <a class="cta cta--muted" href="{{ site.letterboxd_url }}" rel="noopener noreferrer" target="_blank">Letterboxd <span class="cta-arrow" aria-hidden="true">&nearr;</span></a>
+  </p>
 </section>
 
 <section class="section wrap" aria-labelledby="next-title">

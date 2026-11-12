@@ -1174,3 +1174,130 @@ html:not(.js) .theme-toggle { display: none; }
 .entry-coda .cta { font-style: normal; }
 .about-next { max-width: 34ch; font-size: clamp(1.35rem, 2.3vw, 1.65rem); font-weight: 500; line-height: 1.4; }
 .about-next + .ctas { margin-top: 1.5rem; }
+
+/* ==========================================================================
+   20. Top 4 posters: outlined rectangles, red type, a line revealed on hover or tap
+   ========================================================================== */
+
+.top4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+@media (min-width: 820px) { .top4 { grid-template-columns: repeat(4, 1fr); } }
+
+.poster { --p-bg: var(--raised); --p-ink: var(--text); aspect-ratio: 2 / 3; }
+.poster-btn {
+  position: relative;
+  background-image: var(--sheen);
+  display: block;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background: var(--p-bg);
+  color: var(--p-ink);
+  text-align: left;
+  cursor: pointer;
+}
+.poster-front,
+.poster-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(0.9rem, 2vw, 1.4rem);
+  transition: opacity var(--t) var(--ease), transform var(--t) var(--ease);
+}
+.poster-year,
+.poster-director {
+  font-family: var(--f-display);
+  font-size: 0.9375rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.poster-title {
+  font-family: var(--f-display);
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
+  font-weight: 700;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.poster-native {
+  display: block;
+  margin-bottom: 0.2em;
+  font-family: var(--f-deva);
+  font-size: 0.6em;
+  font-weight: 400;
+  line-height: 1.4;
+  text-transform: none;
+}
+.poster-back {
+  justify-content: flex-end;
+  gap: 0.75rem;
+  opacity: 0;
+  transform: translateY(8px);
+  background: var(--p-bg);
+}
+.poster-line { font-size: clamp(1.05rem, 1.5vw, 1.2rem); line-height: 1.4; }
+.poster-sign {
+  font-family: var(--f-display);
+  font-size: 0.9375rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.poster-sign em { font-style: normal; }
+
+.poster-btn[aria-expanded="true"] .poster-front,
+.poster-btn:focus-visible .poster-front { opacity: 0; transform: translateY(-8px); }
+.poster-btn[aria-expanded="true"] .poster-back,
+.poster-btn:focus-visible .poster-back { opacity: 1; transform: none; }
+.poster-btn:focus-visible { outline-offset: 3px; }
+@media (hover: hover) {
+  .poster-btn:hover .poster-front { opacity: 0; transform: translateY(-8px); }
+  .poster-btn:hover .poster-back { opacity: 1; transform: none; }
+}
+
+.poster--devdas     { --p-bg: #A8121C; --p-ink: #F8F1EA; }
+.poster--lunchbox   { --p-bg: #E6E2D8; --p-ink: #1A1A1A; }
+.poster--sunrise    { --p-bg: #2F5486; --p-ink: #F1F4F8; }
+.poster--drivemycar { --p-bg: #1B573E; --p-ink: #EEF4F0; }
+
+.top4-hint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  margin-top: 1rem;
+  font-size: 1.0625rem;
+  font-style: italic;
+  color: var(--muted);
+}
+.top4-hint .cta { font-style: normal; }
+.hint-tap { display: none; }
+@media (hover: none) {
+  .hint-hover { display: none; }
+  .hint-tap { display: inline; }
+}
+
+
+/* Posters: outlined, red */
+.poster-btn { background: transparent; background-image: none; color: var(--text); border: 1px solid var(--line-strong); }
+.poster-back { background: var(--bg); }
+.poster-year, .poster-director, .poster-title, .poster-sign { color: var(--accent); }
+.poster-native { color: var(--accent); }
+.poster--devdas, .poster--lunchbox, .poster--sunrise, .poster--drivemycar { --p-bg: transparent; --p-ink: var(--text); }
+
+
+.poster-title { font-family: var(--f-name); font-weight: 400; -webkit-text-stroke: 0.018em currentColor; paint-order: stroke fill; line-height: 1.02; font-size: clamp(1.7rem, 4vw, 2.4rem); text-transform: none; }
+.poster-year, .poster-director, .poster-sign { font-weight: 600; letter-spacing: 0.05em; font-size: 0.9rem; }
+.top4-hint .cta { font-weight: 600; letter-spacing: 0.05em; }
+.top4, .top4 { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 820px) { .top4 { grid-template-columns: repeat(2, 1fr); } }
+
+/* About: one voice, left aligned, every paragraph the same */
+.prose p + p { color: inherit; }
+.prose p { font-weight: 500; }

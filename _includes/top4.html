@@ -1,0 +1,20 @@
+<ul class="top4" role="list">
+  {% for film in site.data.top4 %}
+  <li class="poster poster--{{ film.key }}">
+    <button type="button" class="poster-btn" aria-expanded="false" aria-controls="poster-line-{{ film.key }}">
+      <span class="poster-front">
+        <span class="poster-year">{{ film.year }}</span>
+        <span class="poster-title">
+          {% if film.native %}<span class="poster-native" lang="hi">{{ film.native }}</span>{% endif %}
+          {{ film.title }}
+        </span>
+        <span class="poster-director">{{ film.director }}</span>
+      </span>
+      <span class="poster-back" id="poster-line-{{ film.key }}">
+        <span class="poster-line">{{ film.line }}</span>
+        <span class="poster-sign">— on <em>{{ film.title }}</em></span>
+      </span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
