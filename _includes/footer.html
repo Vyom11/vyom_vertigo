@@ -1,4 +1,4 @@
-<footer class="site-footer" data-commentary="{{ site.data.commentary.footer | escape }}">
+<footer class="site-footer"{% if page.body_class == 'home' %} data-commentary="{{ site.data.commentary.footer | escape }}"{% endif %}>
   <div class="wrap">
 
     <p class="eyebrow">Have a brief?</p>

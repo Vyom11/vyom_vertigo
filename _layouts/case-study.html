@@ -3,11 +3,10 @@ layout: default
 ---
 {% assign words = content | number_of_words %}
 {% assign read_time = words | divided_by: 200 | plus: 1 %}
-{% assign cc = site.data.commentary.case_study %}
 {% assign band = site.data.case_colors[page.slug] | default: "#1E1E1E" %}
 
 <article data-case-slug="{{ page.slug }}" style="--row-color: {{ band }}">
-  <header class="doc-head doc-head--wide wrap" data-commentary="{{ cc.intro | escape }}">
+  <header class="doc-head doc-head--wide wrap">
     <a href="{{ '/case-studies/' | relative_url }}" class="back-link"><span aria-hidden="true">&larr;</span> All work</a>
     <p class="eyebrow">Case study 0{{ page.order }}</p>
     <h1 class="doc-title">{{ page.title }}</h1>
@@ -21,7 +20,7 @@ layout: default
   </header>
 
   {% if page.headline_metrics and page.headline_metrics.size > 0 %}
-  <section class="doc-band" aria-label="Results" data-commentary="{{ cc.numbers | escape }}">
+  <section class="doc-band" aria-label="Results">
     <div class="doc-numbers wrap">
       {% for metric in page.headline_metrics %}
       <p>
@@ -34,7 +33,6 @@ layout: default
   {% endif %}
 
   <div class="wrap reading-case">
-    <script type="application/json" id="cc-headings">{{ cc.sections | jsonify }}</script>
     <div class="article-body">
       {{ content }}
     </div>

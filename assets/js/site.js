@@ -66,17 +66,6 @@
     var caption = document.getElementById('cc-caption');
     if (!toggle || !caption) return;
 
-    // Case studies: attach a line to each section heading by its text
-    var map = document.getElementById('cc-headings');
-    if (map) {
-      var lines = {};
-      try { lines = JSON.parse(map.textContent) || {}; } catch (e) {}
-      document.querySelectorAll('.article-body h2').forEach(function (h) {
-        var line = lines[h.textContent.trim()];
-        if (line) h.setAttribute('data-commentary', line);
-      });
-    }
-
     var targets = Array.prototype.slice.call(document.querySelectorAll('[data-commentary]'))
       .filter(function (el) { return el.getAttribute('data-commentary'); });
     if (!targets.length) { toggle.hidden = true; return; }
