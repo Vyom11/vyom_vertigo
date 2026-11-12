@@ -3,9 +3,8 @@ layout: default
 ---
 {% assign words = content | number_of_words %}
 {% assign read_time = words | divided_by: 200 | plus: 1 %}
-{% assign band = site.data.case_colors[page.slug] | default: "#1E1E1E" %}
 
-<article data-case-slug="{{ page.slug }}" style="--row-color: {{ band }}">
+<article>
   <header class="doc-head doc-head--wide wrap">
     <a href="{{ '/case-studies/' | relative_url }}" class="back-link"><span aria-hidden="true">&larr;</span> All work</a>
     <p class="eyebrow">Case study 0{{ page.order }}</p>

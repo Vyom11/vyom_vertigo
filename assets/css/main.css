@@ -955,8 +955,6 @@ a:hover { text-decoration-color: currentColor; }
 .work-row-link:hover .work-row-arrow,
 .work-row-link:focus-visible .work-row-meta { color: var(--text); }
 .work-row-link:hover .work-row-summary { color: var(--text); }
-.work-row-seen { display: none; }
-.work-row.is-seen .work-row-seen { display: inline; }
 
 /* Case study: results sit on the project's colour */
 .doc-band {
@@ -1188,8 +1186,8 @@ html:not(.js) .theme-toggle { display: none; }
 .poster-director, .poster-sign, .footer-links a, .back-link, .doc-byline, .doc-meta dt,
 .doc-number-lbl, .pager-lbl, .doc-end, .statement strong, .channel-lbl, .channel-handle,
 .page-no, .version, .skip-link, .top4-hint .cta {
-  font-weight: 700;
-  letter-spacing: 0.07em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
 .eyebrow, .stat-lbl, .work-row-no, .work-row-meta, .work-row-metric-lbl, .essay-row-date,
 .essay-row-meta, .poster-year, .poster-director, .doc-byline, .doc-meta dt, .doc-number-lbl,
@@ -1230,3 +1228,50 @@ html:not(.js) .theme-toggle { display: none; }
   padding-block: 0 clamp(2rem, 8vh, 5rem);
 }
 .home .hero-inner { width: 100%; }
+
+/* ==========================================================================
+   17. Calmer lists: fewer elements per row, lighter secondary text, more air
+   ========================================================================== */
+
+/* Writing: title on the left, date on the right like a table of contents */
+.essay-row-link {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0 1.5rem;
+  align-items: baseline;
+  padding-block: 1.75rem;
+}
+.essay-row-main { grid-column: 1; }
+.essay-row-date { grid-column: 2; white-space: nowrap; }
+.essay-row-title { font-size: clamp(1.4rem, 2.3vw, 1.7rem); }
+.essay-row-sub { margin-top: 0.35rem; font-size: 1.1rem; font-weight: 400; color: var(--soft); opacity: 0.85; }
+
+/* Work: industry, title and summary on the left; one modest figure on the right */
+.work-row-link {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0 2rem;
+  align-items: start;
+  padding-block: 2rem;
+}
+.work-row-main { grid-column: 1; }
+.work-row-metric { grid-column: 2; text-align: right; padding-top: 0.15rem; }
+.work-row-meta { margin-bottom: 0.5rem; }
+.work-row-title { font-size: clamp(1.4rem, 2.3vw, 1.7rem); }
+.work-row-summary { margin-top: 0.5rem; max-width: 48ch; font-size: 1.1rem; font-weight: 400; color: var(--soft); opacity: 0.9; }
+.work-row-metric-val { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1; }
+.work-row-metric-lbl { margin-top: 0.35rem; font-size: 0.75rem; }
+@media (max-width: 560px) {
+  .work-row-link { grid-template-columns: 1fr; }
+  .work-row-metric { grid-column: 1; display: flex; align-items: baseline; gap: 0.6rem; margin-top: 0.9rem; text-align: left; padding-top: 0; }
+  .work-row-metric-lbl { margin-top: 0; }
+}
+
+/* Home: the title page fills the screen, with the links along the bottom */
+.home .main { display: flex; flex-direction: column; }
+.home .hero { flex: 1; min-height: 0; padding-block: 0; }
+.home-links { padding-block: 1rem calc(1.25rem + env(safe-area-inset-bottom, 0px)); }
+.home-links .footer-links { justify-content: center; }
+
+@media (max-width: 560px) {
+  .home-links .footer-links { gap: 0 0.9rem; flex-wrap: nowrap; }
+  .home-links .footer-links a { font-size: 0.82rem; letter-spacing: 0.04em; }
+}

@@ -40,26 +40,6 @@
     });
   }
 
-  // --- 4. Case studies a visitor has opened are marked "Seen" (kept in their browser) ---
-  function initSeen() {
-    var KEY = 'vv-seen';
-    var seen = [];
-    try { seen = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) {}
-
-    var current = document.querySelector('[data-case-slug]');
-    if (current) {
-      var slug = current.getAttribute('data-case-slug');
-      if (seen.indexOf(slug) === -1) {
-        seen.push(slug);
-        try { localStorage.setItem(KEY, JSON.stringify(seen)); } catch (e) {}
-      }
-    }
-
-    document.querySelectorAll('.work-row[data-slug]').forEach(function (row) {
-      row.classList.toggle('is-seen', seen.indexOf(row.getAttribute('data-slug')) !== -1);
-    });
-  }
-
   // --- 6. Theme toggle: dark by default, the choice is remembered in this browser ---
   function initTheme() {
     var btn = document.getElementById('theme-toggle');
@@ -83,13 +63,7 @@
   function init() {
     initProgress();
     initPosters();
-    initSeen();
     initTheme();
-
-    // Back/forward restores pages from memory without re-running scripts;
-    // re-mark seen case studies whenever a page is shown, or another tab changes them.
-    window.addEventListener('pageshow', function (e) { if (e.persisted) initSeen(); });
-    window.addEventListener('storage', function (e) { if (e.key === 'vv-seen') initSeen(); });
   }
 
   if (document.readyState === 'loading') {
