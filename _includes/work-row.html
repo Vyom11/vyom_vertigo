@@ -1,6 +1,7 @@
 {% assign cs = include.case_study %}
 <li class="work-row">
   <a class="work-row-link" href="{{ cs.url | relative_url }}">
+    <span class="work-row-no"><span class="work-row-no-lbl">No.</span><span class="work-row-no-val">0{{ cs.order }}</span></span>
     <span class="work-row-main">
       <span class="work-row-meta">{{ cs.industry }}</span>
       <h3 class="work-row-title">{{ cs.title }}</h3>

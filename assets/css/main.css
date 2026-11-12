@@ -1275,3 +1275,39 @@ html:not(.js) .theme-toggle { display: none; }
   .home-links .footer-links { gap: 0 0.9rem; flex-wrap: nowrap; }
   .home-links .footer-links a { font-size: 0.82rem; letter-spacing: 0.04em; }
 }
+
+/* ==========================================================================
+   18. Work: a clear number for each case study, much smaller figures
+   ========================================================================== */
+
+/* The headline figures shrink; the case study number leads */
+.stat-num { font-size: clamp(1.9rem, 6vw, 2.6rem); }
+.work-row-metric-val { font-size: clamp(1.15rem, 2.4vw, 1.45rem); }
+.work-row-metric-lbl { font-size: 0.7rem; }
+.doc-numbers { padding-block: clamp(1.75rem, 4vw, 2.5rem); gap: 1.5rem clamp(2rem, 6vw, 4rem); }
+.doc-number-val { font-size: clamp(2rem, 6vw, 3rem); line-height: 1; }
+.doc-number-lbl { margin-top: 0.4rem; font-size: 0.8rem; }
+
+/* List: a big numeral in its own column */
+.work-row-link { grid-template-columns: 4.75rem minmax(0, 1fr) auto; gap: 0 1.5rem; }
+.work-row-no {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  color: var(--accent);
+}
+.work-row-no-lbl { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.work-row-no-val { font-size: clamp(2.6rem, 6vw, 3.4rem); font-weight: 800; line-height: 0.95; font-variant-numeric: lining-nums; }
+.work-row-main { grid-column: 2; }
+.work-row-metric { grid-column: 3; }
+@media (max-width: 560px) {
+  .work-row-link { grid-template-columns: 3.75rem minmax(0, 1fr); gap: 0 1rem; }
+  .work-row-no-val { font-size: 2.4rem; }
+  .work-row-metric { grid-column: 2; }
+}
+
+/* Inside a case study: the number is the first thing you see */
+.doc-no { display: flex; align-items: baseline; gap: 0.5rem; font-size: 2.4rem; font-weight: 800; letter-spacing: 0; line-height: 1; text-transform: none; color: var(--accent); }
+.doc-no-lbl { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
