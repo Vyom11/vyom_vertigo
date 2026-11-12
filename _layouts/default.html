@@ -107,7 +107,7 @@
     {{ content }}
   </main>
 
-  {% include footer.html %}
+  {% unless page.body_class == 'home' %}{% include footer.html %}{% endunless %}
 
 </body>
 </html>
