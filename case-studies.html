@@ -8,11 +8,17 @@ description: "Real-world commercial copy, short-form reels, creative strategy an
 {% assign sorted_studies = site.case_studies | sort: "order" %}
 
 <header class="page-head wrap">
+  <p class="page-no" aria-hidden="true">II</p>
   <p class="eyebrow">{{ site.case_studies.size }} case studies</p>
   <h1 class="page-title display">Work</h1>
   <p class="page-lede">Commercial copy, short-form reel scripting, on-camera acting, and campaign direction that move numbers.</p>
+  {% assign cc = site.data.commentary.home %}
+  <dl class="stats" data-commentary="{{ cc.stats | escape }}">
+    <div class="stat"><dt class="stat-lbl">Views</dt><dd class="stat-num">12M+</dd></div>
+    <div class="stat"><dt class="stat-lbl">Likes</dt><dd class="stat-num">100K+</dd></div>
+    <div class="stat"><dt class="stat-lbl">Brands</dt><dd class="stat-num">7</dd></div>
+  </dl>
   <p class="page-note">Client names are withheld; the work is real.</p>
-  <div class="page-stubs">{% include stubs.html %}</div>
 </header>
 
 <section class="section--tight wrap" aria-label="Case studies">

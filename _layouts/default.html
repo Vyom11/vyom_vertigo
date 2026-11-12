@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#0E0E0E">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#111111">
   {% if page.redirect_to %}
   <meta http-equiv="refresh" content="0; url={{ page.redirect_to | relative_url }}">
   <meta name="robots" content="noindex">
   {% endif %}
 
-  <script>document.documentElement.className = 'js';</script>
+  <script>
+    document.documentElement.className = 'js';
+    // Theme is set before first paint so there is no flash. Dark is the default; a saved choice wins.
+    (function () {
+      var t = 'dark';
+      try { t = localStorage.getItem('vv-theme') === 'light' ? 'light' : 'dark'; } catch (e) {}
+      document.documentElement.setAttribute('data-theme', t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute('content', t === 'light' ? '#E4E2D7' : '#111111');
+    })();
+  </script>
 
   <!-- Title & Description with fallback chain: page.description | page.subtitle | site.description -->
   {% assign page_desc = page.description | default: page.subtitle | default: site.description %}
@@ -42,10 +52,10 @@
   <meta name="twitter:description" content="{{ page_desc | strip_html | strip_newlines | escape }}">
   <meta name="twitter:image" content="{{ '/assets/og-default.png' | absolute_url }}">
 
-  <!-- Type: Antonio (condensed poster face) + Crimson Pro (book serif) -->
+  <!-- Type: IM Fell English (display) + Spectral (everything else) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;500;700&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <!-- Devanagari for one word (the Devdas poster) -->
   <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&display=swap&text=%E0%A4%A6%E0%A5%87%E0%A4%B5%E0%A4%A6%E0%A4%BE%E0%A4%B8" rel="stylesheet">
 
@@ -90,12 +100,6 @@
 </head>
 <body class="{% if page.body_class %}{{ page.body_class }}{% endif %}">
   <a href="#main-content" class="skip-link">Skip to content</a>
-
-  <!-- The projector: a faint beam of light with dust drifting through it, behind everything -->
-  <div class="projector" aria-hidden="true">
-    <div class="projector-glow"><div class="projector-beam"></div></div>
-    <canvas class="projector-dust"></canvas>
-  </div>
 
   {% include nav.html %}
 

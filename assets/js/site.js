@@ -40,31 +40,8 @@
     });
   }
 
-  // --- 3. Writing archive filter ---
-  function initWritingFilter() {
-    var archive = document.getElementById('essay-archive');
-    var filterButtons = document.querySelectorAll('.filter-btn');
-    var status = document.getElementById('filter-status');
-    if (!archive || !filterButtons.length) return;
-    var items = archive.querySelectorAll('[data-category]');
-
-    filterButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var category = btn.getAttribute('data-filter');
-        var shown = 0;
-        filterButtons.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
-        items.forEach(function (item) {
-          var match = category === 'all' || item.getAttribute('data-category') === category;
-          item.hidden = !match;
-          if (match) shown++;
-        });
-        if (status) status.textContent = 'Showing ' + shown + ' essay' + (shown === 1 ? '' : 's') + '.';
-      });
-    });
-  }
-
-  // --- 4. Ticket stubs: case studies a visitor has opened, kept in their browser ---
-  function initStubs() {
+  // --- 4. Case studies a visitor has opened are marked "Seen" (kept in their browser) ---
+  function initSeen() {
     var KEY = 'vv-seen';
     var seen = [];
     try { seen = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) {}
@@ -80,17 +57,6 @@
 
     document.querySelectorAll('.work-row[data-slug]').forEach(function (row) {
       row.classList.toggle('is-seen', seen.indexOf(row.getAttribute('data-slug')) !== -1);
-    });
-
-    document.querySelectorAll('[data-stubs]').forEach(function (box) {
-      var count = 0;
-      box.querySelectorAll('.stub').forEach(function (stub) {
-        var torn = seen.indexOf(stub.getAttribute('data-stub')) !== -1;
-        stub.classList.toggle('is-torn', torn);
-        if (torn) count++;
-      });
-      box.querySelector('[data-stubs-count]').textContent = count;
-      box.querySelector('.stubs-full').hidden = count < parseInt(box.getAttribute('data-total'), 10);
     });
   }
 
@@ -166,108 +132,37 @@
     set(on);
   }
 
-  // --- 6. Projector dust: a few specks drifting through the beam ---
-  function initDust() {
-    var canvas = document.querySelector('.projector-dust');
-    if (!canvas || !canvas.getContext) return;
-    var ctx = canvas.getContext('2d');
-    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var w = 0, h = 0, specks = [], last = 0, raf = 0;
+  // --- 6. Theme toggle: dark by default, the choice is remembered in this browser ---
+  function initTheme() {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var meta = document.querySelector('meta[name="theme-color"]');
 
-    // The beam is a cone: narrow at the top centre, wide at the bottom (matches the CSS clip-path)
-    function coneX(t) {
-      var left = 0.45 + (0.06 - 0.45) * t, right = 0.55 + (0.94 - 0.55) * t;
-      return [left * w, right * w];
-    }
-    function spawn(anywhere) {
-      var t = Math.pow(Math.random(), 1.6) * 0.85;
-      var span = coneX(t);
-      return {
-        x: span[0] + Math.random() * (span[1] - span[0]),
-        y: anywhere ? t * h : -4,
-        r: 0.5 + Math.random() * 1.1,
-        vx: (Math.random() - 0.5) * 0.12,
-        vy: 0.04 + Math.random() * 0.1,
-        phase: Math.random() * Math.PI * 2
-      };
-    }
-    function size() {
-      w = canvas.clientWidth; h = canvas.clientHeight;
-      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var count = Math.round(Math.min(70, Math.max(24, (w * h) / 26000)));
-      specks = [];
-      for (var i = 0; i < count; i++) specks.push(spawn(true));
-    }
-    function draw(time) {
-      ctx.clearRect(0, 0, w, h);
-      specks.forEach(function (p, i) {
-        if (!still) {
-          p.x += p.vx; p.y += p.vy;
-          var t = p.y / h, span = coneX(Math.min(t, 1));
-          if (t > 0.85 || p.x < span[0] - 20 || p.x > span[1] + 20) specks[i] = p = spawn(false);
-        }
-        var depth = 1 - Math.min(p.y / (h * 0.85), 1);          // brighter near the lens
-        var twinkle = 0.6 + 0.4 * Math.sin(time / 900 + p.phase); // catching the light
-        ctx.globalAlpha = 0.38 * depth * twinkle;
-        ctx.fillStyle = '#FFD49A';
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
-      });
-    }
-    function loop(time) {
-      raf = window.requestAnimationFrame(loop);
-      if (time - last < 33) return; // ~30fps is plenty for dust
-      last = time;
-      draw(time);
+    function apply(theme) {
+      root.setAttribute('data-theme', theme);
+      btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      if (meta) meta.setAttribute('content', theme === 'light' ? '#E4E2D7' : '#111111');
     }
 
-    size();
-    window.addEventListener('resize', function () { size(); if (still) draw(0); });
-    if (still) { draw(0); return; }
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) { window.cancelAnimationFrame(raf); }
-      else { raf = window.requestAnimationFrame(loop); }
+    apply(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+    btn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      apply(next);
+      try { localStorage.setItem('vv-theme', next); } catch (e) {}
     });
-    raf = window.requestAnimationFrame(loop);
-  }
-
-  // The talents beside the headline: write them in one by one, hold the full list, then start again
-  function initRevisions() {
-    var list = document.querySelector('[data-revisions]');
-    if (!list || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var items = Array.prototype.slice.call(list.querySelectorAll('.rev-item'));
-    function later(fn, ms) { window.setTimeout(function () { if (document.hidden) { later(fn, 500); } else { fn(); } }, ms); }
-    function reset() {
-      list.classList.remove('is-fading');
-      items.forEach(function (li) { li.classList.remove('is-written'); });
-    }
-    function write(i) {
-      items[i].classList.add('is-written');
-      if (i < items.length - 1) { later(function () { write(i + 1); }, 850); }
-      else { later(fade, 6000); }
-    }
-    function fade() {
-      list.classList.add('is-fading');
-      later(function () { reset(); later(function () { write(0); }, 500); }, 700);
-    }
-    reset();
-    later(function () { write(0); }, 600);
   }
 
   function init() {
     initProgress();
     initPosters();
-    initWritingFilter();
-    initStubs();
+    initSeen();
     initCommentary();
-    initDust();
-    initRevisions();
+    initTheme();
 
     // Back/forward restores pages from memory without re-running scripts;
-    // recount the stubs whenever a page is shown, or another tab changes them.
-    window.addEventListener('pageshow', function (e) { if (e.persisted) initStubs(); });
-    window.addEventListener('storage', function (e) { if (e.key === 'vv-seen') initStubs(); });
+    // re-mark seen case studies whenever a page is shown, or another tab changes them.
+    window.addEventListener('pageshow', function (e) { if (e.persisted) initSeen(); });
+    window.addEventListener('storage', function (e) { if (e.key === 'vv-seen') initSeen(); });
   }
 
   if (document.readyState === 'loading') {

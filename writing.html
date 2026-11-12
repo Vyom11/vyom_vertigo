@@ -5,43 +5,15 @@ permalink: /writing/
 description: "Personal essays and long-form takes on cinema, culture, tech and everything unfortunate enough to enter my brain."
 ---
 
-{% assign start_here = site.posts | where: "start_here", true %}
-
 <header class="page-head wrap">
+  <p class="page-no" aria-hidden="true">I</p>
   <p class="eyebrow">{{ site.posts.size }} essays</p>
   <h1 class="page-title display">Writing</h1>
   <p class="page-lede">Personal essays and long-form takes on cinema, culture, tech and everything unfortunate enough to enter my brain.</p>
 </header>
 
-<section class="section--tight wrap" aria-labelledby="start-title">
-  <div class="section-head">
-    <div>
-      <p class="eyebrow">Start here</p>
-      <h2 class="section-title" id="start-title">Three essays that define the voice.</h2>
-    </div>
-  </div>
+<section class="section--tight wrap" aria-label="All essays, newest first">
   <ol class="list" role="list">
-    {% for post in start_here %}
-      {% include essay-row.html post=post %}
-    {% endfor %}
-  </ol>
-</section>
-
-<section class="section wrap" aria-labelledby="archive-title">
-  <div class="section-head">
-    <div>
-      <p class="eyebrow">Archive</p>
-      <h2 class="section-title" id="archive-title">Everything, newest first.</h2>
-    </div>
-    <div class="filter-bar" role="group" aria-label="Filter essays by category">
-      <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All</button>
-      <button type="button" class="filter-btn" data-filter="film" aria-pressed="false">Film &amp; media</button>
-      <button type="button" class="filter-btn" data-filter="thoughts" aria-pressed="false">Thoughts</button>
-    </div>
-  </div>
-  <p class="visually-hidden" aria-live="polite" id="filter-status"></p>
-
-  <ol class="list" role="list" id="essay-archive">
     {% for post in site.posts %}
       {% include essay-row.html post=post %}
     {% endfor %}

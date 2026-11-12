@@ -1,38 +1,58 @@
 /**
  * Vyom Vertigo
- * Quiet, monochrome, typographic. A condensed poster face (Antonio) for
- * headlines and wayfinding, a warm book serif (Crimson Pro) for reading.
- * The only colour on the site lives inside the four film posters.
+ * Quiet and typographic. IM Fell English for display, Spectral for everything
+ * else. Red is the only accent.
  */
 
 /* ==========================================================================
    1. Tokens
    ========================================================================== */
 
-:root {
-  --bg: #0E0E0E;
-  --raised: #161616;
-  --text: #EDECE8;          /* 16.9:1 on --bg */
-  --soft: #C4C3BE;          /* 11.4:1 */
-  --muted: #ABAAA5;         /* 8.6:1  */
-  --line: #262626;
-  --line-strong: #3A3A3A;
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111111;
+  --raised: #1A1A1A;
+  --text: #F1ECE4;          /* warm off-white, for reading */
+  --soft: #CFC9BF;
+  --accent: #FF3B3B;        /* the only colour: 5.3:1 on --bg */
+  --muted: var(--accent);   /* labels, meta and wayfinding are all red */
+  --line: rgba(255, 59, 59, 0.28);
+  --line-strong: rgba(255, 59, 59, 0.55);
+  --article: #E8E3DA;
+  --sheen: none;
+  --grain: 0.09;
+  --grain-filter: none;
+  --caption-bg: rgba(0, 0, 0, 0.84);
 
-  /* Light falling across a printed sheet: makes colour blocks read as lit, not flat */
-  --sheen: linear-gradient(155deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0) 45%, rgba(0, 0, 0, 0.22) 100%);
-
-  --f-display: 'Antonio', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
-  --f-text: 'Crimson Pro', Athelas, Georgia, 'Times New Roman', serif;
+  --f-text: 'Spectral', Georgia, 'Times New Roman', serif;      /* everything you read, and every label */
+  --f-display: var(--f-text);
+  --f-name: 'IM Fell English', Georgia, 'Times New Roman', serif; /* the name, page and essay titles, big numbers */
   --f-deva: 'Tiro Devanagari Hindi', 'Kohinoor Devanagari', serif;
 
-  --wrap: 1200px;
-  --gutter: clamp(1rem, 4.5vw, 3rem);
-  --section: clamp(6rem, 12vw, 10rem);
+  --wrap: 48rem;
+  --gutter: clamp(1.25rem, 5vw, 2.5rem);
+  --section: clamp(5rem, 11vw, 8rem);
   --measure: 40rem;
 
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   --t: 500ms;
   --tap: 44px;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #E4E2D7;
+  --raised: #DAD7CA;
+  --text: #1B1B1B;
+  --soft: #3B3935;
+  --accent: #AD1219;        /* 5.3:1 on --bg */
+  --line: rgba(173, 18, 25, 0.3);
+  --line-strong: rgba(173, 18, 25, 0.6);
+  --article: #1B1B1B;
+  --grain: 0.07;
+  --grain-filter: invert(1);
+  --caption-bg: rgba(20, 20, 20, 0.9);
 }
 
 /* ==========================================================================
@@ -57,7 +77,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--f-text);
-  font-size: 1.3125rem;      /* 21px: Crimson Pro runs small */
+  font-size: 1.25rem;
+  font-weight: 500;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -65,51 +86,15 @@ body {
   font-variant-numeric: lining-nums;
 }
 
-/* Texture: a projector beam falling from the top with dust in it, a dark floor, and film grain */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  background: radial-gradient(ellipse 120% 80% at 50% 120%, rgba(0, 0, 0, 0.5), transparent 60%);
-}
-.projector {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-.projector-glow { position: absolute; inset: 0; filter: blur(28px); }
-.projector-beam {
-  position: absolute;
-  inset: -4% 0 0;
-  clip-path: polygon(45% 0, 55% 0, 94% 100%, 6% 100%);
-  background: linear-gradient(180deg, rgba(255, 190, 105, 0.19) 0%, rgba(232, 104, 48, 0.085) 45%, rgba(200, 60, 30, 0) 85%);
-  animation: projector-flicker 5s steps(1, end) infinite;
-}
-.projector-dust { position: absolute; inset: 0; width: 100%; height: 100%; }
-/* An old projector's lamp never burns perfectly even */
-@keyframes projector-flicker {
-  0%, 100% { opacity: 1; }
-  7% { opacity: 0.9; }
-  9% { opacity: 1; }
-  41% { opacity: 0.94; }
-  43% { opacity: 1; }
-  68% { opacity: 0.88; }
-  70% { opacity: 0.97; }
-  72% { opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .projector-beam { animation: none; }
-}
+/* Texture: film grain over a flat page */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 200;
   pointer-events: none;
-  opacity: 0.09;
+  opacity: var(--grain);
+  filter: var(--grain-filter);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 }
 
@@ -117,7 +102,7 @@ img, svg { display: block; max-width: 100%; height: auto; }
 ul, ol { list-style: none; }
 button { font: inherit; color: inherit; }
 
-h1, h2, h3 { font-weight: 400; line-height: 1.12; text-wrap: balance; }
+h1, h2, h3 { font-weight: 700; line-height: 1.12; text-wrap: balance; }
 
 a {
   color: inherit;
@@ -699,24 +684,6 @@ a:hover { text-decoration-color: currentColor; }
 }
 .back-link:hover { color: var(--text); }
 
-.filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.filter-btn {
-  min-height: var(--tap);
-  padding: 0 1.1rem;
-  background: none;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  font-family: var(--f-display);
-  font-size: 1.0625rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
-  cursor: pointer;
-  transition: color var(--t) var(--ease), border-color var(--t) var(--ease), background var(--t) var(--ease);
-}
-.filter-btn:hover { color: var(--text); border-color: var(--muted); }
-.filter-btn[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: var(--bg); }
-
 /* ==========================================================================
    10. Case study and essay heads
    ========================================================================== */
@@ -950,7 +917,7 @@ a:hover { text-decoration-color: currentColor; }
 .lost .page-title { max-width: 12ch; font-size: clamp(3rem, 8vw, 6.5rem); }
 
 /* ==========================================================================
-   13. Personality layer: title card, colour floods, stubs, commentary
+   13. Personality layer: title card, colour floods, commentary
    ========================================================================== */
 
 /* Title-card reveal: each headline line rises out of its own mask, once */
@@ -1000,38 +967,6 @@ a:hover { text-decoration-color: currentColor; }
 .work-row-link:hover .work-row-summary { color: var(--text); }
 .work-row-seen { display: none; }
 .work-row.is-seen .work-row-seen { display: inline; }
-
-/* Ticket stubs */
-.stubs { display: grid; gap: 0.5rem; justify-items: start; }
-@media (min-width: 820px) { .section-head .stubs { justify-items: end; text-align: right; } }
-.stubs-row { display: flex; gap: 6px; }
-.stub {
-  display: block;
-  width: 30px;
-  height: 16px;
-  background: #303030;
-  -webkit-mask: radial-gradient(circle at 0 50%, transparent 4px, #000 4.5px) left / 51% 100% no-repeat,
-                radial-gradient(circle at 100% 50%, transparent 4px, #000 4.5px) right / 51% 100% no-repeat;
-          mask: radial-gradient(circle at 0 50%, transparent 4px, #000 4.5px) left / 51% 100% no-repeat,
-                radial-gradient(circle at 100% 50%, transparent 4px, #000 4.5px) right / 51% 100% no-repeat;
-  transition: background 600ms var(--ease), transform 600ms var(--ease);
-}
-.stub:hover { transform: translateY(-2px); }
-.stub.is-torn {
-  background: var(--soft);
-  background: color-mix(in srgb, var(--row-color) 45%, #EDECE8);
-  transform: rotate(-6deg);
-}
-.stubs-label {
-  font-family: var(--f-display);
-  font-size: 1.0rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.stubs-full { font-size: 1.0625rem; font-style: italic; color: var(--soft); }
-.page-stubs { margin-top: 2rem; }
-html:not(.js) .stubs { display: none; }
 
 /* Case study: results sit on the project's colour */
 .doc-band {
@@ -1140,37 +1075,236 @@ html:not(.js) [data-cc-on] { display: none; }
 }
 
 
-/* ---- The talents beside the headline: points added to a list one by one, each with a red pen mark ---- */
-.revisions { position: relative; z-index: 1; }
-.rev-list { display: grid; gap: 0.2rem; justify-items: start; }
-.rev-item {
+
+/* ==========================================================================
+   15. Refresh: one red accent, a narrow column, a table-of-contents nav, light and dark
+   ========================================================================== */
+
+/* Theme toggle */
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: var(--tap);
+  height: var(--tap);
+  margin-right: -0.6rem;
+  background: none;
+  border: 0;
+  color: var(--accent);
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--text); }
+.theme-icon--moon { display: none; }
+:root[data-theme="light"] .theme-icon--sun { display: none; }
+:root[data-theme="light"] .theme-icon--moon { display: block; }
+html:not(.js) .theme-toggle { display: none; }
+.masthead-inner { gap: 0.75rem; }
+.masthead-inner nav { margin-left: auto; }
+
+/* Header and nav colour */
+.wordmark { color: var(--accent); }
+.nav a { color: var(--accent); }
+.nav a:hover,
+.nav a[aria-current="page"] { color: var(--text); }
+.section-title,
+.page-title,
+.display,
+.doc-title,
+.footer-cta-title { color: var(--accent); }
+.stat-num,
+.work-row-metric-val,
+.doc-number-val,
+.footer-mail,
+.billing-name { color: var(--accent); }
+.skip-link, ::selection { background: var(--accent); color: var(--bg); }
+:focus-visible { outline-color: var(--accent); }
+
+/* Home: only the toc shows, like a title page */
+.home .wordmark,
+.home .masthead-inner nav { display: none; }
+.home .masthead-inner { justify-content: flex-end; }
+
+.hero { padding-top: clamp(1rem, 4vw, 3rem); text-align: center; overflow: visible; }
+.hero-name {
+  font-family: var(--f-name);
+  font-size: clamp(3.5rem, 17vw, 7.75rem);
+  font-weight: 400;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--accent);
+}
+.hero-tag {
+  margin-top: 1.25rem;
+  font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.toc { max-width: 28rem; margin: clamp(2rem, 5vw, 3rem) auto 0; text-align: left; }
+.toc a {
   display: flex;
-  align-items: center;
-  gap: 0.55rem;
+  align-items: baseline;
+  gap: 0.6rem;
+  min-height: var(--tap);
+  padding-block: 0.35rem;
+  font-family: var(--f-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--accent);
+}
+.toc-dots { flex: 1; align-self: end; margin-bottom: 0.55em; border-bottom: 2px dotted var(--line-strong); }
+.toc-num { font-size: 1.05rem; letter-spacing: 0.05em; }
+.toc a:hover .toc-label,
+.toc a:focus-visible .toc-label { color: var(--text); }
+.toc a:hover .toc-dots { border-bottom-color: var(--accent); }
+
+.hero-intro { max-width: 34ch; margin: clamp(2.5rem, 6vw, 3.5rem) auto 0; font-size: clamp(1.3rem, 2vw, 1.45rem); line-height: 1.45; color: var(--soft); }
+.stats { grid-template-columns: repeat(3, auto); justify-content: center; margin-top: 2.5rem; text-align: center; }
+.stat-num { font-size: clamp(2.25rem, 8vw, 3.25rem); }
+.ctas--center { justify-content: center; margin-top: 1rem; }
+
+/* Inner pages: centred title page, numeral above */
+.page-head { text-align: center; }
+.page-no { margin-bottom: 1.25rem; font-family: var(--f-display); font-size: 1.1rem; letter-spacing: 0.1em; color: var(--accent); }
+.page-title { font-family: var(--f-name); font-weight: 400; font-size: clamp(3.25rem, 13vw, 5.5rem); line-height: 1; letter-spacing: 0.01em; }
+.page-lede { margin-inline: auto; }
+.page-head .eyebrow { margin-bottom: 0.75rem; }
+.doc-title { font-family: var(--f-name); font-weight: 400; font-size: clamp(2.6rem, 6.4vw, 4.4rem); line-height: 1.04; }
+
+/* Lists in a narrow column: stacked rows */
+.work-row-link,
+.essay-row-link { grid-template-columns: 1fr auto; padding-block: 1.5rem; }
+.work-row-no, .work-row-main { grid-column: 1 / -1; }
+.work-row-metric { text-align: left; }
+.essay-row-link { grid-template-columns: 1fr; gap: 0.25rem; }
+.essay-row-meta { text-align: left; }
+@media (min-width: 820px) {
+  .work-row-link { grid-template-columns: 1fr auto; padding-block: 1.75rem; align-items: end; }
+  .work-row-no, .work-row-main { grid-column: 1 / -1; }
+  .work-row-metric { text-align: left; }
+  .essay-row-link { grid-template-columns: 1fr; padding-block: 1.5rem; }
+  .essay-row-meta { text-align: left; }
+}
+.top4, .top4 { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 820px) { .top4 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+
+/* No colour floods: hover is just the title lighting up */
+.work-row-link::before,
+.essay-row-link::before { display: none; }
+.work-row-link:hover .work-row-title,
+.essay-row-link:hover .essay-row-title { color: var(--accent); }
+.work-row-link:hover .work-row-summary,
+.essay-row-link:hover .essay-row-sub { color: var(--soft); }
+
+/* Posters: outlined, red */
+.poster-btn { background: transparent; background-image: none; color: var(--text); border: 1px solid var(--line-strong); }
+.poster-back { background: var(--bg); }
+.poster-year, .poster-director, .poster-title, .poster-sign { color: var(--accent); }
+.poster-native { color: var(--accent); }
+.poster--devdas, .poster--lunchbox, .poster--sunrise, .poster--drivemycar { --p-bg: transparent; --p-ink: var(--text); }
+
+/* Essay and case study heads: no coloured band, just a rule */
+.essay-band { background: none; border-bottom: 1px solid var(--line); }
+.essay-band .back-link,
+.essay-band .eyebrow,
+.essay-band .doc-byline { color: var(--accent); }
+.essay-band .doc-deck { color: var(--soft); }
+.essay-band .doc-byline { border-top-color: var(--line); }
+.essay-band :focus-visible { outline-color: var(--accent); }
+.doc-band { background: none; border-block: 1px solid var(--line); }
+.doc-band .doc-number-lbl { color: var(--accent); }
+.back-link:hover { color: var(--text); }
+
+/* Reading text follows the theme; red is for wayfinding, not paragraphs */
+.article-body { color: var(--article); }
+.article-body a { text-decoration-color: var(--accent); }
+.article-body blockquote { border-left-color: var(--accent); }
+
+/* Commentary controls */
+.cc-toggle { background: var(--raised); color: var(--accent); }
+.cc-toggle:hover { color: var(--text); }
+.cc-toggle[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); }
+.cc-toggle[aria-pressed="true"] .cc-badge { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.cc-caption { background: var(--caption-bg); }
+
+/* Footer */
+.billing { color: var(--soft); }
+.footer-base { align-items: baseline; }
+.version { font-family: var(--f-display); font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+
+.page-head .stats { margin-top: 2rem; }
+
+/* ==========================================================================
+   16. Type: IM Fell English for display, Spectral for the rest, set heavy
+   IM Fell has one weight, so a thin outline in the text colour gives it real
+   weight without the smeared look of browser-synthesised bold.
+   ========================================================================== */
+
+.hero-name,
+.page-title,
+.doc-title,
+.poster-title,
+.footer-mail,
+.billing-name {
+  font-family: var(--f-name);
+  font-weight: 400;
+  -webkit-text-stroke: 0.022em currentColor;
+  paint-order: stroke fill;
+}
+.poster-title, .footer-mail, .billing-name { -webkit-text-stroke-width: 0.018em; text-transform: none; }
+
+/* Big numbers stay in Spectral: IM Fell's old-style figures make "12" read as "I2" */
+.stat-num, .work-row-metric-val, .doc-number-val {
   font-family: var(--f-text);
-  font-size: clamp(1.75rem, 2.7vw, 2.4rem);
-  font-weight: 600;
-  line-height: 1.22;
-  color: var(--text);
-  clip-path: inset(-0.2em 100% -0.3em -0.2em);
-  opacity: 0;
-  transition: clip-path 700ms cubic-bezier(0.45, 0, 0.2, 1), opacity 200ms linear;
+  font-weight: 800;
+  font-variant-numeric: lining-nums;
+  letter-spacing: -0.01em;
 }
-.rev-item.is-written { clip-path: inset(-0.2em -0.4em -0.3em -0.2em); opacity: 1; }
-.rev-mark { flex: none; width: 0.7em; height: 0.7em; overflow: visible; }
-.rev-mark path {
-  fill: none;
-  stroke: #E0473A;          /* editor's red, 5.0:1 on the dark page */
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 0;
-  transition: stroke-dashoffset 300ms cubic-bezier(0.5, 0, 0.3, 1);
+.stat-num { font-size: clamp(2.75rem, 9vw, 4rem); }
+.work-row-metric-val { font-size: clamp(2.75rem, 5vw, 4rem); }
+.doc-number-val { font-size: clamp(4.5rem, 13vw, 9rem); line-height: 0.9; }
+.poster-title { line-height: 1.02; font-size: clamp(1.7rem, 4vw, 2.4rem); }
+.footer-mail { font-size: clamp(1.4rem, 4.4vw, 2.5rem); }
+
+/* Labels, nav and meta: Spectral capitals, bold, a little tracking */
+.eyebrow, .cta, .wordmark, .nav a, .toc a, .stat-lbl, .work-row-no, .work-row-meta,
+.work-row-metric-lbl, .work-row-arrow, .essay-row-date, .essay-row-meta, .poster-year,
+.poster-director, .poster-sign, .footer-links a, .back-link, .doc-byline, .doc-meta dt,
+.doc-number-lbl, .pager-lbl, .doc-end, .statement strong, .channel-lbl, .channel-handle,
+.cc-toggle, .page-no, .version, .skip-link, .top4-hint .cta {
+  font-weight: 700;
+  letter-spacing: 0.07em;
 }
-.rev-item:not(.is-written) .rev-mark path { stroke-dashoffset: 1; }
-.rev-list.is-fading .rev-item { opacity: 0; transition: opacity 600ms var(--ease); }
-@media (prefers-reduced-motion: reduce) {
-  .rev-item, .rev-mark path { transition: none; }
+.eyebrow, .stat-lbl, .work-row-no, .work-row-meta, .work-row-metric-lbl, .essay-row-date,
+.essay-row-meta, .poster-year, .poster-director, .doc-byline, .doc-meta dt, .doc-number-lbl,
+.pager-lbl, .channel-lbl, .version { font-size: 0.9rem; }
+.wordmark, .nav a, .footer-links a, .back-link, .cta { font-size: 1rem; }
+.toc a { font-size: 1.15rem; }
+.cc-toggle { font-size: 0.9rem; }
+.channel-handle { font-weight: 600; letter-spacing: 0.02em; }
+
+/* Reading text and headings carry weight */
+.article-body { font-weight: 500; font-size: clamp(1.25rem, 1.15rem + 0.35vw, 1.4rem); line-height: 1.6; }
+.article-body strong { font-weight: 800; }
+.article-body h2, .article-body h3 { font-weight: 700; }
+.article-body blockquote { font-weight: 500; }
+.section-title, .work-row-title, .essay-row-title, .pager-title, .channel-name, .footer-cta-title, .pair-quote { font-weight: 700; }
+.doc-deck, .essay-row-sub { font-weight: 500; }
+.hero-tag { font-weight: 700; }
+.hero-intro, .page-lede, .prose p, .contact-copy p { font-weight: 500; }
+.prose p strong, .hero-intro strong { font-weight: 800; }
+
+/* Phones: the top bar wraps onto two rows so nothing is cut off, and the stats fit the gutters */
+@media (max-width: 560px) {
+  .masthead-inner { flex-wrap: wrap; row-gap: 0; padding-block: 0.25rem 0.5rem; }
+  .masthead-inner .wordmark { order: 1; }
+  .masthead-inner .theme-toggle { order: 2; margin-left: auto; }
+  .masthead-inner nav { order: 3; flex-basis: 100%; margin-left: 0; }
+  .nav { justify-content: space-between; gap: 0.5rem; }
+  .nav a { font-size: 0.9rem; letter-spacing: 0.05em; }
+  .stats { gap: 1rem 1.25rem; }
+  .stat-num { font-size: clamp(2.1rem, 9.5vw, 4rem); }
 }
-@media (max-width: 699px) { .hero { padding-bottom: 0.625rem; } }
-@media (min-width: 900px) { .stats { justify-content: end; } }
