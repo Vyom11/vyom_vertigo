@@ -60,67 +60,6 @@
     });
   }
 
-  // --- 5. Director's commentary: subtitle-style asides, opt-in via CC ---
-  function initCommentary() {
-    var toggle = document.getElementById('cc-toggle');
-    var caption = document.getElementById('cc-caption');
-    if (!toggle || !caption) return;
-
-    var targets = Array.prototype.slice.call(document.querySelectorAll('[data-commentary]'))
-      .filter(function (el) { return el.getAttribute('data-commentary'); });
-    if (!targets.length) { toggle.hidden = true; return; }
-
-    var on = false;
-    var shown = null;
-    var ticking = false;
-    var swapTimer;
-    try { on = localStorage.getItem('vv-cc') === 'on'; } catch (e) {}
-
-    function pick() {
-      // The last target whose top has crossed 42% of the viewport and is still on screen
-      var line = window.innerHeight * 0.42, best = null;
-      targets.forEach(function (el) {
-        var r = el.getBoundingClientRect();
-        if (r.top <= line && r.bottom > window.innerHeight * 0.15) best = el;
-      });
-      return best;
-    }
-
-    function update() {
-      ticking = false;
-      if (!on) return;
-      var el = pick();
-      if (el === shown) return;
-      shown = el;
-      clearTimeout(swapTimer);
-      caption.classList.add('is-swapping');
-      swapTimer = setTimeout(function () {
-        if (el) { caption.textContent = el.getAttribute('data-commentary'); caption.hidden = false; }
-        else { caption.hidden = true; }
-        caption.classList.remove('is-swapping');
-      }, 250);
-    }
-
-    function set(state) {
-      on = state;
-      toggle.setAttribute('aria-pressed', on ? 'true' : 'false');
-      toggle.querySelector('.cc-state').textContent = on ? 'on' : 'off';
-      try { localStorage.setItem('vv-cc', on ? 'on' : 'off'); } catch (e) {}
-      shown = null;
-      if (on) { update(); } else { caption.hidden = true; }
-    }
-
-    toggle.addEventListener('click', function () { set(!on); });
-    document.querySelectorAll('[data-cc-on]').forEach(function (b) {
-      b.addEventListener('click', function () { set(true); });
-    });
-    window.addEventListener('scroll', function () {
-      if (on && !ticking) { window.requestAnimationFrame(update); ticking = true; }
-    }, { passive: true });
-    window.addEventListener('resize', update);
-    set(on);
-  }
-
   // --- 6. Theme toggle: dark by default, the choice is remembered in this browser ---
   function initTheme() {
     var btn = document.getElementById('theme-toggle');
@@ -145,7 +84,6 @@
     initProgress();
     initPosters();
     initSeen();
-    initCommentary();
     initTheme();
 
     // Back/forward restores pages from memory without re-running scripts;
