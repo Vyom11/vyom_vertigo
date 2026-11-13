@@ -30,8 +30,8 @@ Turn property discovery into entertainment, measuring homes by the quirky, pract
 
 - Wrote the platform's overarching social content strategy and ad copy.
 - Scripted high-energy, walk-through property tour reels that treated spaces like cinematic stages rather than static blueprints.
-- Created **"Crack the Price"**, an interactive game-show-style reel series where viewers guess a property's price tag in the comments before the final reveal.
-- Conceived and scripted **"Garba-Khush Property"**, a hyper-local Navratri campaign ranking and showcasing homes not by square footage, but by their walking distance to the nearest major garba ground.
+- Created an interactive game-show-style reel series where viewers guess a property's price tag in the comments before the final reveal.
+- Conceived and scripted, a hyper-local Navratri campaign ranking and showcasing homes not by square footage, but by their walking distance to the nearest major garba ground.
 - Acted directly on camera across the reel series and recorded all voiceovers.
 
 ## How it worked
