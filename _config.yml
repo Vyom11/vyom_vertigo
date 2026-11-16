@@ -27,3 +27,4 @@ exclude:
   - vendor
   - .github
   - README.md
+  - STYLE-NOTES.md

@@ -3,13 +3,15 @@ layout: default
 ---
 {% assign words = content | number_of_words %}
 {% assign read_time = words | divided_by: 200 | plus: 1 %}
+{% if page.read_time %}{% assign read_time = page.read_time %}{% endif %}
 
 <article>
   <header class="doc-head doc-head--wide wrap">
     <a href="{{ '/case-studies/' | relative_url }}" class="back-link"><span aria-hidden="true">&larr;</span> All work</a>
-    <p class="eyebrow doc-no"><span class="doc-no-lbl">No.</span> 0{{ page.order }}</p>
+    <p class="eyebrow doc-no"><span class="doc-no-lbl">No.</span> {% if page.order < 10 %}0{% endif %}{{ page.order }}</p>
     <h1 class="doc-title">{{ page.title }}</h1>
     <p class="doc-deck">{{ page.summary }}</p>
+    {% if page.disclaimer %}<p class="doc-disclaimer"><em>{{ page.disclaimer }}</em></p>{% endif %}
 
     <dl class="doc-meta">
       <div><dt>Industry</dt><dd>{{ page.industry }}</dd></div>
@@ -29,11 +31,17 @@ layout: default
       {% endfor %}
     </div>
   </section>
+  {% elsif page.spec_teardown %}
+  <section class="doc-band" aria-label="Type">
+    <div class="doc-numbers wrap">
+      <p><span class="doc-number-val">Spec teardown</span></p>
+    </div>
+  </section>
   {% endif %}
 
   <div class="wrap reading-case">
     <div class="article-body">
-      {{ content }}
+      {% if page.spec_teardown %}{{ content | replace: '<a href="http', '<a target="_blank" rel="noopener noreferrer" href="http' }}{% else %}{{ content }}{% endif %}
     </div>
   </div>
 </article>

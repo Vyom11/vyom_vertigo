@@ -1301,3 +1301,10 @@ html:not(.js) .theme-toggle { display: none; }
 /* About: one voice, left aligned, every paragraph the same */
 .prose p + p { color: inherit; }
 .prose p { font-weight: 500; }
+
+/* Spec teardowns: disclaimer under the deck, sample-copy tables, sources line */
+.doc-disclaimer { margin-top: 1rem; color: var(--muted); font-size: 1rem; }
+.article-body table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; font-size: 0.9em; line-height: 1.45; }
+.article-body th, .article-body td { padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.article-body th { font-weight: 700; }
+.article-body .case-sources { font-size: 0.8rem; font-weight: 500; line-height: 1.6; color: var(--muted); }
